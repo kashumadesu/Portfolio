@@ -3,6 +3,8 @@ import Navbar from "../components/Navbar";
 import GithubGraph from "../components/GithubGraph";
 
 export default function Home() {
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  
   const [selectedSkill, setSelectedSkill] = useState({
     name: "Interactive Skills",
     desc: "Click any badge below to see my experience & mastery level.",
@@ -11,11 +13,11 @@ export default function Home() {
 
   const skills = [
     { name: "JavaScript", key: "JS", mastery: "9/10", desc: "Core language used across front-end web apps and dynamic UI logic since SHS." },
-    { name: "Python", key: "PY", mastery: "8.5/10", desc: "Used for Tkinter desktop GUIs, data manipulation, and capstone detection models." },
+    { name: "Python", key: "PY", mastery: "7.5/10", desc: "Used for Tkinter desktop GUIs, data manipulation, and capstone detection models." },
     { name: "Figma & UI/UX", key: "FIG", mastery: "9/10", desc: "Design systems, wireframes, and responsive component prototyping." },
     { name: "Project Management", key: "PM", mastery: "9/10", desc: "Agile delivery, scoping technical requirements, and cross-functional leadership." },
-    { name: "HTML5 / CSS3", key: "HTML", mastery: "9.5/10", desc: "Semantic structural layouts with responsive styling and custom theming." },
-    { name: "C# / .NET", key: "C#", mastery: "8/10", desc: "Object-oriented system engineering and structured logic implementation." },
+    { name: "HTML5 / CSS3", key: "HTML", mastery: "9/10", desc: "Semantic structural layouts with responsive styling and custom theming." },
+    { name: "C# / .NET", key: "C#", mastery: "7/10", desc: "Object-oriented system engineering and structured logic implementation." },
     { name: "SQL Databases", key: "SQL", mastery: "7/10", desc: "Relational database schema modeling, queries, and inventory tracking." },
     { name: "Git & GitHub", key: "GIT", mastery: "9/10", desc: "Version control workflows, commit pipelines, and team collaboration." },
   ];
@@ -60,7 +62,7 @@ export default function Home() {
                       </span>
                       <span className="text-purple-400 font-mono font-bold">&amp;</span>
                       <span className="bg-purple-950/80 border border-purple-700/60 text-purple-200 text-xs font-mono font-bold px-3 py-1.5">
-                        FULL-STACK / UI/UX
+                        FRONTEND / UI/UX
                       </span>
                     </div>
                   </div>
@@ -128,39 +130,71 @@ export default function Home() {
                 </div>
               </div>
 
-            {/* Right Column: Sharp-Cornered Frame Picture Card & Let's Connect */}
+            {/* Right Column: Interactive Side-Slide Avatar Card */}
             <div className="lg:col-span-5 flex items-center justify-center">
             <div className="relative w-full max-w-sm bg-[#110D1A] border-2 border-purple-900/70 p-4 shadow-2xl space-y-4">
                 
-                {/* Corner Brackets with m-0 to override space-y-4 */}
-                <span className="!m-0 absolute top-0 left-0 w-3.5 h-3.5 border-t-2 border-l-2 border-purple-400 pointer-events-none" />
-                <span className="!m-0 absolute top-0 right-0 w-3.5 h-3.5 border-t-2 border-r-2 border-purple-400 pointer-events-none" />
-                <span className="!m-0 absolute bottom-0 left-0 w-3.5 h-3.5 border-b-2 border-l-2 border-purple-400 pointer-events-none" />
-                <span className="!m-0 absolute bottom-0 right-0 w-3.5 h-3.5 border-b-2 border-r-2 border-purple-400 pointer-events-none" />
+                {/* Outer Corner Frame Brackets */}
+                <span className="!m-0 absolute top-0 left-0 w-3.5 h-3.5 border-t-2 border-l-2 border-purple-400 pointer-events-none z-30" />
+                <span className="!m-0 absolute top-0 right-0 w-3.5 h-3.5 border-t-2 border-r-2 border-purple-400 pointer-events-none z-30" />
+                <span className="!m-0 absolute bottom-0 left-0 w-3.5 h-3.5 border-b-2 border-l-2 border-purple-400 pointer-events-none z-30" />
+                <span className="!m-0 absolute bottom-0 right-0 w-3.5 h-3.5 border-b-2 border-r-2 border-purple-400 pointer-events-none z-30" />
 
-                {/* Profile Image Box */}
-                <div className="relative aspect-[4/5] w-full bg-[#0B090E] border border-purple-900/60 overflow-hidden flex items-center justify-center group">
+                {/* Dual Image Slide Frame */}
+                <div 
+                onClick={() => setIsDrawerOpen(!isDrawerOpen)}
+                className="relative aspect-[4/5] w-full bg-[#0B090E] border border-purple-900/60 overflow-hidden cursor-pointer group select-none"
+                title="Click to view side photo"
+                >
+                {/* Background Cyber Grid */}
                 <div className="absolute inset-0 opacity-20 bg-[linear-gradient(to_right,#a855f720_1px,transparent_1px),linear-gradient(to_bottom,#a855f720_1px,transparent_1px)] bg-[size:16px_16px] z-0" />
+                
+                {/* Subtle Purple Vignette Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-[#110D1A] via-transparent to-transparent opacity-80 z-20 pointer-events-none" />
 
-                <img
-                    src="/profile.jpg?v=10"
-                    alt="Michael April B. Boquiron"
-                    className="w-full h-full object-cover object-[20%_15%] scale-135 filter contrast-115 brightness-95 relative z-10 transition-transform duration-300 group-hover:scale-140"
-                    onError={(e) => {
-                    e.currentTarget.style.display = 'none';
-                    if (e.currentTarget.nextSibling) {
-                        e.currentTarget.nextSibling.style.display = 'flex';
-                    }
-                    }}
-                />
+                {/* Mode / Slide Toggle Badge */}
+                <div className="absolute top-2 right-2 z-30 px-2 py-0.5 bg-black/80 border border-purple-800 text-[10px] font-mono text-purple-300 backdrop-blur-sm transition-colors">
+                    {isDrawerOpen ? "◀ PRIMARY" : "▶ PREVIEW"}
+                </div>
 
-                <div className="hidden flex-col items-center justify-center text-center p-6 space-y-2 z-10">
-                    <div className="w-20 h-20 bg-purple-950/80 border border-purple-500/50 flex items-center justify-center text-2xl font-mono text-purple-300">
-                    MB
+                {/* Sliding Two-Panel Track */}
+                <div 
+                    className={`w-[200%] h-full flex transition-transform duration-500 ease-in-out ${
+                    isDrawerOpen ? "-translate-x-1/2" : "translate-x-0"
+                    }`}
+                >
+                    {/* PANEL 1: Main Avatar */}
+                    <div className="w-1/2 h-full relative flex-shrink-0 flex items-center justify-center">
+                    <img
+                        src="/profile.jpg?v=11"
+                        alt="Michael April B. Boquiron"
+                        className="w-full h-full object-cover object-[20%_15%] scale-135 filter contrast-115 brightness-95 transition-transform duration-300 group-hover:scale-140"
+                    />
                     </div>
-                    <p className="text-xs font-mono text-purple-400 uppercase tracking-wider">Michael April B. Boquiron</p>
-                    <p className="text-[11px] text-purple-300/70">Place image at public/profile.jpg</p>
+
+                    {/* PANEL 2: Side Secondary Photo */}
+                    <div className="w-1/2 h-full relative flex-shrink-0 flex items-center justify-center bg-[#15111E] border-l border-purple-900/80">
+                    <img
+                        src="/profile2.jpg"
+                        alt="Michael April Secondary Profile"
+                        className="w-full h-full object-cover object-center filter contrast-110 brightness-95"
+                        onError={(e) => {
+                        e.currentTarget.style.display = 'none';
+                        if (e.currentTarget.nextSibling) {
+                            e.currentTarget.nextSibling.style.display = 'flex';
+                        }
+                        }}
+                    />
+                    {/* Placeholder if profile2.jpg hasn't been added */}
+                    <div className="hidden flex-col items-center justify-center text-center p-6 space-y-2">
+                        <div className="w-16 h-16 bg-purple-950/80 border border-purple-500/50 flex items-center justify-center text-xl font-mono text-purple-300">
+                        IMG 2
+                        </div>
+                        <p className="text-xs font-mono text-purple-300">Place photo at</p>
+                        <p className="text-[11px] font-mono text-purple-400">public/profile2.jpg</p>
+                    </div>
+                    </div>
+
                 </div>
                 </div>
 
