@@ -19,25 +19,25 @@ export default async function handler(req, res) {
   }
 
   try {
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey.trim()}`;
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey.trim()}`;
 
     const response = await fetch(url, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         system_instruction: {
-          parts: [{ text: PORTFOLIO_CONTEXT }]
+          parts: [{ text: PORTFOLIO_CONTEXT }],
         },
         contents: [
           {
             role: "user",
-            parts: [{ text: message }]
-          }
+            parts: [{ text: message }],
+          },
         ],
         generationConfig: {
-          temperature: 0.3
-        }
-      })
+          temperature: 0.3,
+        },
+      }),
     });
 
     const data = await response.json();
@@ -45,7 +45,7 @@ export default async function handler(req, res) {
     if (data.error) {
       console.error("Gemini API Error details:", data.error);
       return res.status(500).json({
-        reply: `API Error: ${data.error.message || "Invalid request"}`
+        reply: `API Error: ${data.error.message || "Invalid request"}`,
       });
     }
 
@@ -57,7 +57,7 @@ export default async function handler(req, res) {
   } catch (error) {
     console.error("Fetch error:", error);
     return res.status(500).json({
-      reply: "Connection error. Please check your network or API key."
+      reply: "Connection error. Please check your network or API key.",
     });
   }
 }
