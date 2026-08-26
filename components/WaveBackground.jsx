@@ -34,9 +34,9 @@ export default function WaveBackground() {
         ctx.beginPath();
 
         // Tiered neon-purple opacity over dark bg-purple-950
-        const alpha = (1 - i / linesCount) * 0.55 + 0.08;
-        ctx.strokeStyle = `rgba(192, 132, 252, ${alpha})`; // Tailwind purple-400 equivalent
-        ctx.lineWidth = 1.2;
+        const alpha = (1 - i / linesCount) * 0.75 + 0.25; // Increase brightness
+        ctx.strokeStyle = `rgba(216, 180, 254, ${alpha})`; // Bright purple (purple-300)
+        ctx.lineWidth = 1.5; // Thicker lines
 
         const offset = (i * Math.PI) / (linesCount * 1.2);
 

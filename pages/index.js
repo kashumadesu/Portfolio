@@ -42,7 +42,7 @@ export default function Home() {
             <div className="max-w-6xl mx-auto space-y-8">
 
           {/* 1. HERO / LANDING SECTION */}
-          <header id="home" className="bg-[#15111E]/70 backdrop-blur-md border border-purple-950/60 rounded-3xl p-6 md:p-10 scroll-mt-24 shadow-2xl">
+          <header id="home" className="bg-[#15111E]/30 backdrop-blur-sm border border-purple-500/30 rounded-3xl p-6 md:p-10 scroll-mt-24 shadow-2xl">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
               
               {/* Left Column: Full-Height Flex Container with Bottom-Locked Stats */}
@@ -125,7 +125,7 @@ export default function Home() {
 
                 {/* Bottom Metric Stat Boxes */}
                 <div className="pt-6">
-                  <div className="grid grid-cols-3 border border-purple-900/60 bg-[#0B090E]/60 text-center divide-x divide-purple-900/60 shadow-inner">
+                  <div className="grid grid-cols-3 border border-purple-900/40 bg-purple-950/20 backdrop-blur-sm text-center divide-x divide-purple-900/40">
                     <div className="py-3.5 px-2">
                       <div className="text-xl sm:text-2xl font-bold text-white tracking-tight">5+</div>
                       <div className="text-[10px] sm:text-[11px] uppercase tracking-wider text-purple-400 font-mono mt-0.5">Delivered Systems</div>
@@ -144,7 +144,7 @@ export default function Home() {
 
               {/* Right Column: Interactive Side-Slide Avatar Card */}
               <div className="lg:col-span-5 flex items-center justify-center">
-                <div className="relative w-full max-w-sm bg-[#110D1A] border-2 border-purple-900/70 p-4 shadow-2xl space-y-4">
+                <div className="relative w-full max-w-sm bg-[#110D1A]/40 backdrop-blur-sm border-2 border-purple-500/40 p-4 shadow-2xl space-y-4">
                   
                   {/* Outer Corner Frame Brackets */}
                   <span className="!m-0 absolute top-0 left-0 w-3.5 h-3.5 border-t-2 border-l-2 border-purple-400 pointer-events-none z-30" />
@@ -580,7 +580,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="p-4 bg-[#0B090E]/60 rounded-2xl border border-purple-950 text-sm text-purple-200">
+            <div className="grid grid-cols-3 border border-purple-900/40 bg-purple-950/20 backdrop-blur-sm text-center divide-x divide-purple-900/40">
               {selectedSkill.desc}
             </div>
 
