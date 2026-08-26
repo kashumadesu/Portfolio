@@ -17,18 +17,18 @@ export default function Navbar() {
         
         {/* Left: Text Logo */}
         <div className="flex items-center">
-          <a href="#home" className="text-white font-bold text-xl tracking-tight hover:text-purple-300 transition">
+          <a href="#home" className="text-white font-bold text-xl tracking-tight hover:text-purple-300 transition-colors duration-200">
             Michael<span className="text-purple-400">.dev</span>
           </a>
         </div>
 
-        {/* Center: Desktop Navigation Links */}
-        <div className="hidden md:flex items-center gap-8 text-sm font-medium text-purple-200">
+        {/* Center: Desktop Navigation Links with Outline Bubble Hover */}
+        <div className="hidden md:flex items-center gap-2 text-sm font-medium text-purple-200">
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
-              className="hover:text-white transition hover:scale-105"
+              className="px-4 py-1.5 rounded-full border border-transparent hover:border-purple-500/80 hover:text-white transition-all duration-300 ease-out hover:scale-105"
             >
               {link.name}
             </a>
@@ -39,7 +39,7 @@ export default function Navbar() {
         <div className="hidden md:flex items-center">
           <a
             href="#contact"
-            className="px-5 py-2 bg-purple-600 hover:bg-purple-700 text-white text-xs font-semibold rounded-xl transition shadow-sm shadow-purple-900/30"
+            className="px-5 py-2 bg-purple-600 hover:bg-purple-700 text-white text-xs font-semibold rounded-xl transition-all duration-200 shadow-sm shadow-purple-900/30"
           >
             Hire Me
           </a>
@@ -63,13 +63,13 @@ export default function Navbar() {
 
       {/* Mobile Dropdown Menu */}
       {isOpen && (
-        <div className="md:hidden bg-[#15111E] border-b border-purple-950 px-6 py-4 space-y-3">
+        <div className="md:hidden bg-[#15111E] border-b border-purple-950 px-6 py-4 space-y-2">
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
               onClick={() => setIsOpen(false)}
-              className="block text-sm font-medium text-purple-200 hover:text-white transition"
+              className="block px-3 py-2 rounded-xl text-sm font-medium text-purple-200 hover:border hover:border-purple-500/70 hover:text-white transition-all duration-200"
             >
               {link.name}
             </a>
@@ -77,7 +77,7 @@ export default function Navbar() {
           <a
             href="#contact"
             onClick={() => setIsOpen(false)}
-            className="block w-full text-center px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white text-xs font-semibold rounded-xl transition"
+            className="block w-full text-center px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white text-xs font-semibold rounded-xl transition-all duration-200 mt-2"
           >
             Hire Me
           </a>
