@@ -623,10 +623,13 @@ export default function Home() {
           </div>
 
           {/* 3. INTERACTIVE SKILLS MATRIX */}
-          <section id="skills" className="bg-[#15111E]/70 backdrop-blur-md border border-purple-950/60 rounded-3xl p-6 space-y-6 scroll-mt-24 shadow-xl">
+          <section
+            id="skills"
+            className="bg-[#15111E]/70 backdrop-blur-md border border-purple-950/60 rounded-3xl p-6 space-y-6 scroll-mt-24 shadow-xl"
+          >
             <div className="flex flex-col md:flex-row justify-between md:items-center gap-2">
               <div>
-                <h2 className="text-xl font-bold text-white"> Skills &amp; Competencies</h2>
+                <h2 className="text-xl font-bold text-white">Skills &amp; Competencies</h2>
                 <p className="text-xs text-purple-400">Select any tool to see my direct workflow and context.</p>
               </div>
               <div className="bg-[#1F1730] px-4 py-2 rounded-xl border border-purple-800 text-right">
@@ -635,16 +638,25 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="p-4 bg-[#0B090E]/60 rounded-2xl border border-purple-950 text-sm text-purple-200">
-              {selectedSkill.desc}
+            {/* Replaced the broken grid-cols-3 with this terminal block */}
+            <div className="p-4 bg-[#0F0B17] rounded-xl border border-purple-900/50 flex items-start gap-3 shadow-inner">
+              <div className="w-2 h-2 rounded-full bg-purple-400 mt-1.5 shrink-0 animate-pulse" />
+              <p className="text-sm font-mono text-purple-200 leading-relaxed">
+                {selectedSkill.desc}
+              </p>
             </div>
 
+            {/* Skills Grid */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
               {skills.map((skill) => (
                 <button
                   key={skill.key}
                   onClick={() => setSelectedSkill(skill)}
-                  className="p-3 bg-[#1B1526] hover:bg-purple-900/50 border border-purple-900/60 hover:border-purple-500 rounded-xl font-bold text-sm text-purple-200 transition text-center"
+                  className={`p-3 border rounded-xl font-mono text-xs font-bold transition text-center ${
+                    selectedSkill.name === skill.name
+                      ? "bg-purple-900/60 border-purple-400 text-white shadow-lg shadow-purple-950"
+                      : "bg-[#1B1526] hover:bg-purple-900/40 border-purple-900/60 hover:border-purple-500 text-purple-300"
+                  }`}
                 >
                   {skill.name}
                 </button>
