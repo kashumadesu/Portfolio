@@ -4,11 +4,52 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   const navLinks = [
-    { name: "Home", href: "#home" },
-    { name: "About", href: "#about" },
-    { name: "Skills", href: "#skills" },
-    { name: "Projects", href: "#projects" },
-    { name: "Contact", href: "#contact" },
+    {
+      name: "HOME",
+      href: "#home",
+      icon: (
+        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+        </svg>
+      ),
+    },
+    {
+      name: "ABOUT",
+      href: "#about",
+      icon: (
+        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+        </svg>
+      ),
+    },
+    {
+      name: "PROJECTS",
+      href: "#projects",
+      icon: (
+        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        </svg>
+      ),
+    },
+    {
+      name: "SERVICES",
+      href: "#services",
+      icon: (
+        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+        </svg>
+      ),
+    },
+    {
+      name: "SKILLS",
+      href: "#skills",
+      icon: (
+        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+        </svg>
+      ),
+    },
   ];
 
   return (
@@ -22,20 +63,29 @@ export default function Navbar() {
           </a>
         </div>
 
-        {/* Center: Desktop Navigation Links with Outline Bubble Hover */}
-        <div className="hidden md:flex items-center gap-2 text-sm font-medium text-purple-200">
+        {/* Center: Desktop Navigation Links with Corner Frame Hover */}
+        <div className="hidden md:flex items-center gap-4 text-xs font-bold tracking-wider text-purple-200/90">
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
-              className="px-4 py-1.5 rounded-full border border-transparent hover:border-purple-500/80 hover:text-white transition-all duration-300 ease-out hover:scale-105"
+              className="group relative px-4 py-2 flex items-center gap-2 hover:text-white transition-colors duration-200"
             >
-              {link.name}
+              {/* Corner Frame Accents (Visible on Hover) */}
+              <span className="absolute top-0 left-0 w-2.5 h-2.5 border-t-2 border-l-2 border-purple-400 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none" />
+              <span className="absolute top-0 right-0 w-2.5 h-2.5 border-t-2 border-r-2 border-purple-400 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none" />
+              <span className="absolute bottom-0 left-0 w-2.5 h-2.5 border-b-2 border-l-2 border-purple-400 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none" />
+              <span className="absolute bottom-0 right-0 w-2.5 h-2.5 border-b-2 border-r-2 border-purple-400 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none" />
+
+              <span className="text-purple-400 group-hover:text-purple-300 transition-colors">
+                {link.icon}
+              </span>
+              <span>{link.name}</span>
             </a>
           ))}
         </div>
 
-        {/* Right: Action Button */}
+        {/* Right: Contact CTA Button */}
         <div className="hidden md:flex items-center">
           <a
             href="#contact"
@@ -69,15 +119,16 @@ export default function Navbar() {
               key={link.name}
               href={link.href}
               onClick={() => setIsOpen(false)}
-              className="block px-3 py-2 rounded-xl text-sm font-medium text-purple-200 hover:border hover:border-purple-500/70 hover:text-white transition-all duration-200"
+              className="flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-bold tracking-wider text-purple-200 hover:bg-purple-950/50 hover:text-white transition-all duration-200"
             >
-              {link.name}
+              <span className="text-purple-400">{link.icon}</span>
+              <span>{link.name}</span>
             </a>
           ))}
           <a
             href="#contact"
             onClick={() => setIsOpen(false)}
-            className="block w-full text-center px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white text-xs font-semibold rounded-xl transition-all duration-200 mt-2"
+            className="block w-full text-center px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white text-xs font-semibold rounded-xl transition-all duration-200 mt-3"
           >
             Hire Me
           </a>
