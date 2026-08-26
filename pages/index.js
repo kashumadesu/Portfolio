@@ -39,9 +39,6 @@ export default function Home() {
             <div className="space-y-2">
                 <div className="flex items-center gap-2">
                 <span className="text-sm font-mono text-purple-400 font-bold uppercase tracking-wider">HELLO, I&apos;M</span>
-                <span className="inline-block px-2.5 py-0.5 bg-purple-950 text-purple-300 text-[11px] font-semibold rounded-full border border-purple-800">
-                    🟢 Open for PM & IT Roles
-                </span>
                 </div>
 
                 <h1 className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight">
