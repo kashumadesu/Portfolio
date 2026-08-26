@@ -31,7 +31,9 @@ export default function Home() {
             </span>
             <h1 className="text-4xl md:text-5xl font-bold text-white tracking-tight">Michael B.</h1>
             <p className="text-sm text-purple-300 font-medium">23 y/o • Senior BS Information Technology Candidate</p>
-            <p className="italic text-purple-200/90 font-serif text-base">"Bridging intuitive design with scalable engineering execution."</p>
+            <p className="italic text-purple-200/90 font-serif text-base">
+              &ldquo;Bridging intuitive design with scalable engineering execution.&rdquo;
+            </p>
             <div className="flex gap-4 pt-2 justify-center md:justify-start">
               <a href="https://github.com/kashumadesu" target="_blank" rel="noreferrer" className="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white text-sm font-semibold rounded-xl transition">GitHub Profile</a>
               <a href="#contact" className="px-4 py-2 bg-purple-950/60 hover:bg-purple-900 border border-purple-800 text-purple-200 text-sm font-semibold rounded-xl transition">Contact Me</a>
@@ -148,12 +150,12 @@ export default function Home() {
           </div>
         </section>
 
-        {/* 5. GITHUB ACTIVITY GRAPH (PLACED UNDER PROJECTS) */}
+        {/* 5. GITHUB ACTIVITY GRAPH */}
         <GithubGraph />
 
         {/* 6. PUBLIC CONTACT */}
         <footer id="contact" className="bg-[#15111E] border border-purple-950/60 rounded-3xl p-8 text-center space-y-4">
-          <h2 className="text-2xl font-bold text-white">Let's Connect</h2>
+          <h2 className="text-2xl font-bold text-white">Let&apos;s Connect</h2>
           <p className="text-sm text-purple-300 max-w-md mx-auto">
             Available for Technical Project Management, Associate PM, and Front-End leadership roles.
           </p>
