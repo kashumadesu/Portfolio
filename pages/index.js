@@ -253,26 +253,90 @@ export default function Home() {
           <div id="about" className="grid grid-cols-1 md:grid-cols-2 gap-8 scroll-mt-24">
             
             {/* Left Column: Journey & Timeline */}
-            <section className="bg-[#15111E] border border-purple-950/60 rounded-3xl p-6 space-y-4 flex flex-col justify-between">
-              <h2 className="text-xl font-bold text-white flex items-center gap-2">
-                <span>🚀</span> Journey &amp; Timeline
-              </h2>
-              <div className="border-l-2 border-purple-900/60 ml-3 space-y-6 pl-4 text-sm">
-                <div>
-                  <p className="text-xs text-purple-400 font-mono">Present</p>
-                  <h4 className="font-semibold text-white">Technical Project Manager &amp; Lead</h4>
-                  <p className="text-purple-300/80 text-xs">Driving system architecture, sprint workflows, and UI/UX design.</p>
+            <section className="bg-[#15111E] border border-purple-950/60 rounded-3xl p-6 flex flex-col justify-between space-y-4">
+              <div className="flex items-center justify-between pb-2 border-b border-purple-900/40">
+                <h2 className="text-xl font-bold text-white flex items-center gap-2">
+                  <span>🚀</span> Journey &amp; Timeline
+                </h2>
+                <span className="text-xs font-mono text-purple-400">Experience Log</span>
+              </div>
+
+              {/* Connected Timeline Nodes */}
+              <div className="relative pl-6 space-y-6 before:absolute before:left-2 before:top-2 before:bottom-2 before:w-[2px] before:bg-gradient-to-b before:from-purple-500 before:via-purple-800 before:to-purple-950">
+                
+                {/* 1. Present */}
+                <div className="relative group">
+                  <span className="absolute -left-[21px] top-1.5 w-2.5 h-2.5 rounded-full bg-purple-400 ring-4 ring-[#15111E] group-hover:scale-125 transition-transform" />
+                  <div className="flex items-center gap-2">
+                    <span className="text-[11px] font-mono text-purple-300 font-bold px-2 py-0.5 bg-purple-950/90 border border-purple-800/80 rounded">
+                      2026 — Present
+                    </span>
+                  </div>
+                  <h4 className="font-bold text-white text-sm mt-1 group-hover:text-purple-300 transition-colors">
+                    Technical Project Manager &amp; Lead Architect
+                  </h4>
+                  <p className="text-purple-300/80 text-xs mt-1 leading-relaxed">
+                    Driving sprint workflows, architecture reviews, and UX prototyping for production deployments.
+                  </p>
                 </div>
-                <div>
-                  <p className="text-xs text-purple-400 font-mono">2025 – 2026</p>
-                  <h4 className="font-semibold text-white">Lead PM &amp; UI/UX — POS &amp; Capstone Research</h4>
-                  <p className="text-purple-300/80 text-xs">Delivered POS Monitoring System and ECOWATCH automated detection system.</p>
+
+                {/* 2. Capstone / ECOWATCH & POS */}
+                <div className="relative group">
+                  <span className="absolute -left-[21px] top-1.5 w-2.5 h-2.5 rounded-full bg-purple-600 ring-4 ring-[#15111E] group-hover:scale-125 transition-transform" />
+                  <div className="flex items-center gap-2">
+                    <span className="text-[11px] font-mono text-purple-400 font-bold px-2 py-0.5 bg-[#1C1628] border border-purple-900/60 rounded">
+                      2025 — 2026
+                    </span>
+                  </div>
+                  <h4 className="font-bold text-white text-sm mt-1 group-hover:text-purple-300 transition-colors">
+                    Lead PM &amp; UI/UX — POS &amp; ECOWATCH Research
+                  </h4>
+                  <p className="text-purple-300/80 text-xs mt-1 leading-relaxed">
+                    Delivered end-to-end POS Monitoring System and directed dataset pipelines for automated CV detection.
+                  </p>
                 </div>
-                <div>
-                  <p className="text-xs text-purple-400 font-mono">Foundations</p>
-                  <h4 className="font-semibold text-white">Front-End Developer (SHS Background)</h4>
-                  <p className="text-purple-300/80 text-xs">Built strong foundation in HTML, CSS, JavaScript, and responsive UI layouts.</p>
+
+                {/* 3. Academic Specialization */}
+                <div className="relative group">
+                  <span className="absolute -left-[21px] top-1.5 w-2.5 h-2.5 rounded-full bg-purple-800 ring-4 ring-[#15111E] group-hover:scale-125 transition-transform" />
+                  <div className="flex items-center gap-2">
+                    <span className="text-[11px] font-mono text-purple-400 font-bold px-2 py-0.5 bg-[#1C1628] border border-purple-900/60 rounded">
+                      2023 — 2025
+                    </span>
+                  </div>
+                  <h4 className="font-bold text-white text-sm mt-1 group-hover:text-purple-300 transition-colors">
+                    BS Information Technology Specialization
+                  </h4>
+                  <p className="text-purple-300/80 text-xs mt-1 leading-relaxed">
+                    Our Lady of Fatima University — Cisco routing/switching, database schema modeling, and OOP.
+                  </p>
                 </div>
+
+                {/* 4. SHS Foundations */}
+                <div className="relative group">
+                  <span className="absolute -left-[21px] top-1.5 w-2.5 h-2.5 rounded-full bg-purple-950 border border-purple-600 ring-4 ring-[#15111E] group-hover:scale-125 transition-transform" />
+                  <div className="flex items-center gap-2">
+                    <span className="text-[11px] font-mono text-purple-400 font-bold px-2 py-0.5 bg-[#1C1628] border border-purple-900/60 rounded">
+                      Foundations
+                    </span>
+                  </div>
+                  <h4 className="font-bold text-white text-sm mt-1 group-hover:text-purple-300 transition-colors">
+                    Front-End Foundations &amp; UI Engineering
+                  </h4>
+                  <p className="text-purple-300/80 text-xs mt-1 leading-relaxed">
+                    Deep dive into modern JavaScript, semantic HTML5/CSS3 layouts, and component-driven UI architecture.
+                  </p>
+                </div>
+
+              </div>
+
+              {/* Bottom Footer Info */}
+              <div className="pt-3 border-t border-purple-950/60 flex items-center justify-between text-[11px] font-mono text-purple-400/70">
+                <span className="flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+                  Active Career Path
+                </span>
+                <span>Open for Technical PM Roles</span>
               </div>
             </section>
 
@@ -355,7 +419,7 @@ export default function Home() {
                   </div>
                   <span className="text-[10px] font-mono text-purple-400/80 shrink-0">Aug 2026</span>
                 </div>
-
+ 
                 {/* freeCodeCamp C# Microsoft */}
                 <div className="p-3 bg-[#1C1628] rounded-xl border border-purple-900/40 hover:border-purple-600 transition flex items-center justify-between gap-2">
                   <div>
