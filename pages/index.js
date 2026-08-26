@@ -250,13 +250,13 @@ export default function Home() {
           </header>
 
         {/* 2. BENTO ROW: TIMELINE & ACHIEVEMENTS */}
-          <div id="about" className="grid grid-cols-1 md:grid-cols-2 gap-8 scroll-mt-24">
+          <div id="about" className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch scroll-mt-24">
             
             {/* Left Column: Journey & Timeline */}
             <section className="bg-[#15111E] border border-purple-950/60 rounded-3xl p-6 flex flex-col justify-between space-y-4">
               <div className="flex items-center justify-between pb-2 border-b border-purple-900/40">
                 <h2 className="text-xl font-bold text-white flex items-center gap-2">
-                  Journey &amp; Timeline
+                  <span>🚀</span> Journey &amp; Timeline
                 </h2>
                 <span className="text-xs font-mono text-purple-400">Experience Log</span>
               </div>
@@ -340,8 +340,8 @@ export default function Home() {
               </div>
             </section>
 
-            {/* Right Column: Scrollable Key Milestones & Verified Certs */}
-            <section className="bg-[#15111E] border border-purple-950/60 rounded-3xl p-6 flex flex-col justify-between space-y-4 h-full">
+            {/* Right Column: Scrollable Key Milestones & Verified Certs (Height-Matched) */}
+            <section className="bg-[#15111E] border border-purple-950/60 rounded-3xl p-6 flex flex-col justify-between space-y-4">
               <div className="flex items-center justify-between pb-2 border-b border-purple-900/40">
                 <h2 className="text-xl font-bold text-white flex items-center gap-2">
                   <span>🏆</span> Certifications &amp; Milestones
@@ -354,8 +354,8 @@ export default function Home() {
                 </a>
               </div>
 
-              {/* Scrollable Container dynamically filling 100% of available card height */}
-              <div className="flex-1 h-0 overflow-y-auto space-y-2.5 pr-2 scrollbar-thin scrollbar-thumb-purple-700 scrollbar-track-[#0B090E]">
+              {/* Scrollable List Box (Locked to 380px to perfectly match Left Column height) */}
+              <div className="h-[380px] overflow-y-auto space-y-2.5 pr-2 scrollbar-thin scrollbar-thumb-purple-700 scrollbar-track-[#0B090E]">
                 
                 {/* 1. CPI OPEN Module 1 */}
                 <div className="p-3 bg-[#1C1628] rounded-xl border border-purple-900/40 hover:border-purple-600 transition flex items-center justify-between gap-2">
@@ -549,12 +549,12 @@ export default function Home() {
               </div>
 
               {/* Bottom Footer Info */}
-              <div className="pt-2 border-t border-purple-950/60 flex items-center justify-between text-[11px] font-mono text-purple-400/70">
+              <div className="pt-3 border-t border-purple-950/60 flex items-center justify-between text-[11px] font-mono text-purple-400/70">
                 <span>Total 20+ Records</span>
                 <span>Scroll to browse &darr;</span>
               </div>
             </section>
-            </div>
+          </div>
 
           {/* 3. INTERACTIVE SKILLS MATRIX */}
           <section id="skills" className="bg-[#15111E] border border-purple-950/60 rounded-3xl p-6 space-y-6 scroll-mt-24">
