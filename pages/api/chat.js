@@ -1,42 +1,63 @@
 // pages/api/chat.js
-import { GoogleGenAI } from "@google/genai";
 import { PORTFOLIO_CONTEXT } from "../../data/portfolioContext";
-
-const ai = new GoogleGenAI({
-  apiKey: process.env.GEMINI_API_KEY,
-});
 
 export default async function handler(req, res) {
   if (req.method !== "POST") {
     return res.status(405).json({ message: "Method not allowed" });
   }
 
-  const { message } = req.body;
+  const apiKey = process.env.GEMINI_API_KEY;
+  if (!apiKey) {
+    return res.status(500).json({
+      reply: "API key is missing in .env.local. Please check GEMINI_API_KEY.",
+    });
+  }
 
+  const { message } = req.body;
   if (!message || typeof message !== "string" || !message.trim()) {
     return res.status(400).json({ reply: "Please provide a valid question." });
   }
 
   try {
-    const response = await ai.models.generateContent({
-      model: "gemini-2.5-flash",
-      contents: message,
-      config: {
-        systemInstruction: PORTFOLIO_CONTEXT,
-        temperature: 0.3,
-      },
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey.trim()}`;
+
+    const response = await fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        system_instruction: {
+          parts: [{ text: PORTFOLIO_CONTEXT }]
+        },
+        contents: [
+          {
+            role: "user",
+            parts: [{ text: message }]
+          }
+        ],
+        generationConfig: {
+          temperature: 0.3
+        }
+      })
     });
 
+    const data = await response.json();
+
+    if (data.error) {
+      console.error("Gemini API Error details:", data.error);
+      return res.status(500).json({
+        reply: `API Error: ${data.error.message || "Invalid request"}`
+      });
+    }
+
     const replyText =
-      response?.text ||
-      "I'm here to answer any questions regarding Michael's projects, technical skills, and experience.";
+      data.candidates?.[0]?.content?.parts?.[0]?.text ||
+      "I'm here to answer questions regarding Michael's projects, technical skills, and experience.";
 
     return res.status(200).json({ reply: replyText });
   } catch (error) {
-    console.error("Gemini API Error:", error);
+    console.error("Fetch error:", error);
     return res.status(500).json({
-      reply:
-        "I ran into an issue connecting to the AI service. Please verify your GEMINI_API_KEY or email Michael directly at michaelapril81416@gmail.com!",
+      reply: "Connection error. Please check your network or API key."
     });
   }
 }
