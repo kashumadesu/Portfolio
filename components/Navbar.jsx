@@ -12,7 +12,7 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="sticky top-0 z-50 bg-[#0B090E]/80 backdrop-blur-md border-b border-purple-950/50">
+    <nav className="sticky top-0 z-50 bg-[#0B090E] border-b border-purple-950/40">
       <div className="max-w-6xl mx-auto px-4 md:px-12 flex items-center justify-between h-16">
         
         {/* Logo */}

@@ -4,4 +4,11 @@
 
 html {
   scroll-behavior: smooth;
+  background-color: #0b090e; 
+}
+
+body{
+    background-color: #0b090e;
+    margin: 0;
+    padding: 0;
 }
