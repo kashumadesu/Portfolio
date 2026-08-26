@@ -80,11 +80,14 @@ export default function Home() {
 
   return (
     <div className="relative min-h-screen bg-[#0B090E] text-[#E9D5FF]">
-     {/* Tight Deep Glow-in-the-Dark Purple Aura */}
-      <div
-        className="fixed inset-0 pointer-events-none z-0 hidden md:block"
+     <div
+        className="fixed top-0 left-0 pointer-events-none z-0 hidden md:block rounded-full mix-blend-screen transition-transform duration-75 ease-out"
         style={{
-          background: `radial-gradient(110px circle at ${mousePos.x}px ${mousePos.y}px, rgba(168, 85, 247, 0.45) 0%, rgba(126, 34, 206, 0.35) 30%, rgba(59, 7, 100, 0.2) 65%, transparent 100%)`,
+          width: "280px",
+          height: "280px",
+          transform: `translate3d(${mousePos.x - 140}px, ${mousePos.y - 140}px, 0)`,
+          background: "radial-gradient(circle, rgba(168, 85, 247, 0.22) 0%, rgba(126, 34, 206, 0.12) 40%, rgba(59, 7, 100, 0.04) 70%, transparent 100%)",
+          filter: "blur(30px)",
         }}
       />
 
