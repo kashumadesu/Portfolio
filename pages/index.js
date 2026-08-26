@@ -33,6 +33,9 @@ export default function Home() {
             
             {/* Left Column: Bio, Titles, Action Buttons & Metrics */}
             <div className="lg:col-span-7 space-y-6">
+                <span className="inline-block px-2.5 py-0.5 bg-purple-950 text-purple-300 text-[11px] font-semibold rounded-full border border-purple-800">
+                    🟢 Open for PM & IT Roles
+                </span>
             <div className="space-y-2">
                 <div className="flex items-center gap-2">
                 <span className="text-sm font-mono text-purple-400 font-bold uppercase tracking-wider">HELLO, I&apos;M</span>
