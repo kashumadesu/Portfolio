@@ -49,7 +49,7 @@ export default async function handler(req) {
         system_instruction: {
           parts: [
             {
-              text: `${PORTFOLIO_CONTEXT}\n\nInstructions: Provide fast, concise, conversational answers based strictly on Michael's profile. Limit answers to 1-3 sentences.`,
+              text: `${PORTFOLIO_CONTEXT}\n\nStyle Guide: Be direct, helpful, and concise. Keep answers punchy and relevant to Michael's portfolio.`,
             },
           ],
         },
@@ -61,10 +61,7 @@ export default async function handler(req) {
         ],
         generationConfig: {
           temperature: 0.2,
-          maxOutputTokens: 300,
-          thinkingConfig: {
-            thinkingBudget: 0,
-          },
+          maxOutputTokens: 500,
         },
       }),
     });
@@ -109,7 +106,7 @@ export default async function handler(req) {
                     controller.enqueue(encoder.encode(chunkText));
                   }
                 } catch {
-                  // Ignore partial chunks
+                  // Skip incomplete JSON line splits
                 }
               }
             }
