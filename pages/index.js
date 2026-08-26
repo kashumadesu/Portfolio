@@ -79,7 +79,7 @@ export default function Home() {
                   </a>
 
                   <a
-                    href="/resume.pdf"
+                    href="public/resume.pdf"
                     download="Michael_Boquiron_CV.pdf"
                     className="group relative px-5 py-2.5 border border-purple-500/40 hover:border-purple-400 bg-purple-950/30 hover:bg-purple-900/40 text-purple-200 hover:text-white font-bold text-xs tracking-wider transition-all duration-200 flex items-center gap-2"
                   >
@@ -128,7 +128,7 @@ export default function Home() {
                     <div className="absolute inset-0 opacity-20 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:16px_16px]" />
                     
                     <img
-                      src="/profile.jpg"
+                      src="public/profile.jpg"
                       alt="Michael April B. Boquiron"
                       className="w-full h-full object-cover object-center relative z-10"
                       onError={(e) => {
