@@ -256,7 +256,7 @@ export default function Home() {
             <section className="bg-[#15111E] border border-purple-950/60 rounded-3xl p-6 flex flex-col justify-between space-y-4">
               <div className="flex items-center justify-between pb-2 border-b border-purple-900/40">
                 <h2 className="text-xl font-bold text-white flex items-center gap-2">
-                  <span>🚀</span> Journey &amp; Timeline
+                   Journey &amp; Timeline
                 </h2>
                 <span className="text-xs font-mono text-purple-400">Experience Log</span>
               </div>
@@ -344,7 +344,7 @@ export default function Home() {
             <section className="bg-[#15111E] border border-purple-950/60 rounded-3xl p-6 flex flex-col justify-between space-y-4">
               <div className="flex items-center justify-between pb-2 border-b border-purple-900/40">
                 <h2 className="text-xl font-bold text-white flex items-center gap-2">
-                  <span>🏆</span> Certifications &amp; Milestones
+                 Certifications &amp; Milestones
                 </h2>
                 <a 
                   href="#certifications" 

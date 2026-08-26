@@ -242,7 +242,7 @@ export default function Certifications() {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-purple-900/60 pb-3 gap-2">
         <div>
           <h2 className="text-2xl font-bold font-mono text-white flex items-center gap-2">
-            <span>🎖️</span> VERIFIED CERTIFICATIONS &amp; ACHIEVEMENTS
+             VERIFIED CERTIFICATIONS &amp; ACHIEVEMENTS
           </h2>
           <p className="text-xs text-purple-400 font-mono mt-0.5">
             Industry Credentials • Algorithmic Honors • Academic Competitions
@@ -293,7 +293,7 @@ export default function Certifications() {
         <div className="flex flex-col md:flex-row justify-between md:items-center gap-4">
           <div>
             <h3 className="text-lg font-bold text-white font-mono flex items-center gap-2">
-              <span>📂</span> Credential Library by Track
+              Credential Library by Track
             </h3>
             <p className="text-xs text-purple-400">Scroll horizontally or select a category below.</p>
           </div>
