@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Navbar from "../components/Navbar";
 import GithubGraph from "../components/GithubGraph";
+import Certifications from "../components/Certifications";
 
 export default function Home() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -10,6 +11,20 @@ export default function Home() {
     desc: "Click any badge below to see my experience & mastery level.",
     mastery: "--"
   });
+
+  return (
+    <main className="min-h-screen bg-[#0B090E] text-white px-4 md:px-12 py-8 space-y-16 max-w-7xl mx-auto">
+      {/* Navigation */}
+      <Navbar isDrawerOpen={isDrawerOpen} setIsDrawerOpen={setIsDrawerOpen} />
+
+      {/* GitHub Graph Component */}
+      <GithubGraph />
+
+      {/* Certifications Component */}
+      <Certifications />
+    </main>
+  );
+}
 
   const skills = [
     { name: "JavaScript", key: "JS", mastery: "9/10", desc: "Core language used across front-end web apps and dynamic UI logic since SHS." },
@@ -379,4 +394,3 @@ export default function Home() {
       </main>
     </>
   );
-}
