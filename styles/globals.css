@@ -29,3 +29,28 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #581C87;
 }
+
+/* GitHub Graph Wireframe Outlines */
+.custom-github-graph text {
+  fill: #9ca3af !important;
+  font-family: monospace, sans-serif !important;
+  font-size: 10px !important;
+}
+
+/* Give empty/base squares an outlined wireframe look */
+.custom-github-graph rect[fill="#050308"],
+.custom-github-graph rect[data-level="0"] {
+  fill: #050308 !important;
+  stroke: rgba(255, 255, 255, 0.7) !important;
+  stroke-width: 1px !important;
+  rx: 2px !important;
+}
+
+/* Active green days stay solid neon */
+.custom-github-graph rect[data-level="1"],
+.custom-github-graph rect[data-level="2"],
+.custom-github-graph rect[data-level="3"],
+.custom-github-graph rect[data-level="4"] {
+  stroke: none !important;
+  rx: 2px !important;
+}
