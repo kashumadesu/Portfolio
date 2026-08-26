@@ -19,7 +19,7 @@ export default function GithubGraph() {
     <section id="github" className="bg-[#15111E] border border-purple-950/60 rounded-3xl p-6 md:p-8 space-y-4 scroll-mt-24">
       <div className="flex items-center justify-between pb-1">
         <h2 className="text-xl font-bold text-white flex items-center gap-2">
-          <span>📊</span> GitHub Activity
+         GitHub Activity
         </h2>
         <a
           href="https://github.com/kashumadesu"
