@@ -42,7 +42,7 @@ export default function Home() {
             <div className="max-w-6xl mx-auto space-y-8">
 
           {/* 1. HERO / LANDING SECTION */}
-          <header id="home" className="bg-[#15111E] border border-purple-950/60 rounded-3xl p-6 md:p-10 scroll-mt-24">
+          <header id="home" className="bg-[#15111E]/70 backdrop-blur-md border border-purple-950/60 rounded-3xl p-6 md:p-10 scroll-mt-24 shadow-2xl">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
               
               {/* Left Column: Full-Height Flex Container with Bottom-Locked Stats */}
@@ -264,7 +264,7 @@ export default function Home() {
           <div id="about" className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch scroll-mt-24">
             
             {/* Left Column: Journey & Timeline */}
-            <section className="bg-[#15111E] border border-purple-950/60 rounded-3xl p-6 flex flex-col justify-between space-y-4">
+            <section className="bg-[#15111E]/70 backdrop-blur-md border border-purple-950/60 rounded-3xl p-6 flex flex-col justify-between space-y-4 shadow-xl">
               <div className="flex items-center justify-between pb-2 border-b border-purple-900/40">
                 <h2 className="text-xl font-bold text-white flex items-center gap-2">
                    Journey &amp; Timeline
@@ -568,7 +568,7 @@ export default function Home() {
           </div>
 
           {/* 3. INTERACTIVE SKILLS MATRIX */}
-          <section id="skills" className="bg-[#15111E] border border-purple-950/60 rounded-3xl p-6 space-y-6 scroll-mt-24">
+          <section id="skills" className="bg-[#15111E]/70 backdrop-blur-md border border-purple-950/60 rounded-3xl p-6 space-y-6 scroll-mt-24 shadow-xl">
             <div className="flex flex-col md:flex-row justify-between md:items-center gap-2">
               <div>
                 <h2 className="text-xl font-bold text-white"> Skills & Competencies</h2>
@@ -601,7 +601,7 @@ export default function Home() {
           <section id="projects" className="space-y-4 scroll-mt-24">
             <h2 className="text-2xl font-bold text-white"> Systems & Projects</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="bg-[#15111E] border border-purple-950/60 rounded-3xl p-6 space-y-3">
+              <div className="bg-[#15111E]/70 backdrop-blur-md border border-purple-950/60 rounded-3xl p-6 space-y-3 shadow-xl">
                 <span className="text-xs font-mono text-purple-400">Enterprise System</span>
                 <h3 className="text-xl font-bold text-white">Point of Sale (POS) & Monitoring System</h3>
                 <p className="text-xs text-purple-300">
@@ -637,7 +637,7 @@ export default function Home() {
           <GithubGraph />
 
           {/* 7. PUBLIC CONTACT FOOTER */}
-          <footer id="contact" className="bg-[#15111E] border border-purple-950/60 rounded-3xl p-8 text-center space-y-4 scroll-mt-24">
+          <footer id="contact" className="bg-[#15111E]/70 backdrop-blur-md border border-purple-950/60 rounded-3xl p-8 text-center space-y-4 scroll-mt-24 shadow-xl">
             <h2 className="text-2xl font-bold text-white">Let&apos;s Connect</h2>
             <p className="text-sm text-purple-300 max-w-md mx-auto">
               Available for Technical Project Management, Associate PM, and Front-End leadership roles.
