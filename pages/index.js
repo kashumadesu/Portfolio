@@ -5,26 +5,12 @@ import Certifications from "../components/Certifications";
 
 export default function Home() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-  
+
   const [selectedSkill, setSelectedSkill] = useState({
     name: "Interactive Skills",
     desc: "Click any badge below to see my experience & mastery level.",
     mastery: "--"
   });
-
-  return (
-    <main className="min-h-screen bg-[#0B090E] text-white px-4 md:px-12 py-8 space-y-16 max-w-7xl mx-auto">
-      {/* Navigation */}
-      <Navbar isDrawerOpen={isDrawerOpen} setIsDrawerOpen={setIsDrawerOpen} />
-
-      {/* GitHub Graph Component */}
-      <GithubGraph />
-
-      {/* Certifications Component */}
-      <Certifications />
-    </main>
-  );
-}
 
   const skills = [
     { name: "JavaScript", key: "JS", mastery: "9/10", desc: "Core language used across front-end web apps and dynamic UI logic since SHS." },
@@ -126,7 +112,7 @@ export default function Home() {
                   </div>
                 </div>
 
-                {/* Bottom Metric Stat Boxes (Aligned with Right Column Card Bottom) */}
+                {/* Bottom Metric Stat Boxes */}
                 <div className="pt-6">
                   <div className="grid grid-cols-3 border border-purple-900/60 bg-[#0B090E]/60 text-center divide-x divide-purple-900/60 shadow-inner">
                     <div className="py-3.5 px-2">
@@ -145,122 +131,120 @@ export default function Home() {
                 </div>
               </div>
 
-            {/* Right Column: Interactive Side-Slide Avatar Card */}
-            <div className="lg:col-span-5 flex items-center justify-center">
-            <div className="relative w-full max-w-sm bg-[#110D1A] border-2 border-purple-900/70 p-4 shadow-2xl space-y-4">
-                
-                {/* Outer Corner Frame Brackets */}
-                <span className="!m-0 absolute top-0 left-0 w-3.5 h-3.5 border-t-2 border-l-2 border-purple-400 pointer-events-none z-30" />
-                <span className="!m-0 absolute top-0 right-0 w-3.5 h-3.5 border-t-2 border-r-2 border-purple-400 pointer-events-none z-30" />
-                <span className="!m-0 absolute bottom-0 left-0 w-3.5 h-3.5 border-b-2 border-l-2 border-purple-400 pointer-events-none z-30" />
-                <span className="!m-0 absolute bottom-0 right-0 w-3.5 h-3.5 border-b-2 border-r-2 border-purple-400 pointer-events-none z-30" />
+              {/* Right Column: Interactive Side-Slide Avatar Card */}
+              <div className="lg:col-span-5 flex items-center justify-center">
+                <div className="relative w-full max-w-sm bg-[#110D1A] border-2 border-purple-900/70 p-4 shadow-2xl space-y-4">
+                  
+                  {/* Outer Corner Frame Brackets */}
+                  <span className="!m-0 absolute top-0 left-0 w-3.5 h-3.5 border-t-2 border-l-2 border-purple-400 pointer-events-none z-30" />
+                  <span className="!m-0 absolute top-0 right-0 w-3.5 h-3.5 border-t-2 border-r-2 border-purple-400 pointer-events-none z-30" />
+                  <span className="!m-0 absolute bottom-0 left-0 w-3.5 h-3.5 border-b-2 border-l-2 border-purple-400 pointer-events-none z-30" />
+                  <span className="!m-0 absolute bottom-0 right-0 w-3.5 h-3.5 border-b-2 border-r-2 border-purple-400 pointer-events-none z-30" />
 
-                {/* Dual Image Slide Frame */}
-                <div 
-                onClick={() => setIsDrawerOpen(!isDrawerOpen)}
-                className="relative aspect-[4/5] w-full bg-[#0B090E] border border-purple-900/60 overflow-hidden cursor-pointer group select-none"
-                title="Click to view side photo"
-                >
-                {/* Background Cyber Grid */}
-                <div className="absolute inset-0 opacity-20 bg-[linear-gradient(to_right,#a855f720_1px,transparent_1px),linear-gradient(to_bottom,#a855f720_1px,transparent_1px)] bg-[size:16px_16px] z-0" />
-                
-                {/* Subtle Purple Vignette Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#110D1A] via-transparent to-transparent opacity-80 z-20 pointer-events-none" />
+                  {/* Dual Image Slide Frame */}
+                  <div 
+                    onClick={() => setIsDrawerOpen(!isDrawerOpen)}
+                    className="relative aspect-[4/5] w-full bg-[#0B090E] border border-purple-900/60 overflow-hidden cursor-pointer group select-none"
+                    title="Click to view side photo"
+                  >
+                    {/* Background Cyber Grid */}
+                    <div className="absolute inset-0 opacity-20 bg-[linear-gradient(to_right,#a855f720_1px,transparent_1px),linear-gradient(to_bottom,#a855f720_1px,transparent_1px)] bg-[size:16px_16px] z-0" />
+                    
+                    {/* Subtle Purple Vignette Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#110D1A] via-transparent to-transparent opacity-80 z-20 pointer-events-none" />
 
-                {/* Mode / Slide Toggle Badge */}
-                <div className="absolute top-2 right-2 z-30 px-2 py-0.5 bg-black/80 border border-purple-800 text-[10px] font-mono text-purple-300 backdrop-blur-sm transition-colors">
-                    {isDrawerOpen ? "◀ PRIMARY" : "▶ PREVIEW"}
-                </div>
-
-                {/* Sliding Two-Panel Track */}
-                <div 
-                    className={`w-[200%] h-full flex transition-transform duration-500 ease-in-out ${
-                    isDrawerOpen ? "-translate-x-1/2" : "translate-x-0"
-                    }`}
-                >
-                    {/* PANEL 1: Main Avatar */}
-                    <div className="w-1/2 h-full relative flex-shrink-0 flex items-center justify-center">
-                    <img
-                        src="/profile.jpg?v=11"
-                        alt="Michael April B. Boquiron"
-                        className="w-full h-full object-cover object-[20%_15%] scale-135 filter contrast-115 brightness-95 transition-transform duration-300 group-hover:scale-140"
-                    />
+                    {/* Mode / Slide Toggle Badge */}
+                    <div className="absolute top-2 right-2 z-30 px-2 py-0.5 bg-black/80 border border-purple-800 text-[10px] font-mono text-purple-300 backdrop-blur-sm transition-colors">
+                      {isDrawerOpen ? "◀ PRIMARY" : "▶ PREVIEW"}
                     </div>
 
-                    {/* PANEL 2: Side Secondary Photo */}
-                    <div className="w-1/2 h-full relative flex-shrink-0 flex items-center justify-center bg-[#15111E] border-l border-purple-900/80">
-                    <img
-                        src="/profile2.jpg"
-                        alt="Michael April Secondary Profile"
-                        className="w-full h-full object-cover object-center filter contrast-110 brightness-95"
-                        onError={(e) => {
-                        e.currentTarget.style.display = 'none';
-                        if (e.currentTarget.nextSibling) {
-                            e.currentTarget.nextSibling.style.display = 'flex';
-                        }
-                        }}
-                    />
-                    {/* Placeholder if profile2.jpg hasn't been added */}
-                    <div className="hidden flex-col items-center justify-center text-center p-6 space-y-2">
-                        <div className="w-16 h-16 bg-purple-950/80 border border-purple-500/50 flex items-center justify-center text-xl font-mono text-purple-300">
-                        IMG 2
+                    {/* Sliding Two-Panel Track */}
+                    <div 
+                      className={`w-[200%] h-full flex transition-transform duration-500 ease-in-out ${
+                        isDrawerOpen ? "-translate-x-1/2" : "translate-x-0"
+                      }`}
+                    >
+                      {/* PANEL 1: Main Avatar */}
+                      <div className="w-1/2 h-full relative flex-shrink-0 flex items-center justify-center">
+                        <img
+                          src="/profile.jpg?v=11"
+                          alt="Michael April B. Boquiron"
+                          className="w-full h-full object-cover object-[20%_15%] scale-135 filter contrast-115 brightness-95 transition-transform duration-300 group-hover:scale-140"
+                        />
+                      </div>
+
+                      {/* PANEL 2: Side Secondary Photo */}
+                      <div className="w-1/2 h-full relative flex-shrink-0 flex items-center justify-center bg-[#15111E] border-l border-purple-900/80">
+                        <img
+                          src="/profile2.jpg"
+                          alt="Michael April Secondary Profile"
+                          className="w-full h-full object-cover object-center filter contrast-110 brightness-95"
+                          onError={(e) => {
+                            e.currentTarget.style.display = 'none';
+                            if (e.currentTarget.nextSibling) {
+                              e.currentTarget.nextSibling.style.display = 'flex';
+                            }
+                          }}
+                        />
+                        <div className="hidden flex-col items-center justify-center text-center p-6 space-y-2">
+                          <div className="w-16 h-16 bg-purple-950/80 border border-purple-500/50 flex items-center justify-center text-xl font-mono text-purple-300">
+                            IMG 2
+                          </div>
+                          <p className="text-xs font-mono text-purple-300">Place photo at</p>
+                          <p className="text-[11px] font-mono text-purple-400">public/profile2.jpg</p>
                         </div>
-                        <p className="text-xs font-mono text-purple-300">Place photo at</p>
-                        <p className="text-[11px] font-mono text-purple-400">public/profile2.jpg</p>
+                      </div>
                     </div>
+                  </div>
+
+                  {/* Let's Connect Toolbar */}
+                  <div className="space-y-2 pt-2 border-t border-purple-950/80">
+                    <div className="flex items-center gap-1.5 text-[11px] font-mono text-purple-300 font-bold uppercase tracking-wider">
+                      <svg className="w-3.5 h-3.5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                      </svg>
+                      <span>LET&apos;S CONNECT:</span>
                     </div>
 
-                </div>
-                </div>
+                    <div className="grid grid-cols-3 gap-2 text-xs font-mono">
+                      <a
+                        href="mailto:michaelapril81416@gmail.com?subject=Project%20Inquiry%20/%20Collaboration"
+                        className="flex items-center justify-center gap-1 py-1.5 bg-[#1A1424] hover:bg-purple-900/60 border border-purple-900/80 text-purple-200 hover:text-white transition text-center"
+                      >
+                        <svg className="w-3.5 h-3.5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                        <span>Email</span>
+                      </a>
 
-                {/* Let's Connect Toolbar */}
-                <div className="space-y-2 pt-2 border-t border-purple-950/80">
-                <div className="flex items-center gap-1.5 text-[11px] font-mono text-purple-300 font-bold uppercase tracking-wider">
-                    <svg className="w-3.5 h-3.5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-                    </svg>
-                    <span>LET&apos;S CONNECT:</span>
+                      <a
+                        href="https://linkedin.com"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="flex items-center justify-center gap-1 py-1.5 bg-[#1A1424] hover:bg-purple-900/60 border border-purple-900/80 text-purple-200 hover:text-white transition text-center"
+                      >
+                        <svg className="w-3.5 h-3.5 text-purple-400" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                        </svg>
+                        <span>LinkedIn</span>
+                      </a>
+
+                      <a
+                        href="https://github.com/kashumadesu"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="flex items-center justify-center gap-1 py-1.5 bg-[#1A1424] hover:bg-purple-900/60 border border-purple-900/80 text-purple-200 hover:text-white transition text-center"
+                      >
+                        <svg className="w-3.5 h-3.5 text-purple-400" fill="currentColor" viewBox="0 0 24 24">
+                          <path fillRule="evenodd" clipRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+                        </svg>
+                        <span>GitHub</span>
+                      </a>
+                    </div>
+                  </div>
+
                 </div>
-
-                <div className="grid grid-cols-3 gap-2 text-xs font-mono">
-                    <a
-                    href="mailto:michaelapril81416@gmail.com?subject=Project%20Inquiry%20/%20Collaboration"
-                    className="flex items-center justify-center gap-1 py-1.5 bg-[#1A1424] hover:bg-purple-900/60 border border-purple-900/80 text-purple-200 hover:text-white transition text-center"
-                    >
-                    <svg className="w-3.5 h-3.5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                    </svg>
-                    <span>Email</span>
-                    </a>
-
-                    <a
-                    href="https://linkedin.com"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="flex items-center justify-center gap-1 py-1.5 bg-[#1A1424] hover:bg-purple-900/60 border border-purple-900/80 text-purple-200 hover:text-white transition text-center"
-                    >
-                    <svg className="w-3.5 h-3.5 text-purple-400" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                    </svg>
-                    <span>LinkedIn</span>
-                    </a>
-
-                    <a
-                    href="https://github.com/kashumadesu"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="flex items-center justify-center gap-1 py-1.5 bg-[#1A1424] hover:bg-purple-900/60 border border-purple-900/80 text-purple-200 hover:text-white transition text-center"
-                    >
-                    <svg className="w-3.5 h-3.5 text-purple-400" fill="currentColor" viewBox="0 0 24 24">
-                        <path fillRule="evenodd" clipRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
-                    </svg>
-                    <span>GitHub</span>
-                    </a>
-                </div>
-                </div>
-
-            </div>
-            </div>
+              </div>
 
             </div>
           </header>
@@ -268,7 +252,7 @@ export default function Home() {
           {/* 2. BENTO ROW: TIMELINE & ACHIEVEMENTS */}
           <div id="about" className="grid grid-cols-1 md:grid-cols-2 gap-8 scroll-mt-24">
             <section className="bg-[#15111E] border border-purple-950/60 rounded-3xl p-6 space-y-4">
-              <h2 className="text-xl font-bold text-white flex items-center gap-2"> Journey & Timeline</h2>
+              <h2 className="text-xl font-bold text-white flex items-center gap-2">🚀 Journey & Timeline</h2>
               <div className="border-l-2 border-purple-900/60 ml-3 space-y-6 pl-4 text-sm">
                 <div>
                   <p className="text-xs text-purple-400 font-mono">Present</p>
@@ -289,7 +273,7 @@ export default function Home() {
             </section>
 
             <section className="bg-[#15111E] border border-purple-950/60 rounded-3xl p-6 space-y-4">
-              <h2 className="text-xl font-bold text-white flex items-center gap-2"> Certifications & Milestones</h2>
+              <h2 className="text-xl font-bold text-white flex items-center gap-2">🏆 Certifications & Milestones</h2>
               <div className="space-y-3 text-sm">
                 <div className="p-3 bg-[#1C1628] rounded-xl border border-purple-900/40">
                   <span className="text-xs font-mono text-purple-400">Oracle Credential</span>
@@ -311,7 +295,7 @@ export default function Home() {
           <section id="skills" className="bg-[#15111E] border border-purple-950/60 rounded-3xl p-6 space-y-6 scroll-mt-24">
             <div className="flex flex-col md:flex-row justify-between md:items-center gap-2">
               <div>
-                <h2 className="text-xl font-bold text-white"> Skills & Competencies</h2>
+                <h2 className="text-xl font-bold text-white">⚡ Skills & Competencies</h2>
                 <p className="text-xs text-purple-400">Select any tool to see my direct workflow and context.</p>
               </div>
               <div className="bg-[#1F1730] px-4 py-2 rounded-xl border border-purple-800 text-right">
@@ -339,7 +323,7 @@ export default function Home() {
 
           {/* 4. FEATURED SYSTEMS & PROJECTS */}
           <section id="projects" className="space-y-4 scroll-mt-24">
-            <h2 className="text-2xl font-bold text-white"> Systems & Projects</h2>
+            <h2 className="text-2xl font-bold text-white">🛠️ Systems & Projects</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="bg-[#15111E] border border-purple-950/60 rounded-3xl p-6 space-y-3">
                 <span className="text-xs font-mono text-purple-400">Enterprise System</span>
@@ -372,7 +356,10 @@ export default function Home() {
           {/* 5. GITHUB ACTIVITY GRAPH */}
           <GithubGraph />
 
-          {/* 6. PUBLIC CONTACT */}
+          {/* 6. VERIFIED CERTIFICATIONS & CREDENTIALS */}
+          <Certifications />
+
+          {/* 7. PUBLIC CONTACT FOOTER */}
           <footer id="contact" className="bg-[#15111E] border border-purple-950/60 rounded-3xl p-8 text-center space-y-4 scroll-mt-24">
             <h2 className="text-2xl font-bold text-white">Let&apos;s Connect</h2>
             <p className="text-sm text-purple-300 max-w-md mx-auto">
@@ -394,3 +381,4 @@ export default function Home() {
       </main>
     </>
   );
+}
