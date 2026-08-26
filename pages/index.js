@@ -673,74 +673,101 @@ export default function Home() {
         </div>
       </main>
 
-      {/* 4. Contact Pop-up Modal */}
-      {isContactOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-md animate-in fade-in duration-200">
-          <div className="relative w-full max-w-md bg-[#15111E]/95 border border-purple-500/50 rounded-3xl p-6 shadow-2xl space-y-5">
-            {/* Close Button */}
-            <button
-              onClick={() => setIsContactOpen(false)}
-              className="absolute top-4 right-4 text-purple-400 hover:text-white font-mono text-xs px-2 py-1 bg-[#0B090E] border border-purple-900/60 rounded-lg transition"
-              aria-label="Close Contact Modal"
-            >
-              ✕
-            </button>
+          {/* 4. Contact Pop-up Modal (Cyber Frame & Sharp Edges) */}
+          {isContactOpen && (
+            <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-in fade-in duration-200">
+              <div className="relative w-full max-w-lg bg-[#110D1A] border-2 border-purple-500/50 p-6 md:p-8 shadow-2xl shadow-purple-950/80 space-y-6">
+                
+                {/* Outer Cyber Corner Brackets */}
+                <span className="!m-0 absolute -top-[2px] -left-[2px] w-4 h-4 border-t-2 border-l-2 border-purple-400 pointer-events-none z-30" />
+                <span className="!m-0 absolute -top-[2px] -right-[2px] w-4 h-4 border-t-2 border-r-2 border-purple-400 pointer-events-none z-30" />
+                <span className="!m-0 absolute -bottom-[2px] -left-[2px] w-4 h-4 border-b-2 border-l-2 border-purple-400 pointer-events-none z-30" />
+                <span className="!m-0 absolute -bottom-[2px] -right-[2px] w-4 h-4 border-b-2 border-r-2 border-purple-400 pointer-events-none z-30" />
 
-            {/* Modal Header */}
-            <div>
-              <h3 className="text-xl font-bold text-white">Let&apos;s Connect</h3>
-              <p className="text-xs font-mono text-purple-300 mt-1">
-                Reach out directly or check out my profiles.
-              </p>
-            </div>
-
-            {/* Links List */}
-            <div className="space-y-2.5 font-mono text-xs">
-              <a
-                href="mailto:michaelapril81416@gmail.com?subject=Inquiry%20via%20Portfolio"
-                className="flex items-center justify-between p-3 bg-[#1C1628] hover:bg-purple-900/50 border border-purple-900/60 hover:border-purple-400 text-purple-200 hover:text-white rounded-xl transition group"
-              >
-                <div className="flex items-center gap-2.5">
-                  <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
-                  <span className="font-semibold">Email</span>
+                {/* Modal Header & Close Button */}
+                <div className="flex items-start justify-between border-b border-purple-950/80 pb-4">
+                  <div>
+                    <span className="text-[10px] font-mono text-purple-400 uppercase tracking-widest block">Direct Channel</span>
+                    <h3 className="text-2xl font-black text-white tracking-tight uppercase">Let&apos;s Connect</h3>
+                    <p className="text-xs font-mono text-purple-300/80 mt-1">
+                      Reach out directly across any of my active networks.
+                    </p>
+                  </div>
+                  <button
+                    onClick={() => setIsContactOpen(false)}
+                    className="relative px-2.5 py-1 bg-[#1A1424] hover:bg-purple-900/60 border border-purple-700/60 hover:border-purple-400 text-purple-300 hover:text-white font-mono text-xs transition"
+                    aria-label="Close Contact Modal"
+                  >
+                    ✕ ESC
+                  </button>
                 </div>
-                <span className="text-purple-400 group-hover:text-purple-200">
-                  michaelapril81416@gmail.com &rarr;
-                </span>
-              </a>
 
-              <a
-                href="https://github.com/kashumadesu"
-                target="_blank"
-                rel="noreferrer"
-                className="flex items-center justify-between p-3 bg-[#1C1628] hover:bg-purple-900/50 border border-purple-900/60 hover:border-purple-400 text-purple-200 hover:text-white rounded-xl transition group"
-              >
-                <span className="font-semibold">GitHub</span>
-                <span className="text-purple-400 group-hover:text-purple-200">@kashumadesu &rarr;</span>
-              </a>
+                {/* Sharp Edge Links List */}
+                <div className="space-y-2.5 font-mono text-xs">
+                  {/* 1. Gmail */}
+                  <a
+                    href="mailto:michaelapril81416@gmail.com?subject=Project%20Inquiry%20/%20Collaboration"
+                    className="group relative flex items-center justify-between p-3 bg-[#161122] hover:bg-purple-950/60 border border-purple-900/60 hover:border-purple-400 text-purple-200 hover:text-white transition"
+                  >
+                    <div className="flex items-center gap-2.5">
+                      <span className="w-2 h-2 bg-emerald-400 animate-pulse"></span>
+                      <span className="font-bold tracking-wider uppercase">Gmail</span>
+                    </div>
+                    <span className="text-purple-400 group-hover:text-purple-200">michaelapril81416@gmail.com &rarr;</span>
+                  </a>
 
-              <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noreferrer"
-                className="flex items-center justify-between p-3 bg-[#1C1628] hover:bg-purple-900/50 border border-purple-900/60 hover:border-purple-400 text-purple-200 hover:text-white rounded-xl transition group"
-              >
-                <span className="font-semibold">LinkedIn</span>
-                <span className="text-purple-400 group-hover:text-purple-200">Connect &rarr;</span>
-              </a>
+                  {/* 2. GitHub */}
+                  <a
+                    href="https://github.com/kashumadesu"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="group relative flex items-center justify-between p-3 bg-[#161122] hover:bg-purple-950/60 border border-purple-900/60 hover:border-purple-400 text-purple-200 hover:text-white transition"
+                  >
+                    <span className="font-bold tracking-wider uppercase">GitHub</span>
+                    <span className="text-purple-400 group-hover:text-purple-200">@kashumadesu &rarr;</span>
+                  </a>
 
-              <a
-                href="/resume.pdf"
-                download="Michael_Boquiron_CV.pdf"
-                className="flex items-center justify-between p-3 bg-purple-950/60 hover:bg-purple-900/70 border border-purple-700 hover:border-purple-400 text-purple-100 rounded-xl transition group"
-              >
-                <span className="font-semibold">Download Resume / CV</span>
-                <span className="text-purple-300 group-hover:text-white">PDF &darr;</span>
-              </a>
+                  {/* 3. Instagram */}
+                  <a
+                    href="https://www.instagram.com/emmmzs_/"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="group relative flex items-center justify-between p-3 bg-[#161122] hover:bg-purple-950/60 border border-purple-900/60 hover:border-purple-400 text-purple-200 hover:text-white transition"
+                  >
+                    <span className="font-bold tracking-wider uppercase">Instagram</span>
+                    <span className="text-purple-400 group-hover:text-purple-200">@emmmzs_ &rarr;</span>
+                  </a>
+
+                  {/* 4. Facebook */}
+                  <a
+                    href="https://www.facebook.com/michaelboquiron24"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="group relative flex items-center justify-between p-3 bg-[#161122] hover:bg-purple-950/60 border border-purple-900/60 hover:border-purple-400 text-purple-200 hover:text-white transition"
+                  >
+                    <span className="font-bold tracking-wider uppercase">Facebook</span>
+                    <span className="text-purple-400 group-hover:text-purple-200">/michaelboquiron24 &rarr;</span>
+                  </a>
+
+                  {/* 5. LinkedIn (Placeholder) */}
+                  <div className="flex items-center justify-between p-3 bg-[#161122]/40 border border-purple-950/40 text-purple-400/50 select-none">
+                    <span className="font-bold tracking-wider uppercase">LinkedIn</span>
+                    <span className="text-[10px] tracking-widest uppercase">Coming Soon</span>
+                  </div>
+
+                  {/* 6. Download CV */}
+                  <a
+                    href="/resume.pdf"
+                    download="Michael_Boquiron_CV.pdf"
+                    className="group relative flex items-center justify-between p-3 bg-purple-950/80 hover:bg-purple-900 border border-purple-500/70 hover:border-purple-300 text-purple-100 hover:text-white transition shadow-lg shadow-purple-950/60"
+                  >
+                    <span className="font-bold tracking-wider uppercase">Download Resume / CV</span>
+                    <span className="text-purple-300 group-hover:text-white font-bold">PDF &darr;</span>
+                  </a>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-      )}
+          )}
 
       {/* Floating Interactive Chat Assistant */}
       <ChatBot />
