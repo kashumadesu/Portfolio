@@ -128,7 +128,7 @@ export default function Home() {
                     <div className="absolute inset-0 opacity-20 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:16px_16px]" />
                     
                     <img
-                      src="/profile.jpg"
+                      src="/profile.jpg?v=2"
                       alt="Michael April B. Boquiron"
                       className="w-full h-full object-cover object-center relative z-10"
                       onError={(e) => {
