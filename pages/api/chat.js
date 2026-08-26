@@ -1,21 +1,53 @@
 // pages/api/chat.js
 import { PORTFOLIO_CONTEXT } from "../../data/portfolioContext";
 
-export default async function handler(req, res) {
+export const config = {
+  runtime: "edge",
+};
+
+export default async function handler(req) {
   if (req.method !== "POST") {
-    return res.status(405).json({ message: "Method not allowed" });
+    return new Response(JSON.stringify({ message: "Method not allowed" }), {
+      status: 405,
+      headers: { "Content-Type": "application/json" },
+    });
   }
 
   const apiKey = process.env.GEMINI_API_KEY;
   if (!apiKey) {
-    return res.status(500).json({
-      reply: "API key is missing in .env.local. Please check GEMINI_API_KEY.",
-    });
+    return new Response(
+      JSON.stringify({
+        reply: "API key is missing. Please check your environment variables.",
+      }),
+      {
+        status: 500,
+        headers: { "Content-Type": "application/json" },
+      }
+    );
   }
 
-  const { message } = req.body;
+  let body;
+  try {
+    body = await req.json();
+  } catch {
+    return new Response(
+      JSON.stringify({ reply: "Invalid request payload." }),
+      {
+        status: 400,
+        headers: { "Content-Type": "application/json" },
+      }
+    );
+  }
+
+  const { message } = body;
   if (!message || typeof message !== "string" || !message.trim()) {
-    return res.status(400).json({ reply: "Please provide a valid question." });
+    return new Response(
+      JSON.stringify({ reply: "Please provide a valid question." }),
+      {
+        status: 400,
+        headers: { "Content-Type": "application/json" },
+      }
+    );
   }
 
   try {
@@ -36,6 +68,7 @@ export default async function handler(req, res) {
         ],
         generationConfig: {
           temperature: 0.3,
+          maxOutputTokens: 200,
         },
       }),
     });
@@ -44,20 +77,35 @@ export default async function handler(req, res) {
 
     if (data.error) {
       console.error("Gemini API Error details:", data.error);
-      return res.status(500).json({
-        reply: `API Error: ${data.error.message || "Invalid request"}`,
-      });
+      return new Response(
+        JSON.stringify({
+          reply: `API Error: ${data.error.message || "Invalid request"}`,
+        }),
+        {
+          status: 500,
+          headers: { "Content-Type": "application/json" },
+        }
+      );
     }
 
     const replyText =
       data.candidates?.[0]?.content?.parts?.[0]?.text ||
       "I'm here to answer questions regarding Michael's projects, technical skills, and experience.";
 
-    return res.status(200).json({ reply: replyText });
-  } catch (error) {
-    console.error("Fetch error:", error);
-    return res.status(500).json({
-      reply: "Connection error. Please check your network or API key.",
+    return new Response(JSON.stringify({ reply: replyText }), {
+      status: 200,
+      headers: { "Content-Type": "application/json" },
     });
+  } catch (error) {
+    console.error("Edge handler error:", error);
+    return new Response(
+      JSON.stringify({
+        reply: "Connection error. Please check your network or API key.",
+      }),
+      {
+        status: 500,
+        headers: { "Content-Type": "application/json" },
+      }
+    );
   }
 }
