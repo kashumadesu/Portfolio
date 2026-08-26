@@ -5,8 +5,8 @@ export default function GithubGraph() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Fetch user contribution SVG directly
-    fetch("https://ghchart.rshah.org/39d353/kashumadesu")
+    // Fetch user contribution SVG with purple base palette
+    fetch("https://ghchart.rshah.org/a855f7/kashumadesu")
       .then((res) => res.text())
       .then((data) => {
         setSvgContent(data);
@@ -16,10 +16,10 @@ export default function GithubGraph() {
   }, []);
 
   return (
-    <section id="github" className="bg-[#15111E] border border-purple-950/60 rounded-3xl p-6 md:p-8 space-y-4 scroll-mt-24">
+    <section id="github" className="bg-[#15111E] border border-purple-950/60 rounded-3xl p-6 md:p-8 space-y-4 scroll-mt-24 shadow-xl">
       <div className="flex items-center justify-between pb-1">
         <h2 className="text-xl font-bold text-white flex items-center gap-2">
-         GitHub Activity
+          GitHub Activity
         </h2>
         <a
           href="https://github.com/kashumadesu"
@@ -42,7 +42,7 @@ export default function GithubGraph() {
           />
         ) : (
           <img
-            src="https://ghchart.rshah.org/39d353/kashumadesu"
+            src="https://ghchart.rshah.org/a855f7/kashumadesu"
             alt="GitHub Contributions Chart"
             className="w-full max-w-4xl"
           />

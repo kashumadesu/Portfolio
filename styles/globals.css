@@ -30,7 +30,7 @@ body {
   background: #581C87;
 }
 
-/* Custom GitHub Graph Wireframe Outlines */
+/* Custom GitHub Graph Wireframe & Purple Theme */
 .custom-github-wireframe svg {
   width: 100% !important;
   height: auto !important;
@@ -38,23 +38,54 @@ body {
 }
 
 .custom-github-wireframe text {
-  fill: #9ca3af !important;
+  fill: #c084fc !important;
   font-family: monospace, sans-serif !important;
   font-size: 9px !important;
 }
 
-/* Base outline for empty days */
+/* 0 Activity: Pure Black with subtle purple border */
 .custom-github-wireframe rect[fill="#ebedf0"],
 .custom-github-wireframe rect[fill="#eeeeee"],
-.custom-github-wireframe rect[fill="#ffffff"] {
+.custom-github-wireframe rect[fill="#ffffff"],
+.custom-github-wireframe rect[fill="#161b22"] {
   fill: #050308 !important;
-  stroke: rgba(255, 255, 255, 0.75) !important;
+  stroke: rgba(168, 85, 247, 0.25) !important;
   stroke-width: 1px !important;
   rx: 2px !important;
 }
 
-/* Green highlight days */
-.custom-github-wireframe rect:not([fill="#ebedf0"]):not([fill="#eeeeee"]):not([fill="#ffffff"]):not([fill="#050308"]) {
+/* Light Activity: Soft Light Purple */
+.custom-github-wireframe rect[fill="#ead6fd"],
+.custom-github-wireframe rect[fill="#e9d5ff"],
+.custom-github-wireframe rect[fill="#d8bbf7"] {
+  fill: #e9d5ff !important;
+  stroke: none !important;
+  rx: 2px !important;
+}
+
+/* Moderate Activity: Lavender Purple */
+.custom-github-wireframe rect[fill="#d5adfb"],
+.custom-github-wireframe rect[fill="#c084fc"],
+.custom-github-wireframe rect[fill="#b176ef"] {
+  fill: #c084fc !important;
+  stroke: none !important;
+  rx: 2px !important;
+}
+
+/* Heavy Activity: Vibrant Purple */
+.custom-github-wireframe rect[fill="#c085f9"],
+.custom-github-wireframe rect[fill="#a855f7"],
+.custom-github-wireframe rect[fill="#8a32e7"] {
+  fill: #a855f7 !important;
+  stroke: none !important;
+  rx: 2px !important;
+}
+
+/* Highest Activity: Deep Violet */
+.custom-github-wireframe rect[fill="#9333ea"],
+.custom-github-wireframe rect[fill="#7e22ce"],
+.custom-github-wireframe rect[fill="#6b21a8"] {
+  fill: #9333ea !important;
   stroke: none !important;
   rx: 2px !important;
 }
