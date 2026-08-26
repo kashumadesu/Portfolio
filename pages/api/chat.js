@@ -49,7 +49,7 @@ export default async function handler(req) {
         system_instruction: {
           parts: [
             {
-              text: `${PORTFOLIO_CONTEXT}\n\nStyle Guide: Be direct, helpful, and concise. Avoid unnecessary filler.`,
+              text: `${PORTFOLIO_CONTEXT}\n\nInstructions: Provide fast, concise, conversational answers based strictly on Michael's profile. Limit answers to 1-3 sentences.`,
             },
           ],
         },
@@ -60,8 +60,11 @@ export default async function handler(req) {
           },
         ],
         generationConfig: {
-          temperature: 0.3,
-          maxOutputTokens: 600,
+          temperature: 0.2,
+          maxOutputTokens: 300,
+          thinkingConfig: {
+            thinkingBudget: 0,
+          },
         },
       }),
     });
@@ -76,7 +79,6 @@ export default async function handler(req) {
       );
     }
 
-    // Stream the incoming text chunks straight to the front-end client
     const encoder = new TextEncoder();
     const decoder = new TextDecoder();
 
@@ -92,7 +94,7 @@ export default async function handler(req) {
 
             buffer += decoder.decode(value, { stream: true });
             const lines = buffer.split("\n");
-            buffer = lines.pop(); // keep remainder
+            buffer = lines.pop();
 
             for (const line of lines) {
               if (line.startsWith("data: ")) {
@@ -107,7 +109,7 @@ export default async function handler(req) {
                     controller.enqueue(encoder.encode(chunkText));
                   }
                 } catch {
-                  // Ignore partial parsing ticks
+                  // Ignore partial chunks
                 }
               }
             }
