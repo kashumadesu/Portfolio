@@ -80,11 +80,11 @@ export default function Home() {
 
   return (
     <div className="relative min-h-screen bg-[#0B090E] text-[#E9D5FF]">
-      {/* Dynamic Cursor Glow Backdrop */}
+     {/* Tight Deep Glow-in-the-Dark Purple Aura */}
       <div
-        className="fixed inset-0 pointer-events-none z-0 transition-opacity duration-300 hidden md:block"
+        className="fixed inset-0 pointer-events-none z-0 hidden md:block"
         style={{
-          background: `radial-gradient(220px circle at ${mousePos.x}px ${mousePos.y}px, rgba(147, 51, 234, 0.28) 0%, rgba(88, 28, 135, 0.18) 40%, rgba(15, 7, 26, 0.05) 75%, transparent 100%)`,
+          background: `radial-gradient(110px circle at ${mousePos.x}px ${mousePos.y}px, rgba(168, 85, 247, 0.45) 0%, rgba(126, 34, 206, 0.35) 30%, rgba(59, 7, 100, 0.2) 65%, transparent 100%)`,
         }}
       />
 
