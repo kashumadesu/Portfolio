@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import GithubGraph from "../components/GithubGraph";
 import Certifications from "../components/Certifications";
@@ -8,6 +8,18 @@ import WaveBackground from "../components/WaveBackground";
 export default function Home() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [isContactOpen, setIsContactOpen] = useState(false);
+
+  // Dynamic Ambient Mouse Tracker
+  const [mousePos, setMousePos] = useState({ x: -1000, y: -1000 });
+
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      setMousePos({ x: e.clientX, y: e.clientY });
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
 
   const [selectedSkill, setSelectedSkill] = useState({
     name: "Interactive Skills",
@@ -68,6 +80,14 @@ export default function Home() {
 
   return (
     <div className="relative min-h-screen bg-[#0B090E] text-[#E9D5FF]">
+      {/* Dynamic Cursor Glow Backdrop */}
+      <div
+        className="fixed inset-0 pointer-events-none z-0 transition-opacity duration-300 hidden md:block"
+        style={{
+          background: `radial-gradient(600px circle at ${mousePos.x}px ${mousePos.y}px, rgba(168, 85, 247, 0.12), transparent 80%)`,
+        }}
+      />
+
       {/* 1. Global Full-Screen Background Wave */}
       <div className="fixed inset-0 pointer-events-none z-0">
         <WaveBackground />
@@ -256,43 +276,39 @@ export default function Home() {
                       <span>LET&apos;S CONNECT:</span>
                     </div>
 
-                    <div className="grid grid-cols-3 gap-2 text-xs font-mono">
+                    <div className="grid grid-cols-4 gap-1.5 text-[11px] font-mono">
                       <a
                         href="mailto:michaelapril81416@gmail.com?subject=Project%20Inquiry%20/%20Collaboration"
-                        className="flex items-center justify-center gap-1 py-1.5 bg-[#1A1424] hover:bg-purple-900/60 border border-purple-900/80 text-purple-200 hover:text-white transition text-center"
+                        className="flex items-center justify-center py-1.5 bg-[#1A1424] hover:bg-purple-900/60 border border-purple-900/80 text-purple-200 hover:text-white transition text-center"
                       >
-                        <svg className="w-3.5 h-3.5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                        </svg>
-                        <span>Email</span>
-                      </a>
-
-                      <a
-                        href="https://linkedin.com"
-                        target="_blank"
-                        rel="noreferrer"
-                        className="flex items-center justify-center gap-1 py-1.5 bg-[#1A1424] hover:bg-purple-900/60 border border-purple-900/80 text-purple-200 hover:text-white transition text-center"
-                      >
-                        <svg className="w-3.5 h-3.5 text-purple-400" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-                        </svg>
-                        <span>LinkedIn</span>
+                        Email
                       </a>
 
                       <a
                         href="https://github.com/kashumadesu"
                         target="_blank"
                         rel="noreferrer"
-                        className="flex items-center justify-center gap-1 py-1.5 bg-[#1A1424] hover:bg-purple-900/60 border border-purple-900/80 text-purple-200 hover:text-white transition text-center"
+                        className="flex items-center justify-center py-1.5 bg-[#1A1424] hover:bg-purple-900/60 border border-purple-900/80 text-purple-200 hover:text-white transition text-center"
                       >
-                        <svg className="w-3.5 h-3.5 text-purple-400" fill="currentColor" viewBox="0 0 24 24">
-                          <path
-                            fillRule="evenodd"
-                            clipRule="evenodd"
-                            d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
-                          />
-                        </svg>
-                        <span>GitHub</span>
+                        GitHub
+                      </a>
+
+                      <a
+                        href="https://www.instagram.com/emmmzs_/"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="flex items-center justify-center py-1.5 bg-[#1A1424] hover:bg-purple-900/60 border border-purple-900/80 text-purple-200 hover:text-white transition text-center"
+                      >
+                        IG
+                      </a>
+
+                      <a
+                        href="https://www.facebook.com/michaelboquiron24"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="flex items-center justify-center py-1.5 bg-[#1A1424] hover:bg-purple-900/60 border border-purple-900/80 text-purple-200 hover:text-white transition text-center"
+                      >
+                        FB
                       </a>
                     </div>
                   </div>
@@ -673,101 +689,100 @@ export default function Home() {
         </div>
       </main>
 
-          {/* 4. Contact Pop-up Modal (Cyber Frame & Sharp Edges) */}
-          {isContactOpen && (
-            <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-in fade-in duration-200">
-              <div className="relative w-full max-w-lg bg-[#110D1A] border-2 border-purple-500/50 p-6 md:p-8 shadow-2xl shadow-purple-950/80 space-y-6">
-                
-                {/* Outer Cyber Corner Brackets */}
-                <span className="!m-0 absolute -top-[2px] -left-[2px] w-4 h-4 border-t-2 border-l-2 border-purple-400 pointer-events-none z-30" />
-                <span className="!m-0 absolute -top-[2px] -right-[2px] w-4 h-4 border-t-2 border-r-2 border-purple-400 pointer-events-none z-30" />
-                <span className="!m-0 absolute -bottom-[2px] -left-[2px] w-4 h-4 border-b-2 border-l-2 border-purple-400 pointer-events-none z-30" />
-                <span className="!m-0 absolute -bottom-[2px] -right-[2px] w-4 h-4 border-b-2 border-r-2 border-purple-400 pointer-events-none z-30" />
+      {/* 4. Contact Pop-up Modal (Cyber Frame & Sharp Edges) */}
+      {isContactOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-in fade-in duration-200">
+          <div className="relative w-full max-w-lg bg-[#110D1A] border-2 border-purple-500/50 p-6 md:p-8 shadow-2xl shadow-purple-950/80 space-y-6">
+            {/* Outer Cyber Corner Brackets */}
+            <span className="!m-0 absolute -top-[2px] -left-[2px] w-4 h-4 border-t-2 border-l-2 border-purple-400 pointer-events-none z-30" />
+            <span className="!m-0 absolute -top-[2px] -right-[2px] w-4 h-4 border-t-2 border-r-2 border-purple-400 pointer-events-none z-30" />
+            <span className="!m-0 absolute -bottom-[2px] -left-[2px] w-4 h-4 border-b-2 border-l-2 border-purple-400 pointer-events-none z-30" />
+            <span className="!m-0 absolute -bottom-[2px] -right-[2px] w-4 h-4 border-b-2 border-r-2 border-purple-400 pointer-events-none z-30" />
 
-                {/* Modal Header & Close Button */}
-                <div className="flex items-start justify-between border-b border-purple-950/80 pb-4">
-                  <div>
-                    <span className="text-[10px] font-mono text-purple-400 uppercase tracking-widest block">Direct Channel</span>
-                    <h3 className="text-2xl font-black text-white tracking-tight uppercase">Let&apos;s Connect</h3>
-                    <p className="text-xs font-mono text-purple-300/80 mt-1">
-                      Reach out directly across any of my active networks.
-                    </p>
-                  </div>
-                  <button
-                    onClick={() => setIsContactOpen(false)}
-                    className="relative px-2.5 py-1 bg-[#1A1424] hover:bg-purple-900/60 border border-purple-700/60 hover:border-purple-400 text-purple-300 hover:text-white font-mono text-xs transition"
-                    aria-label="Close Contact Modal"
-                  >
-                    ✕ ESC
-                  </button>
-                </div>
-
-                {/* Sharp Edge Links List */}
-                <div className="space-y-2.5 font-mono text-xs">
-                  {/* 1. Gmail */}
-                  <a
-                    href="mailto:michaelapril81416@gmail.com?subject=Project%20Inquiry%20/%20Collaboration"
-                    className="group relative flex items-center justify-between p-3 bg-[#161122] hover:bg-purple-950/60 border border-purple-900/60 hover:border-purple-400 text-purple-200 hover:text-white transition"
-                  >
-                    <div className="flex items-center gap-2.5">
-                      <span className="w-2 h-2 bg-emerald-400 animate-pulse"></span>
-                      <span className="font-bold tracking-wider uppercase">Gmail</span>
-                    </div>
-                    <span className="text-purple-400 group-hover:text-purple-200">michaelapril81416@gmail.com &rarr;</span>
-                  </a>
-
-                  {/* 2. GitHub */}
-                  <a
-                    href="https://github.com/kashumadesu"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="group relative flex items-center justify-between p-3 bg-[#161122] hover:bg-purple-950/60 border border-purple-900/60 hover:border-purple-400 text-purple-200 hover:text-white transition"
-                  >
-                    <span className="font-bold tracking-wider uppercase">GitHub</span>
-                    <span className="text-purple-400 group-hover:text-purple-200">@kashumadesu &rarr;</span>
-                  </a>
-
-                  {/* 3. Instagram */}
-                  <a
-                    href="https://www.instagram.com/emmmzs_/"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="group relative flex items-center justify-between p-3 bg-[#161122] hover:bg-purple-950/60 border border-purple-900/60 hover:border-purple-400 text-purple-200 hover:text-white transition"
-                  >
-                    <span className="font-bold tracking-wider uppercase">Instagram</span>
-                    <span className="text-purple-400 group-hover:text-purple-200">@emmmzs_ &rarr;</span>
-                  </a>
-
-                  {/* 4. Facebook */}
-                  <a
-                    href="https://www.facebook.com/michaelboquiron24"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="group relative flex items-center justify-between p-3 bg-[#161122] hover:bg-purple-950/60 border border-purple-900/60 hover:border-purple-400 text-purple-200 hover:text-white transition"
-                  >
-                    <span className="font-bold tracking-wider uppercase">Facebook</span>
-                    <span className="text-purple-400 group-hover:text-purple-200">/michaelboquiron24 &rarr;</span>
-                  </a>
-
-                  {/* 5. LinkedIn (Placeholder) */}
-                  <div className="flex items-center justify-between p-3 bg-[#161122]/40 border border-purple-950/40 text-purple-400/50 select-none">
-                    <span className="font-bold tracking-wider uppercase">LinkedIn</span>
-                    <span className="text-[10px] tracking-widest uppercase">Coming Soon</span>
-                  </div>
-
-                  {/* 6. Download CV */}
-                  <a
-                    href="/resume.pdf"
-                    download="Michael_Boquiron_CV.pdf"
-                    className="group relative flex items-center justify-between p-3 bg-purple-950/80 hover:bg-purple-900 border border-purple-500/70 hover:border-purple-300 text-purple-100 hover:text-white transition shadow-lg shadow-purple-950/60"
-                  >
-                    <span className="font-bold tracking-wider uppercase">Download Resume / CV</span>
-                    <span className="text-purple-300 group-hover:text-white font-bold">PDF &darr;</span>
-                  </a>
-                </div>
+            {/* Modal Header & Close Button */}
+            <div className="flex items-start justify-between border-b border-purple-950/80 pb-4">
+              <div>
+                <span className="text-[10px] font-mono text-purple-400 uppercase tracking-widest block">Direct Channel</span>
+                <h3 className="text-2xl font-black text-white tracking-tight uppercase">Let&apos;s Connect</h3>
+                <p className="text-xs font-mono text-purple-300/80 mt-1">
+                  Reach out directly across any of my active networks.
+                </p>
               </div>
+              <button
+                onClick={() => setIsContactOpen(false)}
+                className="relative px-2.5 py-1 bg-[#1A1424] hover:bg-purple-900/60 border border-purple-700/60 hover:border-purple-400 text-purple-300 hover:text-white font-mono text-xs transition"
+                aria-label="Close Contact Modal"
+              >
+                ✕ ESC
+              </button>
             </div>
-          )}
+
+            {/* Sharp Edge Links List */}
+            <div className="space-y-2.5 font-mono text-xs">
+              {/* 1. Gmail */}
+              <a
+                href="mailto:michaelapril81416@gmail.com?subject=Project%20Inquiry%20/%20Collaboration"
+                className="group relative flex items-center justify-between p-3 bg-[#161122] hover:bg-purple-950/60 border border-purple-900/60 hover:border-purple-400 text-purple-200 hover:text-white transition"
+              >
+                <div className="flex items-center gap-2.5">
+                  <span className="w-2 h-2 bg-emerald-400 animate-pulse"></span>
+                  <span className="font-bold tracking-wider uppercase">Gmail</span>
+                </div>
+                <span className="text-purple-400 group-hover:text-purple-200">michaelapril81416@gmail.com &rarr;</span>
+              </a>
+
+              {/* 2. GitHub */}
+              <a
+                href="https://github.com/kashumadesu"
+                target="_blank"
+                rel="noreferrer"
+                className="group relative flex items-center justify-between p-3 bg-[#161122] hover:bg-purple-950/60 border border-purple-900/60 hover:border-purple-400 text-purple-200 hover:text-white transition"
+              >
+                <span className="font-bold tracking-wider uppercase">GitHub</span>
+                <span className="text-purple-400 group-hover:text-purple-200">@kashumadesu &rarr;</span>
+              </a>
+
+              {/* 3. Instagram */}
+              <a
+                href="https://www.instagram.com/emmmzs_/"
+                target="_blank"
+                rel="noreferrer"
+                className="group relative flex items-center justify-between p-3 bg-[#161122] hover:bg-purple-950/60 border border-purple-900/60 hover:border-purple-400 text-purple-200 hover:text-white transition"
+              >
+                <span className="font-bold tracking-wider uppercase">Instagram</span>
+                <span className="text-purple-400 group-hover:text-purple-200">@emmmzs_ &rarr;</span>
+              </a>
+
+              {/* 4. Facebook */}
+              <a
+                href="https://www.facebook.com/michaelboquiron24"
+                target="_blank"
+                rel="noreferrer"
+                className="group relative flex items-center justify-between p-3 bg-[#161122] hover:bg-purple-950/60 border border-purple-900/60 hover:border-purple-400 text-purple-200 hover:text-white transition"
+              >
+                <span className="font-bold tracking-wider uppercase">Facebook</span>
+                <span className="text-purple-400 group-hover:text-purple-200">/michaelboquiron24 &rarr;</span>
+              </a>
+
+              {/* 5. LinkedIn (Placeholder) */}
+              <div className="flex items-center justify-between p-3 bg-[#161122]/40 border border-purple-950/40 text-purple-400/50 select-none">
+                <span className="font-bold tracking-wider uppercase">LinkedIn</span>
+                <span className="text-[10px] tracking-widest uppercase">Coming Soon</span>
+              </div>
+
+              {/* 6. Download CV */}
+              <a
+                href="/resume.pdf"
+                download="Michael_Boquiron_CV.pdf"
+                className="group relative flex items-center justify-between p-3 bg-purple-950/80 hover:bg-purple-900 border border-purple-500/70 hover:border-purple-300 text-purple-100 hover:text-white transition shadow-lg shadow-purple-950/60"
+              >
+                <span className="font-bold tracking-wider uppercase">Download Resume / CV</span>
+                <span className="text-purple-300 group-hover:text-white font-bold">PDF &darr;</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Floating Interactive Chat Assistant */}
       <ChatBot />
