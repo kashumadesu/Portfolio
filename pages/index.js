@@ -618,11 +618,12 @@ export default function Home() {
             </div>
           </section>
 
-          {/* 5. GITHUB ACTIVITY GRAPH */}
-          <GithubGraph />
 
-          {/* 6. VERIFIED CERTIFICATIONS & CREDENTIALS */}
+          {/* 5. VERIFIED CERTIFICATIONS & CREDENTIALS */}
           <Certifications />
+
+          {/* 6. GITHUB ACTIVITY GRAPH */}
+          <GithubGraph />
 
           {/* 7. PUBLIC CONTACT FOOTER */}
           <footer id="contact" className="bg-[#15111E] border border-purple-950/60 rounded-3xl p-8 text-center space-y-4 scroll-mt-24">
