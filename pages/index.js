@@ -26,18 +26,24 @@ export default function Home() {
   ];
 
   return (
-    <>
-      <Navbar />
+        <div className="relative min-h-screen bg-[#0B090E] text-[#E9D5FF] overflow-x-hidden">
+          {/* 1. Global Full-Screen Background Wave */}
+          <div className="fixed inset-0 pointer-events-none z-0">
+            <WaveBackground />
+          </div>
 
-      <main className="min-h-screen bg-[#0B090E] text-[#E9D5FF] px-4 py-8 md:px-12 md:py-16 font-sans">
-        <div className="max-w-6xl mx-auto space-y-8">
+          {/* 2. Navbar on top */}
+          <div className="relative z-20">
+            <Navbar />
+          </div>
+
+          {/* 3. Main Content on top of background */}
+          <main className="relative z-10 px-4 py-8 md:px-12 md:py-16 font-sans">
+            <div className="max-w-6xl mx-auto space-y-8">
 
           {/* 1. HERO / LANDING SECTION */}
-          <header id="home" className="relative overflow-hidden bg-[#15111E] border border-purple-950/60 rounded-3xl p-6 md:p-10 scroll-mt-24">
-            {/* Live Wave Canvas */}
-            <WaveBackground />
-
-            <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
+          <header id="home" className="bg-[#15111E] border border-purple-950/60 rounded-3xl p-6 md:p-10 scroll-mt-24">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
               
               {/* Left Column: Full-Height Flex Container with Bottom-Locked Stats */}
               <div className="lg:col-span-7 flex flex-col justify-between py-1 space-y-6">
@@ -52,7 +58,7 @@ export default function Home() {
                       Open for PM &amp; IT Roles
                     </span>
                   </div>
-                  
+
                   {/* Name & Titles */}
                   <div className="space-y-3">
                     <p className="text-xs font-mono text-purple-400 font-bold uppercase tracking-widest">
@@ -652,6 +658,6 @@ export default function Home() {
       </main>
       {/* Floating Interactive Chat Assistant */}
       <ChatBot />
-    </>
+    </div>
   );
 }
