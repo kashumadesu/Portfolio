@@ -1,235 +1,218 @@
-// components/Certifications.jsx
 import { useState } from "react";
 
 export const CERTIFICATIONS_DATA = [
-  // --- Competition & Academic Recognition ---
+  // --- TIER 1: FEATURED SPOTLIGHT ---
+  {
+    title: "Oracle Fusion AI Agent Studio Certified Foundations Associate",
+    issuer: "Oracle University",
+    date: "Aug 21, 2026",
+    credentialId: "330851752OFAASOFA",
+    type: "Enterprise AI",
+    category: "AI & Cloud",
+    badge: "🌟 Featured",
+    isFeatured: true,
+    description: "Foundational architecture, enterprise autonomous agent workflows, and AI orchestration."
+  },
+  {
+    title: "Algorithms Mastery (Legend Level)",
+    issuer: "CodinGame by CoderPad",
+    date: "Nov 01, 2024",
+    credentialId: "10635872",
+    type: "Problem Solving",
+    category: "Software Dev",
+    badge: "🏆 Top Rank",
+    isFeatured: true,
+    description: "Mastery in graph theory, dynamic programming, encryption, and algorithm optimization."
+  },
   {
     title: "2nd Runner Up – Booth Fair Competition",
-    issuer: "Our Lady of Fatima University (CCS Week 2026)",
-    date: "March 11, 2026",
+    issuer: "OLFU CCS Week 2026",
+    date: "Mar 11, 2026",
     recipient: "CIRCU5",
     type: "Award",
     category: "Awards",
-    description: "Awarded 2nd Runner Up for the interactive booth showcase under the theme 'Cultivating Competent Specialists: Excellence in Every Byte'."
-  },
-
-  // --- AI & Cloud Foundations ---
-  {
-    title: "Oracle Fusion AI Agent Studio Certified Foundations Associate - Rel 1",
-    issuer: "Oracle University",
-    date: "August 21, 2026",
-    credentialId: "330851752OFAASOFA",
-    type: "Certification",
-    category: "AI & Cloud",
-    description: "Foundational mastery in building and deploying autonomous AI agents and enterprise automation workflows within Oracle Fusion AI Agent Studio."
-  },
-  {
-    title: "Agentic AI Certified Foundations Associate",
-    issuer: "Oracle University",
-    date: "August 21, 2026",
-    credentialId: "330851752AA126OFA",
-    type: "Certification",
-    category: "AI & Cloud",
-    description: "Architectural foundations of Agentic AI, multi-agent systems, decision loops, and enterprise AI orchestration."
-  },
-  {
-    title: "AI for Beginners",
-    issuer: "HP LIFE Foundation",
-    date: "August 21, 2026",
-    credentialId: "71c3bc87-40c7-462b-b331-abd180509181",
-    type: "Course",
-    category: "AI & Cloud",
-    description: "Core concepts of artificial intelligence, data pipelines, business applications, and ethical implications."
-  },
-
-  // --- Software Engineering & Problem Solving ---
-  {
-    title: "Algorithms Certification (Legend Level)",
-    issuer: "CodinGame by CoderPad",
-    date: "November 1, 2024",
-    credentialId: "10635872",
-    type: "Assessment",
-    category: "Software Dev",
-    description: "Achieved Legend Level mastery in complex algorithms, graph manipulation, dynamic programming, image processing, and cryptography."
-  },
-  {
-    title: "JavaScript Problem Solving (With Honors)",
-    issuer: "CodinGame by CoderPad",
-    date: "August 22, 2026",
-    credentialId: "10635873",
-    type: "Assessment",
-    category: "Software Dev",
-    description: "Recognized with Honors for advanced algorithmic logic, asynchronous operations, and JavaScript problem-solving."
-  },
-  {
-    title: "Python 3 Problem Solving (With Honors)",
-    issuer: "CodinGame by CoderPad",
-    date: "August 22, 2026",
-    credentialId: "10635874",
-    type: "Assessment",
-    category: "Software Dev",
-    description: "Recognized with Honors in Python 3 data structures, functional paradigms, and algorithm optimization."
-  },
-  {
-    title: "Java Problem Solving",
-    issuer: "CodinGame by CoderPad",
-    date: "August 22, 2026",
-    credentialId: "10635871",
-    type: "Assessment",
-    category: "Software Dev",
-    description: "Demonstrated full capability in object-oriented programming, data structures, and core Java problem solving."
-  },
-  {
-    title: "Foundational C# with Microsoft",
-    issuer: "freeCodeCamp & Microsoft",
-    date: "August 22, 2026",
-    verifyUrl: "https://freecodecamp.org/certification/fcc-92d2c182-fe65-4271-ba2c-f6b89faadee2/foundational-c-sharp-with-microsoft",
-    type: "Certification",
-    category: "Software Dev",
-    description: "Core .NET ecosystem and C# concepts including OOP, collection types, error handling, and console architecture."
-  },
-  {
-    title: "Front-End Development Libraries (~300 Hours)",
-    issuer: "freeCodeCamp",
-    date: "August 22, 2026",
-    verifyUrl: "https://freecodecamp.org/certification/fcc-92d2c182-fe65-4271-ba2c-f6b89faadee2/front-end-development-libraries-v9",
-    type: "Certification",
-    category: "Software Dev",
-    description: "Hands-on mastery of front-end UI libraries and tools including React, Redux, Sass, Bootstrap, and jQuery."
-  },
-  {
-    title: "Responsive Web Design (~300 Hours)",
-    issuer: "freeCodeCamp",
-    date: "August 22, 2026",
-    verifyUrl: "https://freecodecamp.org/certification/fcc-92d2c182-fe65-4271-ba2c-f6b89faadee2/responsive-web-design-v9",
-    type: "Certification",
-    category: "Software Dev",
-    description: "Modern HTML5 semantic architecture, advanced CSS3 Flexbox/Grid layouts, accessible UI design, and responsive viewports."
-  },
-
-  // --- Cisco Networking Academy Specializations ---
-  {
-    title: "Network Defense",
-    issuer: "Cisco Networking Academy / OLFU",
-    date: "March 13, 2026",
-    type: "Academy Cert",
-    category: "Networking & Security",
-    description: "Network defense methodologies, security auditing, threat detection, perimeter protection, and defensive policy implementation."
-  },
-  {
-    title: "Network Support and Security",
-    issuer: "Cisco Networking Academy / OLFU",
-    date: "February 03, 2026",
-    type: "Academy Cert",
-    category: "Networking & Security",
-    description: "Enterprise network maintenance, diagnostic troubleshooting, hardware configuration, and secure access protocols."
-  },
-  {
-    title: "Networking Basics",
-    issuer: "Cisco Networking Academy / OLFU",
-    date: "December 12, 2025",
-    type: "Academy Cert",
-    category: "Networking & Security",
-    description: "Fundamental networking protocols, OSI and TCP/IP reference architectures, IP addressing, and network topologies."
-  },
-  {
-    title: "Networking Devices and Initial Configuration",
-    issuer: "Cisco Networking Academy / OLFU",
-    date: "October 29, 2025",
-    type: "Academy Cert",
-    category: "Networking & Security",
-    description: "Initial setup, basic IOS commands, CLI device management, and secure baseline configuration for switches and routers."
-  },
-  {
-    title: "Network Addressing and Basic Troubleshooting",
-    issuer: "Cisco Networking Academy / OLFU",
-    date: "September 23, 2025",
-    type: "Academy Cert",
-    category: "Networking & Security",
-    description: "IPv4 and IPv6 subnetting schemes, variable length subnet masking (VLSM), and systematic network connectivity troubleshooting."
-  },
-
-  // --- Project Management & Governance ---
-  {
-    title: "Agile Project Management",
-    issuer: "HP LIFE Foundation",
-    date: "March 13, 2026",
-    credentialId: "7c507744-a26c-4859-94b2-295537363050",
-    type: "Course",
-    category: "Project Management",
-    description: "Practical application of Agile frameworks (Scrum, Kanban), MVP definition, iterative product lifecycles, and team velocity."
+    badge: "🥈 Academic Award",
+    isFeatured: true,
+    description: "Awarded 2nd Runner Up for project showcase under theme 'Cultivating Competent Specialists'."
   },
   {
     title: "Project Management Fundamentals",
     issuer: "IBM SkillsBuild",
-    date: "August 21, 2026",
+    date: "Aug 21, 2026",
     verifyUrl: "https://www.credly.com/go/fyEwd9Vj",
     type: "Digital Badge",
     category: "Project Management",
-    description: "Core project governance, Agile and waterfall methodologies, lifecycle management, risk assessment, and resource allocation."
+    badge: "📜 Industry Badge",
+    isFeatured: true,
+    description: "Agile methodologies, sprint scoping, risk matrices, and full lifecycle execution."
+  },
+
+  // --- TIER 2 & 3: SPECIALIZATIONS & TRACKS ---
+  {
+    title: "Agentic AI Certified Foundations Associate",
+    issuer: "Oracle University",
+    date: "Aug 21, 2026",
+    credentialId: "330851752AA126OFA",
+    type: "Certification",
+    category: "AI & Cloud",
+    description: "Multi-agent systems, decision loops, and autonomous AI agents."
+  },
+  {
+    title: "JavaScript Problem Solving (With Honors)",
+    issuer: "CodinGame by CoderPad",
+    date: "Aug 22, 2026",
+    credentialId: "10635873",
+    type: "Assessment",
+    category: "Software Dev",
+    description: "Honors distinction in asynchronous workflows, closures, and algorithmic execution."
+  },
+  {
+    title: "Python 3 Problem Solving (With Honors)",
+    issuer: "CodinGame by CoderPad",
+    date: "Aug 22, 2026",
+    credentialId: "10635874",
+    type: "Assessment",
+    category: "Software Dev",
+    description: "Honors distinction in Python functional data structures and algorithm speed."
+  },
+  {
+    title: "Foundational C# with Microsoft",
+    issuer: "freeCodeCamp & Microsoft",
+    date: "Aug 22, 2026",
+    verifyUrl: "https://freecodecamp.org/certification/fcc-92d2c182-fe65-4271-ba2c-f6b89faadee2/foundational-c-sharp-with-microsoft",
+    type: "Certification",
+    category: "Software Dev",
+    description: "Core .NET ecosystem, object-oriented concepts, and console systems."
+  },
+  {
+    title: "Front-End Development Libraries (~300h)",
+    issuer: "freeCodeCamp",
+    date: "Aug 22, 2026",
+    verifyUrl: "https://freecodecamp.org/certification/fcc-92d2c182-fe65-4271-ba2c-f6b89faadee2/front-end-development-libraries-v9",
+    type: "Certification",
+    category: "Software Dev",
+    description: "Hands-on UI architecture with React, Redux, Sass, Bootstrap, and modern DOM."
+  },
+  {
+    title: "Responsive Web Design (~300h)",
+    issuer: "freeCodeCamp",
+    date: "Aug 22, 2026",
+    verifyUrl: "https://freecodecamp.org/certification/fcc-92d2c182-fe65-4271-ba2c-f6b89faadee2/responsive-web-design-v9",
+    type: "Certification",
+    category: "Software Dev",
+    description: "Semantic HTML5 structure, CSS Grid/Flexbox layouts, and UX accessibility."
+  },
+  {
+    title: "Java Problem Solving",
+    issuer: "CodinGame by CoderPad",
+    date: "Aug 22, 2026",
+    credentialId: "10635871",
+    type: "Assessment",
+    category: "Software Dev",
+    description: "OOP architecture, memory management, and data structures."
+  },
+  {
+    title: "Network Defense",
+    issuer: "Cisco Networking Academy / OLFU",
+    date: "Mar 13, 2026",
+    type: "Cisco Academy",
+    category: "Networking & Security",
+    description: "Perimeter security auditing, threat detection, and defense policies."
+  },
+  {
+    title: "Network Support and Security",
+    issuer: "Cisco Networking Academy / OLFU",
+    date: "Feb 03, 2026",
+    type: "Cisco Academy",
+    category: "Networking & Security",
+    description: "Hardware diagnostics, network maintenance, and authentication controls."
+  },
+  {
+    title: "Networking Basics",
+    issuer: "Cisco Networking Academy / OLFU",
+    date: "Dec 12, 2025",
+    type: "Cisco Academy",
+    category: "Networking & Security",
+    description: "OSI/TCP-IP reference layers, IP routing, and subnet topologies."
+  },
+  {
+    title: "Networking Devices & Initial Config",
+    issuer: "Cisco Networking Academy / OLFU",
+    date: "Oct 29, 2025",
+    type: "Cisco Academy",
+    category: "Networking & Security",
+    description: "Cisco IOS CLI management and secure baseline configuration."
+  },
+  {
+    title: "Network Addressing & Troubleshooting",
+    issuer: "Cisco Networking Academy / OLFU",
+    date: "Sep 23, 2025",
+    type: "Cisco Academy",
+    category: "Networking & Security",
+    description: "IPv4/IPv6 subnetting, VLSM schemes, and protocol troubleshooting."
+  },
+  {
+    title: "Agile Project Management",
+    issuer: "HP LIFE Foundation",
+    date: "Mar 13, 2026",
+    credentialId: "7c507744-a26c-4859-94b2-295537363050",
+    type: "Course",
+    category: "Project Management",
+    description: "Scrum & Kanban implementation, iterative releases, and sprint velocity."
   },
   {
     title: "OPEN Module 1: Project Initiation",
     issuer: "Center for Project Innovation",
-    date: "August 22, 2026",
+    date: "Aug 22, 2026",
     credentialId: "Paul Muller CPD",
-    type: "Training",
+    type: "CPD 10-Hr",
     category: "Project Management",
-    description: "10-hour mastery in Project Frameworks, Stakeholder Management, Project Selection Criteria, and Strategic Communications."
+    description: "Stakeholder analysis, feasibility scoping, and project governance frameworks."
   },
   {
     title: "Introduction to Project Cycle Management",
-    issuer: "International Training Centre (ITC-ILO)",
-    date: "August 21, 2026",
+    issuer: "ITC-ILO",
+    date: "Aug 21, 2026",
     credentialId: "192102544",
     type: "Training",
     category: "Project Management",
-    description: "Strategic project cycle planning, Logical Framework Matrix design, milestone tracking, and stakeholder evaluation."
+    description: "Logical framework matrices, impact analysis, and monitoring."
   },
   {
-    title: "Project Management Fundamentals",
-    issuer: "Center of Applied Project Management",
-    date: "August 2026",
+    title: "AI for Beginners",
+    issuer: "HP LIFE Foundation",
+    date: "Aug 21, 2026",
+    credentialId: "71c3bc87-40c7-462b-b331-abd180509181",
     type: "Course",
-    category: "Project Management",
-    description: "Core project execution principles, scoping, delivery milestones, and operational best practices."
+    category: "AI & Cloud",
+    description: "Fundamental AI data pipelines, practical business use cases, and ethics."
   },
-
-  // --- Data, Security & Business IT ---
   {
     title: "Data Science & Analytics",
     issuer: "HP LIFE Foundation",
-    date: "August 21, 2026",
+    date: "Aug 21, 2026",
     credentialId: "75ac7725-eaa8-4788-bcdd-884c7c47b198",
     type: "Course",
     category: "IT & Infrastructure",
-    description: "Data-driven decision making, exploratory analytics, statistical methods, and visualization tools."
+    description: "Exploratory analytics, statistical evaluation, and data-driven methods."
   },
   {
     title: "Introduction to Cybersecurity Awareness",
     issuer: "HP LIFE Foundation",
-    date: "August 21, 2026",
+    date: "Aug 21, 2026",
     credentialId: "5b990800-e5a8-4acd-bfba-5fdb2753c11d",
     type: "Course",
     category: "IT & Infrastructure",
-    description: "Cyber threat identification, defense strategies, digital hygiene, and organizational security protocols."
+    description: "Threat identification, attack vectors, and information security hygiene."
   },
   {
     title: "IT for Business Success",
     issuer: "HP LIFE Foundation",
-    date: "August 21, 2026",
+    date: "Aug 21, 2026",
     credentialId: "2ed0909e-d8bf-4313-8344-4c1a258d768e",
     type: "Course",
     category: "IT & Infrastructure",
-    description: "IT alignment with business goals, technology integration frameworks, and operational optimization."
-  },
-  {
-    title: "CCS: Code, Create, Succeed – Empowering Digital Innovators",
-    issuer: "College of Computer Studies",
-    date: "October 30, 2024",
-    type: "Seminar",
-    category: "Seminars",
-    description: "Participated in digital innovation and developer empowerment seminars during CCS Week."
+    description: "Technology alignment with strategic operations and software integration."
   }
 ];
 
@@ -245,103 +228,178 @@ const CATEGORIES = [
 
 export default function Certifications() {
   const [activeCategory, setActiveCategory] = useState("All");
+  const [activeModal, setActiveModal] = useState(null);
 
-  const filteredData =
+  const featuredCerts = CERTIFICATIONS_DATA.filter((c) => c.isFeatured);
+  const filteredScrollCerts =
     activeCategory === "All"
       ? CERTIFICATIONS_DATA
       : CERTIFICATIONS_DATA.filter((item) => item.category === activeCategory);
 
   return (
-    <section id="certifications" className="py-12 space-y-6 scroll-mt-20">
-      {/* Header Bar */}
+    <section id="certifications" className="py-8 space-y-8 scroll-mt-24">
+      {/* 1. SECTION HEADER */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-purple-900/60 pb-3 gap-2">
-        <h2 className="text-2xl font-bold font-mono text-purple-300 flex items-center gap-2">
-          <span className="text-purple-400">📜</span> CERTIFICATIONS & CREDENTIALS
-        </h2>
-        <span className="text-xs font-mono text-purple-400/80">
-          [{filteredData.length} of {CERTIFICATIONS_DATA.length} Verified Records]
+        <div>
+          <h2 className="text-2xl font-bold font-mono text-white flex items-center gap-2">
+            <span>🎖️</span> VERIFIED CERTIFICATIONS &amp; ACHIEVEMENTS
+          </h2>
+          <p className="text-xs text-purple-400 font-mono mt-0.5">
+            Industry Credentials • Algorithmic Honors • Academic Competitions
+          </p>
+        </div>
+        <span className="text-xs font-mono px-3 py-1 bg-purple-950/80 border border-purple-800 text-purple-300 rounded-full self-start sm:self-auto">
+          {CERTIFICATIONS_DATA.length} Total Verified
         </span>
       </div>
 
-      {/* Category Filter Badges */}
-      <div className="flex flex-wrap gap-2">
-        {CATEGORIES.map((cat) => (
-          <button
-            key={cat}
-            onClick={() => setActiveCategory(cat)}
-            className={`px-3 py-1 text-xs font-mono rounded-md border transition-all ${
-              activeCategory === cat
-                ? "bg-purple-600 border-purple-400 text-white shadow-[0_0_10px_rgba(168,85,247,0.4)]"
-                : "bg-[#110D1A] border-purple-950/80 text-purple-300/70 hover:border-purple-800 hover:text-purple-200"
-            }`}
-          >
-            {cat}
-          </button>
-        ))}
-      </div>
-
-      {/* Grid Layout */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {filteredData.map((cert, index) => (
+      {/* 2. FEATURED SPOTLIGHT CARDS (Tier 1) */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {featuredCerts.map((cert, idx) => (
           <div
-            key={index}
-            className="relative bg-[#110D1A] border border-purple-900/50 p-5 rounded-xl hover:border-purple-500/80 transition-all duration-300 flex flex-col justify-between group shadow-lg shadow-black/40"
+            key={idx}
+            onClick={() => setActiveModal(cert)}
+            className="group relative bg-[#130E1D] border border-purple-500/40 hover:border-purple-400 p-4 rounded-2xl flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 cursor-pointer shadow-lg shadow-purple-950/20"
           >
-            {/* Cyber Corner Brackets */}
-            <span className="absolute top-0 left-0 w-2 h-2 border-t-2 border-l-2 border-purple-400/80" />
-            <span className="absolute top-0 right-0 w-2 h-2 border-t-2 border-r-2 border-purple-400/80" />
-            <span className="absolute bottom-0 left-0 w-2 h-2 border-b-2 border-l-2 border-purple-400/80" />
-            <span className="absolute bottom-0 right-0 w-2 h-2 border-b-2 border-r-2 border-purple-400/80" />
+            <span className="absolute top-0 left-0 w-2.5 h-2.5 border-t-2 border-l-2 border-purple-300" />
+            <span className="absolute top-0 right-0 w-2.5 h-2.5 border-t-2 border-r-2 border-purple-300" />
+            <span className="absolute bottom-0 left-0 w-2.5 h-2.5 border-b-2 border-l-2 border-purple-300" />
+            <span className="absolute bottom-0 right-0 w-2.5 h-2.5 border-b-2 border-r-2 border-purple-300" />
 
-            <div className="space-y-2.5">
-              {/* Type and Date Bar */}
-              <div className="flex items-start justify-between gap-2">
-                <span className="text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 bg-purple-950/80 border border-purple-800/80 text-purple-300 rounded">
-                  {cert.type}
+            <div className="space-y-2">
+              <div className="flex items-center justify-between">
+                <span className="text-[10px] font-mono font-bold px-2 py-0.5 bg-purple-500/20 text-purple-300 border border-purple-500/40 rounded">
+                  {cert.badge}
                 </span>
-                <span className="text-[11px] font-mono text-purple-400/80">{cert.date}</span>
+                <span className="text-[10px] font-mono text-purple-400">{cert.date}</span>
               </div>
-
-              {/* Title & Issuer */}
-              <div>
-                <h3 className="text-sm font-bold text-white group-hover:text-purple-300 transition-colors leading-snug">
-                  {cert.title}
-                </h3>
-                <p className="text-xs font-mono text-purple-400 mt-1">{cert.issuer}</p>
-              </div>
-
-              {/* Description */}
-              <p className="text-xs text-purple-200/75 leading-relaxed">
-                {cert.description}
-              </p>
+              <h3 className="text-sm font-bold text-white group-hover:text-purple-300 transition-colors leading-snug">
+                {cert.title}
+              </h3>
+              <p className="text-xs font-mono text-purple-400">{cert.issuer}</p>
+              <p className="text-xs text-purple-200/70 line-clamp-2">{cert.description}</p>
             </div>
 
-            {/* Footer IDs / Verifications */}
-            <div className="pt-3 mt-3 border-t border-purple-950/60 flex items-center justify-between text-[10px] font-mono">
-              {cert.credentialId ? (
-                <span className="text-purple-400/60 truncate max-w-[170px]" title={cert.credentialId}>
-                  ID: {cert.credentialId}
-                </span>
-              ) : cert.recipient ? (
-                <span className="text-purple-400/60">Team: {cert.recipient}</span>
-              ) : (
-                <span className="text-purple-400/40">Verified Record</span>
-              )}
-
-              {cert.verifyUrl && (
-                <a
-                  href={cert.verifyUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="text-purple-400 hover:text-purple-200 underline ml-auto flex items-center gap-1"
-                >
-                  Verify &rarr;
-                </a>
-              )}
+            <div className="pt-3 mt-3 border-t border-purple-900/50 flex items-center justify-between text-[10px] font-mono text-purple-400 group-hover:text-purple-200">
+              <span>Click to view &rarr;</span>
+              <span>{cert.type}</span>
             </div>
           </div>
         ))}
       </div>
+
+      {/* 3. CATEGORY TABS & HORIZONTAL SCROLL CAROUSEL */}
+      <div className="bg-[#15111E] border border-purple-950/60 rounded-3xl p-6 space-y-5">
+        <div className="flex flex-col md:flex-row justify-between md:items-center gap-4">
+          <div>
+            <h3 className="text-lg font-bold text-white font-mono flex items-center gap-2">
+              <span>📂</span> Credential Library by Track
+            </h3>
+            <p className="text-xs text-purple-400">Scroll horizontally or select a category below.</p>
+          </div>
+
+          {/* Filter Badges */}
+          <div className="flex flex-wrap gap-1.5">
+            {CATEGORIES.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setActiveCategory(cat)}
+                className={`px-3 py-1 text-xs font-mono rounded-lg border transition-all ${
+                  activeCategory === cat
+                    ? "bg-purple-600 border-purple-400 text-white shadow-md shadow-purple-950"
+                    : "bg-[#0B090E] border-purple-900/60 text-purple-300/70 hover:border-purple-600 hover:text-white"
+                }`}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* The Horizontal Scroll Track */}
+        <div className="flex gap-4 overflow-x-auto pb-4 pt-1 snap-x snap-mandatory scrollbar-thin scrollbar-thumb-purple-700 scrollbar-track-[#0B090E]">
+          {filteredScrollCerts.map((cert, index) => (
+            <div
+              key={index}
+              onClick={() => setActiveModal(cert)}
+              className="flex-shrink-0 w-[280px] sm:w-[320px] snap-start bg-[#0E0A16] border border-purple-900/60 hover:border-purple-500/80 p-4 rounded-xl flex flex-col justify-between cursor-pointer transition group"
+            >
+              <div className="space-y-2">
+                <div className="flex justify-between items-center text-[10px] font-mono text-purple-400">
+                  <span className="px-2 py-0.5 bg-purple-950 border border-purple-800 rounded">
+                    {cert.category}
+                  </span>
+                  <span>{cert.date}</span>
+                </div>
+                <h4 className="text-sm font-semibold text-white group-hover:text-purple-300 transition-colors line-clamp-2 leading-tight">
+                  {cert.title}
+                </h4>
+                <p className="text-xs font-mono text-purple-400/90 truncate">{cert.issuer}</p>
+                <p className="text-xs text-purple-200/70 line-clamp-2">{cert.description}</p>
+              </div>
+
+              <div className="pt-2 mt-3 border-t border-purple-950 flex items-center justify-between text-[10px] font-mono text-purple-400/80">
+                <span className="truncate max-w-[150px]">
+                  {cert.credentialId ? `ID: ${cert.credentialId}` : cert.type}
+                </span>
+                <span className="group-hover:translate-x-1 transition-transform">&rarr;</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* 4. MODAL POPUP FOR FOCUSED DETAILS */}
+      {activeModal && (
+        <div
+          className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4"
+          onClick={() => setActiveModal(null)}
+        >
+          <div
+            className="relative bg-[#15111E] border border-purple-500 max-w-lg w-full p-6 rounded-3xl space-y-4 shadow-2xl shadow-purple-950"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setActiveModal(null)}
+              className="absolute top-4 right-4 text-purple-400 hover:text-white font-mono text-sm px-2 py-1 bg-[#0B090E] border border-purple-900 rounded-lg"
+            >
+              ESC ✕
+            </button>
+
+            <span className="text-[10px] font-mono uppercase tracking-wider px-2.5 py-1 bg-purple-950 border border-purple-800 text-purple-300 rounded">
+              {activeModal.type} • {activeModal.category}
+            </span>
+
+            <div>
+              <h3 className="text-xl font-bold text-white mt-2 leading-snug">{activeModal.title}</h3>
+              <p className="text-xs font-mono text-purple-400 mt-1">{activeModal.issuer}</p>
+              <p className="text-xs font-mono text-purple-400/70">Issued: {activeModal.date}</p>
+            </div>
+
+            <p className="text-sm text-purple-200/80 leading-relaxed bg-[#0B090E] p-4 rounded-xl border border-purple-950">
+              {activeModal.description}
+            </p>
+
+            {activeModal.credentialId && (
+              <div className="text-xs font-mono text-purple-300">
+                <span className="text-purple-500">Credential ID / Authority: </span>
+                <span className="select-all font-bold">{activeModal.credentialId}</span>
+              </div>
+            )}
+
+            {activeModal.verifyUrl && (
+              <a
+                href={activeModal.verifyUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="block text-center py-2.5 bg-purple-600 hover:bg-purple-700 text-white font-mono text-xs font-bold rounded-xl transition"
+              >
+                Verify on Credential Registry &rarr;
+              </a>
+            )}
+          </div>
+        </div>
+      )}
     </section>
   );
 }

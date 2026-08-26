@@ -58,3 +58,19 @@ body {
   stroke: none !important;
   rx: 2px !important;
 }
+
+/* Sleek Cyber Scrollbar for Certifications Track */
+.scrollbar-thin::-webkit-scrollbar {
+  height: 6px;
+}
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: #0b090e;
+  border-radius: 9999px;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: #7e22ce;
+  border-radius: 9999px;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: #a855f7;
+}

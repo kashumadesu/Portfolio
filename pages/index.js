@@ -249,19 +249,23 @@ export default function Home() {
             </div>
           </header>
 
-          {/* 2. BENTO ROW: TIMELINE & ACHIEVEMENTS */}
+        {/* 2. BENTO ROW: TIMELINE & ACHIEVEMENTS */}
           <div id="about" className="grid grid-cols-1 md:grid-cols-2 gap-8 scroll-mt-24">
-            <section className="bg-[#15111E] border border-purple-950/60 rounded-3xl p-6 space-y-4">
-              <h2 className="text-xl font-bold text-white flex items-center gap-2">🚀 Journey & Timeline</h2>
+            
+            {/* Left Column: Journey & Timeline */}
+            <section className="bg-[#15111E] border border-purple-950/60 rounded-3xl p-6 space-y-4 flex flex-col justify-between">
+              <h2 className="text-xl font-bold text-white flex items-center gap-2">
+                <span>🚀</span> Journey &amp; Timeline
+              </h2>
               <div className="border-l-2 border-purple-900/60 ml-3 space-y-6 pl-4 text-sm">
                 <div>
                   <p className="text-xs text-purple-400 font-mono">Present</p>
-                  <h4 className="font-semibold text-white">Technical Project Manager & Lead</h4>
+                  <h4 className="font-semibold text-white">Technical Project Manager &amp; Lead</h4>
                   <p className="text-purple-300/80 text-xs">Driving system architecture, sprint workflows, and UI/UX design.</p>
                 </div>
                 <div>
                   <p className="text-xs text-purple-400 font-mono">2025 – 2026</p>
-                  <h4 className="font-semibold text-white">Lead PM & UI/UX — POS & Capstone Research</h4>
+                  <h4 className="font-semibold text-white">Lead PM &amp; UI/UX — POS &amp; Capstone Research</h4>
                   <p className="text-purple-300/80 text-xs">Delivered POS Monitoring System and ECOWATCH automated detection system.</p>
                 </div>
                 <div>
@@ -272,21 +276,95 @@ export default function Home() {
               </div>
             </section>
 
-            <section className="bg-[#15111E] border border-purple-950/60 rounded-3xl p-6 space-y-4">
-              <h2 className="text-xl font-bold text-white flex items-center gap-2">🏆 Certifications & Milestones</h2>
-              <div className="space-y-3 text-sm">
-                <div className="p-3 bg-[#1C1628] rounded-xl border border-purple-900/40">
-                  <span className="text-xs font-mono text-purple-400">Oracle Credential</span>
-                  <p className="font-semibold text-white">Oracle Fusion AI Agent Studio Foundations Associate</p>
+            {/* Right Column: Scrollable Key Milestones & Verified Certs */}
+            <section className="bg-[#15111E] border border-purple-950/60 rounded-3xl p-6 space-y-4 flex flex-col">
+              <div className="flex items-center justify-between pb-1 border-b border-purple-900/40">
+                <h2 className="text-xl font-bold text-white flex items-center gap-2">
+                  <span>🏆</span> Certifications &amp; Milestones
+                </h2>
+                <a 
+                  href="#certifications" 
+                  className="text-xs font-mono text-purple-400 hover:text-purple-300 transition-colors"
+                >
+                  View All (20+) &rarr;
+                </a>
+              </div>
+
+              {/* Scrollable Container with max height & custom scrollbar */}
+              <div className="space-y-2.5 max-h-[280px] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-purple-700 scrollbar-track-[#0B090E]">
+                
+                {/* Oracle AI Agent Studio */}
+                <div className="p-3 bg-[#1C1628] rounded-xl border border-purple-900/40 hover:border-purple-600 transition flex items-center justify-between gap-2">
+                  <div>
+                    <span className="text-[10px] font-mono text-purple-400 block">Oracle Certified</span>
+                    <p className="font-semibold text-white text-xs">Fusion AI Agent Studio Foundations Associate</p>
+                  </div>
+                  <span className="text-[10px] font-mono text-purple-400/80 shrink-0">Aug 2026</span>
                 </div>
-                <div className="p-3 bg-[#1C1628] rounded-xl border border-purple-900/40">
-                  <span className="text-xs font-mono text-purple-400">Oracle Credential</span>
-                  <p className="font-semibold text-white">Agentic AI Foundations Associate</p>
+
+                {/* Oracle Agentic AI */}
+                <div className="p-3 bg-[#1C1628] rounded-xl border border-purple-900/40 hover:border-purple-600 transition flex items-center justify-between gap-2">
+                  <div>
+                    <span className="text-[10px] font-mono text-purple-400 block">Oracle Certified</span>
+                    <p className="font-semibold text-white text-xs">Agentic AI Foundations Associate</p>
+                  </div>
+                  <span className="text-[10px] font-mono text-purple-400/80 shrink-0">Aug 2026</span>
                 </div>
-                <div className="p-3 bg-[#1C1628] rounded-xl border border-purple-900/40">
-                  <span className="text-xs font-mono text-purple-400">Academic Leadership</span>
-                  <p className="font-semibold text-white">Lead Project Manager & UI/UX Architect</p>
+
+                {/* CodinGame Legend */}
+                <div className="p-3 bg-[#1C1628] rounded-xl border border-purple-900/40 hover:border-purple-600 transition flex items-center justify-between gap-2">
+                  <div>
+                    <span className="text-[10px] font-mono text-purple-400 block">CodinGame by CoderPad</span>
+                    <p className="font-semibold text-white text-xs">Algorithms Mastery (Legend Level)</p>
+                  </div>
+                  <span className="text-[10px] font-mono text-purple-400/80 shrink-0">Nov 2024</span>
                 </div>
+
+                {/* Competition Award */}
+                <div className="p-3 bg-[#1C1628] rounded-xl border border-purple-900/40 hover:border-purple-600 transition flex items-center justify-between gap-2">
+                  <div>
+                    <span className="text-[10px] font-mono text-purple-400 block">Academic Award • CIRCU5</span>
+                    <p className="font-semibold text-white text-xs">2nd Runner Up – CCS Week Booth Fair</p>
+                  </div>
+                  <span className="text-[10px] font-mono text-purple-400/80 shrink-0">Mar 2026</span>
+                </div>
+
+                {/* IBM SkillsBuild */}
+                <div className="p-3 bg-[#1C1628] rounded-xl border border-purple-900/40 hover:border-purple-600 transition flex items-center justify-between gap-2">
+                  <div>
+                    <span className="text-[10px] font-mono text-purple-400 block">IBM SkillsBuild</span>
+                    <p className="font-semibold text-white text-xs">Project Management Fundamentals</p>
+                  </div>
+                  <span className="text-[10px] font-mono text-purple-400/80 shrink-0">Aug 2026</span>
+                </div>
+
+                {/* Cisco Academy */}
+                <div className="p-3 bg-[#1C1628] rounded-xl border border-purple-900/40 hover:border-purple-600 transition flex items-center justify-between gap-2">
+                  <div>
+                    <span className="text-[10px] font-mono text-purple-400 block">Cisco Networking Academy</span>
+                    <p className="font-semibold text-white text-xs">Network Defense &amp; Security Specialization</p>
+                  </div>
+                  <span className="text-[10px] font-mono text-purple-400/80 shrink-0">Mar 2026</span>
+                </div>
+
+                {/* freeCodeCamp Front-End */}
+                <div className="p-3 bg-[#1C1628] rounded-xl border border-purple-900/40 hover:border-purple-600 transition flex items-center justify-between gap-2">
+                  <div>
+                    <span className="text-[10px] font-mono text-purple-400 block">freeCodeCamp (300h)</span>
+                    <p className="font-semibold text-white text-xs">Front-End Development Libraries</p>
+                  </div>
+                  <span className="text-[10px] font-mono text-purple-400/80 shrink-0">Aug 2026</span>
+                </div>
+
+                {/* freeCodeCamp C# Microsoft */}
+                <div className="p-3 bg-[#1C1628] rounded-xl border border-purple-900/40 hover:border-purple-600 transition flex items-center justify-between gap-2">
+                  <div>
+                    <span className="text-[10px] font-mono text-purple-400 block">freeCodeCamp &amp; Microsoft</span>
+                    <p className="font-semibold text-white text-xs">Foundational C# with Microsoft</p>
+                  </div>
+                  <span className="text-[10px] font-mono text-purple-400/80 shrink-0">Aug 2026</span>
+                </div>
+
               </div>
             </section>
           </div>
