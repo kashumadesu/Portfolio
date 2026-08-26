@@ -15,7 +15,7 @@ export default function Home() {
     { name: "Project Management", key: "PM", mastery: "9/10", desc: "Agile delivery, scoping technical requirements, and cross-functional leadership." },
     { name: "HTML5 / CSS3", key: "HTML", mastery: "9.5/10", desc: "Semantic structural layouts with responsive styling and custom theming." },
     { name: "C# / .NET", key: "C#", mastery: "8/10", desc: "Object-oriented system engineering and structured logic implementation." },
-    { name: "SQL Databases", key: "SQL", mastery: "8.5/10", desc: "Relational database schema modeling, queries, and inventory tracking." },
+    { name: "SQL Databases", key: "SQL", mastery: "7/10", desc: "Relational database schema modeling, queries, and inventory tracking." },
     { name: "Git & GitHub", key: "GIT", mastery: "9/10", desc: "Version control workflows, commit pipelines, and team collaboration." },
   ];
 
@@ -29,7 +29,7 @@ export default function Home() {
             <span className="inline-block px-3 py-1 bg-purple-950 text-purple-300 text-xs font-semibold rounded-full border border-purple-800">
               🟢 Open for PM & IT Roles
             </span>
-            <h1 className="text-4xl md:text-5xl font-bold text-white tracking-tight">Michael B.</h1>
+            <h1 className="text-4xl md:text-5xl font-bold text-white tracking-tight">Michael April B. Boquiron</h1>
             <p className="text-sm text-purple-300 font-medium">23 y/o • Senior BS Information Technology Candidate</p>
             <p className="italic text-purple-200/90 font-serif text-base">
               &ldquo;Bridging intuitive design with scalable engineering execution.&rdquo;
