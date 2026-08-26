@@ -132,11 +132,11 @@ export default function Home() {
               <div className="lg:col-span-5 flex items-center justify-center">
                 <div className="relative w-full max-w-sm bg-[#110D1A] border-2 border-purple-900/70 p-4 shadow-2xl space-y-4">
                   
-                {/* Outer Corner Frame Brackets - Pixel Perfect Snap */}
-                <span className="absolute top-0 left-0 w-3.5 h-3.5 border-t-2 border-l-2 border-purple-400 pointer-events-none" />
-                <span className="absolute top-0 right-0 w-3.5 h-3.5 border-t-2 border-r-2 border-purple-400 pointer-events-none" />
-                <span className="absolute bottom-0 left-0 w-3.5 h-3.5 border-b-2 border-l-2 border-purple-400 pointer-events-none" />
-                <span className="absolute bottom-0 right-0 w-3.5 h-3.5 border-b-2 border-r-2 border-purple-400 pointer-events-none" />
+                {/* Outer Corner Frame Brackets - Snapped to Box Edges */}
+                <span className="absolute -top-[2px] -left-[2px] w-3 h-3 border-t-2 border-l-2 border-purple-400 pointer-events-none" />
+                <span className="absolute -top-[2px] -right-[2px] w-3 h-3 border-t-2 border-r-2 border-purple-400 pointer-events-none" />
+                <span className="absolute -bottom-[2px] -left-[2px] w-3 h-3 border-b-2 border-l-2 border-purple-400 pointer-events-none" />
+                <span className="absolute -bottom-[2px] -right-[2px] w-3 h-3 border-b-2 border-r-2 border-purple-400 pointer-events-none" />
 
                   {/* Profile Image Box with Sharp Corners & Crop */}
                   <div className="relative aspect-[4/5] w-full bg-[#0B090E] border border-purple-900/60 overflow-hidden flex items-center justify-center group">
