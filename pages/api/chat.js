@@ -58,7 +58,11 @@ export default async function handler(req) {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         system_instruction: {
-          parts: [{ text: PORTFOLIO_CONTEXT }],
+          parts: [
+            {
+              text: `${PORTFOLIO_CONTEXT}\n\nStyle Guide: Provide direct, well-structured, and concise responses. Do not cut off mid-thought.`,
+            },
+          ],
         },
         contents: [
           {
@@ -68,7 +72,7 @@ export default async function handler(req) {
         ],
         generationConfig: {
           temperature: 0.3,
-          maxOutputTokens: 200,
+          maxOutputTokens: 800,
         },
       }),
     });
