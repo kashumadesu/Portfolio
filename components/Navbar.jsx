@@ -56,22 +56,22 @@ export default function Navbar() {
     <nav className="sticky top-0 z-50 bg-[#0B090E] border-b border-purple-950/40 w-full">
       <div className="w-full px-6 md:px-12 flex items-center justify-between h-16">
         
-        {/* Left: Text Logo */}
+        {/* Left: Brand Logo */}
         <div className="flex items-center">
           <a href="#home" className="text-white font-bold text-xl tracking-tight hover:text-purple-300 transition-colors duration-200">
             Michael<span className="text-purple-400">.dev</span>
           </a>
         </div>
 
-        {/* Center: Desktop Navigation Links with Corner Frame Hover */}
-        <div className="hidden md:flex items-center gap-4 text-xs font-bold tracking-wider text-purple-200/90">
+        {/* Center: Desktop Navigation Links */}
+        <div className="hidden md:flex items-center gap-2 text-xs font-bold tracking-wider text-purple-200/90">
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
               className="group relative px-4 py-2 flex items-center gap-2 hover:text-white transition-colors duration-200"
             >
-              {/* Corner Frame Accents (Visible on Hover) */}
+              {/* Corner Accents */}
               <span className="absolute top-0 left-0 w-2.5 h-2.5 border-t-2 border-l-2 border-purple-400 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none" />
               <span className="absolute top-0 right-0 w-2.5 h-2.5 border-t-2 border-r-2 border-purple-400 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none" />
               <span className="absolute bottom-0 left-0 w-2.5 h-2.5 border-b-2 border-l-2 border-purple-400 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none" />
@@ -85,13 +85,22 @@ export default function Navbar() {
           ))}
         </div>
 
-        {/* Right: Contact CTA Button */}
+        {/* Right: Contact CTA Button with matching framing */}
         <div className="hidden md:flex items-center">
           <a
             href="#contact"
-            className="px-5 py-2 bg-purple-600 hover:bg-purple-700 text-white text-xs font-semibold rounded-xl transition-all duration-200 shadow-sm shadow-purple-900/30"
+            className="group relative px-4 py-2 border border-purple-500/40 hover:border-purple-400 bg-purple-950/30 hover:bg-purple-900/40 text-purple-200 hover:text-white text-xs font-bold tracking-wider transition-all duration-200 flex items-center gap-2"
           >
-            Hire Me
+            {/* Corner Highlight Brackets */}
+            <span className="absolute -top-[1px] -left-[1px] w-2 h-2 border-t-2 border-l-2 border-purple-400" />
+            <span className="absolute -top-[1px] -right-[1px] w-2 h-2 border-t-2 border-r-2 border-purple-400" />
+            <span className="absolute -bottom-[1px] -left-[1px] w-2 h-2 border-b-2 border-l-2 border-purple-400" />
+            <span className="absolute -bottom-[1px] -right-[1px] w-2 h-2 border-b-2 border-r-2 border-purple-400" />
+
+            <svg className="w-3.5 h-3.5 text-purple-400 group-hover:text-purple-300 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+            <span>GET IN TOUCH</span>
           </a>
         </div>
 
@@ -119,7 +128,7 @@ export default function Navbar() {
               key={link.name}
               href={link.href}
               onClick={() => setIsOpen(false)}
-              className="flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-bold tracking-wider text-purple-200 hover:bg-purple-950/50 hover:text-white transition-all duration-200"
+              className="flex items-center gap-3 px-3 py-2 text-xs font-bold tracking-wider text-purple-200 hover:bg-purple-950/50 hover:text-white transition-all duration-200"
             >
               <span className="text-purple-400">{link.icon}</span>
               <span>{link.name}</span>
@@ -128,9 +137,12 @@ export default function Navbar() {
           <a
             href="#contact"
             onClick={() => setIsOpen(false)}
-            className="block w-full text-center px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white text-xs font-semibold rounded-xl transition-all duration-200 mt-3"
+            className="flex items-center justify-center gap-2 w-full px-4 py-2 border border-purple-500/40 bg-purple-950/40 text-purple-200 hover:text-white text-xs font-bold tracking-wider transition-all duration-200 mt-3"
           >
-            Hire Me
+            <svg className="w-3.5 h-3.5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+            <span>GET IN TOUCH</span>
           </a>
         </div>
       )}
