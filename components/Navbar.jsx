@@ -12,18 +12,17 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="sticky top-0 z-50 bg-[#0B090E] border-b border-purple-950/40">
-      <div className="max-w-6xl mx-auto px-4 md:px-12 flex items-center justify-between h-16">
+    <nav className="sticky top-0 z-50 bg-[#0B090E] border-b border-purple-950/40 w-full">
+      <div className="w-full px-6 md:px-12 flex items-center justify-between h-16">
         
-        {/* Logo */}
-        <a href="#home" className="flex items-center gap-2 text-white font-bold text-lg tracking-tight">
-          <span className="w-8 h-8 rounded-xl bg-purple-600 flex items-center justify-center text-white font-mono text-sm shadow-md shadow-purple-900/50">
-            M
-          </span>
-          <span className="hover:text-purple-300 transition">Michael.dev</span>
-        </a>
+        {/* Left: Text Logo */}
+        <div className="flex items-center">
+          <a href="#home" className="text-white font-bold text-xl tracking-tight hover:text-purple-300 transition">
+            Michael<span className="text-purple-400">.dev</span>
+          </a>
+        </div>
 
-        {/* Desktop Links */}
+        {/* Center: Desktop Navigation Links */}
         <div className="hidden md:flex items-center gap-8 text-sm font-medium text-purple-200">
           {navLinks.map((link) => (
             <a
@@ -34,15 +33,19 @@ export default function Navbar() {
               {link.name}
             </a>
           ))}
+        </div>
+
+        {/* Right: Action Button */}
+        <div className="hidden md:flex items-center">
           <a
             href="#contact"
-            className="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white text-xs font-semibold rounded-xl transition shadow-sm shadow-purple-900/30"
+            className="px-5 py-2 bg-purple-600 hover:bg-purple-700 text-white text-xs font-semibold rounded-xl transition shadow-sm shadow-purple-900/30"
           >
             Hire Me
           </a>
         </div>
 
-        {/* Mobile Toggle Button */}
+        {/* Mobile Hamburger Button */}
         <button
           onClick={() => setIsOpen(!isOpen)}
           className="md:hidden text-purple-200 hover:text-white focus:outline-none"
@@ -58,7 +61,7 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Mobile Dropdown */}
+      {/* Mobile Dropdown Menu */}
       {isOpen && (
         <div className="md:hidden bg-[#15111E] border-b border-purple-950 px-6 py-4 space-y-3">
           {navLinks.map((link) => (
