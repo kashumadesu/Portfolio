@@ -84,7 +84,7 @@ export default function Home() {
       <div
         className="fixed inset-0 pointer-events-none z-0 transition-opacity duration-300 hidden md:block"
         style={{
-          background: `radial-gradient(600px circle at ${mousePos.x}px ${mousePos.y}px, rgba(168, 85, 247, 0.12), transparent 80%)`,
+          background: `radial-gradient(220px circle at ${mousePos.x}px ${mousePos.y}px, rgba(147, 51, 234, 0.28) 0%, rgba(88, 28, 135, 0.18) 40%, rgba(15, 7, 26, 0.05) 75%, transparent 100%)`,
         }}
       />
 
