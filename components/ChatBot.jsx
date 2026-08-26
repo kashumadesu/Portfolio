@@ -22,16 +22,20 @@ export default function ChatBot() {
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [messages, isOpen]);
+  }, [messages, isLoading, isOpen]);
 
   const handleSend = async (textToSend) => {
     const query = textToSend || input;
-    if (!query.trim()) return;
+    if (!query.trim() || isLoading) return;
 
+    // 1. Append user message & clear input
     const userMessage = { sender: "user", text: query };
     setMessages((prev) => [...prev, userMessage]);
     setInput("");
     setIsLoading(true);
+
+    // 2. Insert empty placeholder message for incoming bot stream
+    setMessages((prev) => [...prev, { sender: "bot", text: "" }]);
 
     try {
       const res = await fetch("/api/chat", {
@@ -39,13 +43,52 @@ export default function ChatBot() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message: query }),
       });
-      const data = await res.json();
-      setMessages((prev) => [...prev, { sender: "bot", text: data.reply }]);
+
+      if (!res.ok) {
+        let errMsg = "Something went wrong. Please try again later.";
+        try {
+          const errData = await res.json();
+          if (errData.reply) errMsg = errData.reply;
+        } catch {
+          // fallback error text
+        }
+        setMessages((prev) => {
+          const updated = [...prev];
+          updated[updated.length - 1] = { sender: "bot", text: errMsg };
+          return updated;
+        });
+        return;
+      }
+
+      // 3. Stream reader chunks directly into the last message
+      const reader = res.body.getReader();
+      const decoder = new TextDecoder();
+
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+
+        const chunk = decoder.decode(value, { stream: true });
+        setMessages((prev) => {
+          const updated = [...prev];
+          const lastIdx = updated.length - 1;
+          updated[lastIdx] = {
+            ...updated[lastIdx],
+            text: updated[lastIdx].text + chunk,
+          };
+          return updated;
+        });
+      }
     } catch {
-      setMessages((prev) => [
-        ...prev,
-        { sender: "bot", text: "Something went wrong. Please try again later." },
-      ]);
+      setMessages((prev) => {
+        const updated = [...prev];
+        const lastIdx = updated.length - 1;
+        updated[lastIdx] = {
+          sender: "bot",
+          text: "Connection lost. Please try again in a moment.",
+        };
+        return updated;
+      });
     } finally {
       setIsLoading(false);
     }
@@ -56,7 +99,6 @@ export default function ChatBot() {
       {/* Chat Window */}
       {isOpen && (
         <div className="mb-3 w-[320px] sm:w-[380px] h-[480px] bg-[#15111E] border border-purple-500/60 rounded-2xl shadow-2xl flex flex-col overflow-hidden backdrop-blur-md">
-          
           {/* Header */}
           <div className="p-3.5 bg-[#1C1628] border-b border-purple-900/60 flex items-center justify-between">
             <div className="flex items-center gap-2">
@@ -65,12 +107,14 @@ export default function ChatBot() {
                 <h3 className="text-xs font-mono font-bold text-white uppercase tracking-wider">
                   AI Assistant
                 </h3>
-                <p className="text-[10px] font-mono text-purple-400">Online • Ask portfolio questions</p>
+                <p className="text-[10px] font-mono text-purple-400">
+                  Online • Ask portfolio questions
+                </p>
               </div>
             </div>
             <button
               onClick={() => setIsOpen(false)}
-              className="text-purple-400 hover:text-white text-xs font-mono px-2 py-1 bg-[#0B090E] border border-purple-900/60 rounded"
+              className="text-purple-400 hover:text-white text-xs font-mono px-2 py-1 bg-[#0B090E] border border-purple-900/60 rounded transition"
               aria-label="Close Chat"
             >
               ✕
@@ -84,26 +128,34 @@ export default function ChatBot() {
                 key={idx}
                 className={`flex ${msg.sender === "user" ? "justify-end" : "justify-start"}`}
               >
-                <div
-                  className={`max-w-[82%] p-3 rounded-xl leading-relaxed ${
-                    msg.sender === "user"
-                      ? "bg-purple-600 text-white font-medium"
-                      : "bg-[#0B090E] text-purple-200 border border-purple-900/60 font-mono text-[11px]"
-                  }`}
-                >
-                  {msg.text}
-                </div>
+                {/* Only render message bubble if text exists or it's a user message */}
+                {(msg.text || msg.sender === "user") && (
+                  <div
+                    className={`max-w-[82%] p-3 rounded-xl leading-relaxed ${
+                      msg.sender === "user"
+                        ? "bg-purple-600 text-white font-medium"
+                        : "bg-[#0B090E] text-purple-200 border border-purple-900/60 font-mono text-[11px] whitespace-pre-wrap"
+                    }`}
+                  >
+                    {msg.text}
+                  </div>
+                )}
               </div>
             ))}
-            {isLoading && (
-              <div className="flex justify-start">
-                <div className="bg-[#0B090E] text-purple-400 p-2.5 rounded-xl border border-purple-900/60 font-mono text-[10px] flex items-center gap-1.5">
-                  <span className="animate-bounce">●</span>
-                  <span className="animate-bounce [animation-delay:0.2s]">●</span>
-                  <span className="animate-bounce [animation-delay:0.4s]">●</span>
+
+            {/* Bouncing loading indicator while waiting for the first chunk */}
+            {isLoading &&
+              messages.length > 0 &&
+              messages[messages.length - 1].sender === "bot" &&
+              messages[messages.length - 1].text === "" && (
+                <div className="flex justify-start">
+                  <div className="bg-[#0B090E] text-purple-400 p-2.5 rounded-xl border border-purple-900/60 font-mono text-[10px] flex items-center gap-1.5">
+                    <span className="animate-bounce">●</span>
+                    <span className="animate-bounce [animation-delay:0.2s]">●</span>
+                    <span className="animate-bounce [animation-delay:0.4s]">●</span>
+                  </div>
                 </div>
-              </div>
-            )}
+              )}
             <div ref={messagesEndRef} />
           </div>
 
@@ -113,7 +165,8 @@ export default function ChatBot() {
               <button
                 key={idx}
                 onClick={() => handleSend(chip)}
-                className="whitespace-nowrap text-[10px] font-mono px-2 py-1 bg-[#1C1628] hover:bg-purple-900/50 border border-purple-900 text-purple-300 rounded-md transition shrink-0"
+                disabled={isLoading}
+                className="whitespace-nowrap text-[10px] font-mono px-2 py-1 bg-[#1C1628] hover:bg-purple-900/50 disabled:opacity-40 border border-purple-900 text-purple-300 rounded-md transition shrink-0"
               >
                 {chip}
               </button>
