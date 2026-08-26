@@ -2,6 +2,7 @@ import { useState } from "react";
 import Navbar from "../components/Navbar";
 import GithubGraph from "../components/GithubGraph";
 import Certifications from "../components/Certifications";
+import ChatBot from "../components/ChatBot";
 
 export default function Home() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
