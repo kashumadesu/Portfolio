@@ -27,104 +27,119 @@ export default function Home() {
       <main className="min-h-screen bg-[#0B090E] text-[#E9D5FF] px-4 py-8 md:px-12 md:py-16 font-sans">
         <div className="max-w-6xl mx-auto space-y-8">
 
-          {/* 1. HERO / LANDING SECTION */}
-          <header id="home" className="bg-[#15111E] border border-purple-950/60 rounded-3xl p-6 md:p-10 scroll-mt-24">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-              
-              {/* Left Column: Bio, Titles, Action Buttons & Metrics */}
-              <div className="lg:col-span-7 space-y-6">
-                    <span className="inline-block px-2.5 py-0.5 bg-purple-950 text-purple-300 text-[11px] font-semibold rounded-full border border-purple-800">
-                      🟢 Open for PM &amp; IT Roles
-                    </span>
-                <div className="space-y-2">
-                  <div className="flex items-center gap-2">
-                    <span className="text-sm font-mono text-purple-400 font-bold uppercase tracking-wider">HELLO, I&apos;M</span>
-                  </div>
-
-                  <h1 className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight">
-                    Michael April B. Boquiron
-                  </h1>
-
-                  <div className="flex flex-wrap items-center gap-2 pt-1 font-mono text-sm sm:text-base font-bold text-purple-300">
-                    <span className="bg-purple-950/80 px-2.5 py-1 rounded-md border border-purple-800/80 text-purple-200">
-                      TECHNICAL PM
-                    </span>
-                    <span className="text-purple-400">&amp;</span>
-                    <span className="bg-purple-950/80 px-2.5 py-1 rounded-md border border-purple-800/80 text-purple-200">
-                      FULL-STACK / UI/UX
-                    </span>
-                  </div>
+        {/* 1. HERO / LANDING SECTION */}
+        <header id="home" className="bg-[#15111E] border border-purple-950/60 rounded-3xl p-6 md:p-10 scroll-mt-24">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
+            
+            {/* Left Column: Full-Height Flex Container with Bottom-Locked Stats */}
+            <div className="lg:col-span-7 flex flex-col justify-between py-1 space-y-6">
+            
+            {/* Top Details & Content */}
+            <div className="space-y-6">
+                
+                {/* Availability Badge */}
+                <div>
+                <span className="inline-flex items-center gap-2 px-3 py-1 bg-purple-950/90 text-purple-300 text-xs font-semibold rounded-full border border-purple-800/80 shadow-sm">
+                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                    Open for PM &amp; IT Roles
+                </span>
                 </div>
 
-                {/* Quote / Subtext */}
-                <div className="space-y-1">
-                  <p className="text-xs text-purple-400 font-medium">23 y/o • Senior BS Information Technology Candidate</p>
-                  <p className="italic text-purple-200/90 font-serif text-base border-l-2 border-purple-600 pl-3">
+                {/* Name & Titles */}
+                <div className="space-y-3">
+                <p className="text-xs font-mono text-purple-400 font-bold uppercase tracking-widest">
+                    HELLO, I&apos;M
+                </p>
+                <h1 className="text-4xl sm:text-5xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
+                    Michael April B. Boquiron
+                </h1>
+
+                <div className="flex flex-wrap items-center gap-2.5 pt-1">
+                    <span className="bg-purple-950/80 border border-purple-700/60 text-purple-200 text-xs font-mono font-bold px-3 py-1.5 rounded-lg">
+                    TECHNICAL PM
+                    </span>
+                    <span className="text-purple-400 font-mono font-bold">&amp;</span>
+                    <span className="bg-purple-950/80 border border-purple-700/60 text-purple-200 text-xs font-mono font-bold px-3 py-1.5 rounded-lg">
+                    FULL-STACK / UI/UX
+                    </span>
+                </div>
+                </div>
+
+                {/* Bio, Subtext & Value Statement */}
+                <div className="space-y-3 pt-1">
+                <p className="text-xs font-mono text-purple-400/90">
+                    23 y/o • Senior BS Information Technology Candidate
+                </p>
+                <p className="italic text-purple-200 font-serif text-base sm:text-lg border-l-2 border-purple-500 pl-3.5 leading-relaxed">
                     &ldquo;Bridging intuitive design with scalable engineering execution.&rdquo;
-                  </p>
+                </p>
+                <p className="text-xs sm:text-sm text-purple-300/80 leading-relaxed pt-1">
+                    Specializing in end-to-end technical project delivery, structured system architecture, and modern full-stack web applications.
+                </p>
                 </div>
 
                 {/* Action Buttons */}
-                <div className="flex flex-wrap items-center gap-4 pt-1">
-                  <a
+                <div className="flex flex-wrap items-center gap-4 pt-2">
+                <a
                     href="#projects"
-                    className="group relative px-5 py-2.5 border border-purple-400 bg-purple-600 hover:bg-purple-700 text-white font-bold text-xs tracking-wider transition-all duration-200 flex items-center gap-2 shadow-lg shadow-purple-950/50"
-                  >
+                    className="group relative px-6 py-3 border border-purple-400 bg-purple-600 hover:bg-purple-700 text-white font-bold text-xs tracking-wider transition-all duration-200 flex items-center gap-2 shadow-lg shadow-purple-950/50"
+                >
                     <span className="absolute -top-[1px] -left-[1px] w-2 h-2 border-t-2 border-l-2 border-white" />
                     <span className="absolute -top-[1px] -right-[1px] w-2 h-2 border-t-2 border-r-2 border-white" />
                     <span className="absolute -bottom-[1px] -left-[1px] w-2 h-2 border-b-2 border-l-2 border-white" />
-                    <span className="absolute -bottom-[1px] -right-[1px] w-2 h-2 border-b-2 border-r-2 border-white" />
+                    <span className="absolute -bottom-[1px] -right-[1px] w-2 h-2 border-b-2 border-r-2 border-purple-400" />
                     <span>VIEW PROJECTS</span>
                     <span className="group-hover:translate-x-1 transition-transform">&rarr;</span>
-                  </a>
+                </a>
 
-                  <a
+                <a
                     href="/resume.pdf"
                     download="Michael_Boquiron_CV.pdf"
-                    className="group relative px-5 py-2.5 border border-purple-500/40 hover:border-purple-400 bg-purple-950/30 hover:bg-purple-900/40 text-purple-200 hover:text-white font-bold text-xs tracking-wider transition-all duration-200 flex items-center gap-2"
-                  >
+                    className="group relative px-6 py-3 border border-purple-500/50 hover:border-purple-400 bg-purple-950/40 hover:bg-purple-900/50 text-purple-200 hover:text-white font-bold text-xs tracking-wider transition-all duration-200 flex items-center gap-2"
+                >
                     <span className="absolute -top-[1px] -left-[1px] w-2 h-2 border-t-2 border-l-2 border-purple-400" />
                     <span className="absolute -top-[1px] -right-[1px] w-2 h-2 border-t-2 border-r-2 border-purple-400" />
                     <span className="absolute -bottom-[1px] -left-[1px] w-2 h-2 border-b-2 border-l-2 border-purple-400" />
                     <span className="absolute -bottom-[1px] -right-[1px] w-2 h-2 border-b-2 border-r-2 border-purple-400" />
                     <span>DOWNLOAD CV</span>
-                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                    <svg className="w-3.5 h-3.5 text-purple-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                     </svg>
-                  </a>
+                </a>
                 </div>
+            </div>
 
-                {/* Stat Boxes */}
-                <div className="pt-2">
-                  <div className="grid grid-cols-3 border border-purple-900/60 bg-[#0B090E]/40 text-center divide-x divide-purple-900/60">
-                    <div className="p-3">
-                      <div className="text-lg font-bold text-white">5+</div>
-                      <div className="text-[10px] uppercase tracking-wider text-purple-400 font-mono">Delivered Systems</div>
-                    </div>
-                    <div className="p-3">
-                      <div className="text-lg font-bold text-white">10+</div>
-                      <div className="text-[10px] uppercase tracking-wider text-purple-400 font-mono">Completed Projects</div>
-                    </div>
-                    <div className="p-3">
-                      <div className="text-lg font-bold text-white">8+</div>
-                      <div className="text-[10px] uppercase tracking-wider text-purple-400 font-mono">Tech Stacks</div>
-                    </div>
-                  </div>
+            {/* Bottom Metric Stat Boxes (Aligned with Right Column Card Bottom) */}
+            <div className="pt-6">
+                <div className="grid grid-cols-3 border border-purple-900/60 bg-[#0B090E]/60 text-center divide-x divide-purple-900/60 rounded-xl overflow-hidden shadow-inner">
+                <div className="py-3.5 px-2">
+                    <div className="text-xl sm:text-2xl font-bold text-white tracking-tight">5+</div>
+                    <div className="text-[10px] sm:text-[11px] uppercase tracking-wider text-purple-400 font-mono mt-0.5">Delivered Systems</div>
                 </div>
-              </div>
+                <div className="py-3.5 px-2">
+                    <div className="text-xl sm:text-2xl font-bold text-white tracking-tight">10+</div>
+                    <div className="text-[10px] sm:text-[11px] uppercase tracking-wider text-purple-400 font-mono mt-0.5">Completed Projects</div>
+                </div>
+                <div className="py-3.5 px-2">
+                    <div className="text-xl sm:text-2xl font-bold text-white tracking-tight">8+</div>
+                    <div className="text-[10px] sm:text-[11px] uppercase tracking-wider text-purple-400 font-mono mt-0.5">Tech Stacks</div>
+                </div>
+                </div>
+            </div>
+            </div>
 
             {/* Right Column: Frame Picture Card & Let's Connect */}
-            <div className="lg:col-span-5 flex justify-center">
-            <div className="relative w-full max-w-sm bg-[#110D1A] border-2 border-purple-900/70 p-4 shadow-2xl space-y-4">
+            <div className="lg:col-span-5 flex items-center justify-center">
+            <div className="relative w-full max-w-sm bg-[#110D1A] border-2 border-purple-900/70 p-4 shadow-2xl rounded-2xl space-y-4">
                 
                 {/* Outer Corner Frame Brackets */}
-                <span className="absolute -top-1 -left-1 w-3 h-3 border-t-2 border-l-2 border-purple-400 pointer-events-none" />
-                <span className="absolute -top-1 -right-1 w-3 h-3 border-t-2 border-r-2 border-purple-400 pointer-events-none" />
-                <span className="absolute -bottom-1 -left-1 w-3 h-3 border-b-2 border-l-2 border-purple-400 pointer-events-none" />
-                <span className="absolute -bottom-1 -right-1 w-3 h-3 border-b-2 border-r-2 border-purple-400 pointer-events-none" />
+                <span className="absolute -top-1.5 -left-1.5 w-3.5 h-3.5 border-t-2 border-l-2 border-purple-400 pointer-events-none" />
+                <span className="absolute -top-1.5 -right-1.5 w-3.5 h-3.5 border-t-2 border-r-2 border-purple-400 pointer-events-none" />
+                <span className="absolute -bottom-1.5 -left-1.5 w-3.5 h-3.5 border-b-2 border-l-2 border-purple-400 pointer-events-none" />
+                <span className="absolute -bottom-1.5 -right-1.5 w-3.5 h-3.5 border-b-2 border-r-2 border-purple-400 pointer-events-none" />
 
                 {/* Profile Image Display */}
-                <div className="relative aspect-[4/5] w-full bg-[#0B090E] border border-purple-900/60 overflow-hidden flex items-center justify-center group">
+                <div className="relative aspect-[4/5] w-full bg-[#0B090E] border border-purple-900/60 rounded-xl overflow-hidden flex items-center justify-center group">
                 {/* Background Cyber Grid */}
                 <div className="absolute inset-0 opacity-20 bg-[linear-gradient(to_right,#a855f720_1px,transparent_1px),linear-gradient(to_bottom,#a855f720_1px,transparent_1px)] bg-[size:16px_16px] z-0" />
                 
@@ -132,9 +147,9 @@ export default function Home() {
                 <div className="absolute inset-0 bg-gradient-to-t from-[#110D1A] via-transparent to-transparent opacity-80 z-20 pointer-events-none" />
 
                 <img
-                    src="/profile.jpg?v=5"
+                    src="/profile.jpg?v=7"
                     alt="Michael April B. Boquiron"
-                    className="w-full h-full object-cover object-[25%_10%] scale-125 filter contrast-125 brightness-95 relative z-10 transition-transform duration-300 group-hover:scale-130"
+                    className="w-full h-full object-cover object-[20%_15%] scale-135 filter contrast-115 brightness-95 relative z-10 transition-transform duration-300 group-hover:scale-140"
                     onError={(e) => {
                     e.currentTarget.style.display = 'none';
                     if (e.currentTarget.nextSibling) {
@@ -154,7 +169,7 @@ export default function Home() {
                 </div>
 
                 {/* Let's Connect Toolbar */}
-                <div className="space-y-2 pt-1 border-t border-purple-950">
+                <div className="space-y-2 pt-2 border-t border-purple-950/80">
                 <div className="flex items-center gap-1.5 text-[11px] font-mono text-purple-300 font-bold uppercase tracking-wider">
                     <svg className="w-3.5 h-3.5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
@@ -166,7 +181,7 @@ export default function Home() {
                     {/* Email */}
                     <a
                     href="mailto:michaelapril81416@gmail.com?subject=Project%20Inquiry%20/%20Collaboration"
-                    className="flex items-center justify-center gap-1 py-1.5 bg-[#1A1424] hover:bg-purple-900/60 border border-purple-900/80 text-purple-200 hover:text-white rounded transition text-center"
+                    className="flex items-center justify-center gap-1 py-1.5 bg-[#1A1424] hover:bg-purple-900/60 border border-purple-900/80 text-purple-200 hover:text-white rounded-lg transition text-center"
                     >
                     <svg className="w-3.5 h-3.5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -179,7 +194,7 @@ export default function Home() {
                     href="https://linkedin.com"
                     target="_blank"
                     rel="noreferrer"
-                    className="flex items-center justify-center gap-1 py-1.5 bg-[#1A1424] hover:bg-purple-900/60 border border-purple-900/80 text-purple-200 hover:text-white rounded transition text-center"
+                    className="flex items-center justify-center gap-1 py-1.5 bg-[#1A1424] hover:bg-purple-900/60 border border-purple-900/80 text-purple-200 hover:text-white rounded-lg transition text-center"
                     >
                     <svg className="w-3.5 h-3.5 text-purple-400" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
@@ -192,7 +207,7 @@ export default function Home() {
                     href="https://github.com/kashumadesu"
                     target="_blank"
                     rel="noreferrer"
-                    className="flex items-center justify-center gap-1 py-1.5 bg-[#1A1424] hover:bg-purple-900/60 border border-purple-900/80 text-purple-200 hover:text-white rounded transition text-center"
+                    className="flex items-center justify-center gap-1 py-1.5 bg-[#1A1424] hover:bg-purple-900/60 border border-purple-900/80 text-purple-200 hover:text-white rounded-lg transition text-center"
                     >
                     <svg className="w-3.5 h-3.5 text-purple-400" fill="currentColor" viewBox="0 0 24 24">
                         <path fillRule="evenodd" clipRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
@@ -205,8 +220,8 @@ export default function Home() {
             </div>
             </div>
 
-            </div>
-          </header>
+        </div>
+        </header>
 
           {/* 2. BENTO ROW: TIMELINE & ACHIEVEMENTS */}
           <div id="about" className="grid grid-cols-1 md:grid-cols-2 gap-8 scroll-mt-24">
