@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import GithubGraph from "../components/GithubGraph";
@@ -17,8 +18,19 @@ export default function Home() {
       setMousePos({ x: e.clientX, y: e.clientY });
     };
 
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape") {
+        setIsContactOpen(false);
+      }
+    };
+
     window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("keydown", handleKeyDown);
+    };
   }, []);
 
   const [selectedSkill, setSelectedSkill] = useState({
@@ -80,13 +92,51 @@ export default function Home() {
 
   return (
     <div className="relative min-h-screen bg-[#0B090E] text-[#E9D5FF]">
-     <div
+      <Head>
+        {/* Primary Meta Tags */}
+        <title>Michael April B. Boquiron | Technical Project Manager & Frontend Engineer</title>
+        <meta name="title" content="Michael April B. Boquiron | Technical Project Manager & Frontend Engineer" />
+        <meta
+          name="description"
+          content="Portfolio of Michael April B. Boquiron. Specializing in Technical Project Management, modern full-stack web applications, and intuitive UI/UX system architecture."
+        />
+        <meta name="keywords" content="Michael Boquiron, Technical Project Manager, Frontend Developer, UI/UX, Web Development, Portfolio" />
+        <meta name="author" content="Michael April B. Boquiron" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="theme-color" content="#0B090E" />
+
+        {/* Open Graph / Facebook / LinkedIn / Discord */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://kashumadesu.github.io" />
+        <meta property="og:title" content="Michael April B. Boquiron | Technical PM & UI/UX" />
+        <meta
+          property="og:description"
+          content="Bridging intuitive design with scalable engineering execution. Explore delivered systems, verified credentials, and active projects."
+        />
+        <meta property="og:image" content="/profile.jpg" />
+
+        {/* Twitter Meta Tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Michael April B. Boquiron | Technical PM & UI/UX" />
+        <meta
+          name="twitter:description"
+          content="Bridging intuitive design with scalable engineering execution. Explore delivered systems, verified credentials, and active projects."
+        />
+        <meta name="twitter:image" content="/profile.jpg" />
+
+        {/* Favicon */}
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+
+      {/* Sleek Neon Glow Cursor Aura */}
+      <div
         className="fixed top-0 left-0 pointer-events-none z-0 hidden md:block rounded-full mix-blend-screen transition-transform duration-75 ease-out"
         style={{
           width: "280px",
           height: "280px",
           transform: `translate3d(${mousePos.x - 140}px, ${mousePos.y - 140}px, 0)`,
-          background: "radial-gradient(circle, rgba(168, 85, 247, 0.22) 0%, rgba(126, 34, 206, 0.12) 40%, rgba(59, 7, 100, 0.04) 70%, transparent 100%)",
+          background:
+            "radial-gradient(circle, rgba(168, 85, 247, 0.22) 0%, rgba(126, 34, 206, 0.12) 40%, rgba(59, 7, 100, 0.04) 70%, transparent 100%)",
           filter: "blur(30px)",
         }}
       />
@@ -706,7 +756,10 @@ export default function Home() {
 
       {/* 4. Contact Pop-up Modal (Cyber Frame & Sharp Edges) */}
       {isContactOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-in fade-in duration-200">
+        <div
+          onClick={(e) => e.target === e.currentTarget && setIsContactOpen(false)}
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-in fade-in duration-200"
+        >
           <div className="relative w-full max-w-lg bg-[#110D1A] border-2 border-purple-500/50 p-6 md:p-8 shadow-2xl shadow-purple-950/80 space-y-6">
             {/* Outer Cyber Corner Brackets */}
             <span className="!m-0 absolute -top-[2px] -left-[2px] w-4 h-4 border-t-2 border-l-2 border-purple-400 pointer-events-none z-30" />
