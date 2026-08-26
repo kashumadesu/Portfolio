@@ -7,50 +7,90 @@ import WaveBackground from "../components/WaveBackground";
 
 export default function Home() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [isContactOpen, setIsContactOpen] = useState(false);
 
   const [selectedSkill, setSelectedSkill] = useState({
     name: "Interactive Skills",
     desc: "Click any badge below to see my experience & mastery level.",
-    mastery: "--"
+    mastery: "--",
   });
 
   const skills = [
-    { name: "JavaScript", key: "JS", mastery: "9/10", desc: "Core language used across front-end web apps and dynamic UI logic since SHS." },
-    { name: "Python", key: "PY", mastery: "7.5/10", desc: "Used for Tkinter desktop GUIs, data manipulation, and capstone detection models." },
-    { name: "Figma & UI/UX", key: "FIG", mastery: "9/10", desc: "Design systems, wireframes, and responsive component prototyping." },
-    { name: "Project Management", key: "PM", mastery: "9/10", desc: "Agile delivery, scoping technical requirements, and cross-functional leadership." },
-    { name: "HTML5 / CSS3", key: "HTML", mastery: "9/10", desc: "Semantic structural layouts with responsive styling and custom theming." },
-    { name: "C# / .NET", key: "C#", mastery: "7/10", desc: "Object-oriented system engineering and structured logic implementation." },
-    { name: "SQL Databases", key: "SQL", mastery: "7/10", desc: "Relational database schema modeling, queries, and inventory tracking." },
-    { name: "Git & GitHub", key: "GIT", mastery: "9/10", desc: "Version control workflows, commit pipelines, and team collaboration." },
+    {
+      name: "JavaScript",
+      key: "JS",
+      mastery: "9/10",
+      desc: "Core language used across front-end web apps and dynamic UI logic since SHS.",
+    },
+    {
+      name: "Python",
+      key: "PY",
+      mastery: "7.5/10",
+      desc: "Used for Tkinter desktop GUIs, data manipulation, and capstone detection models.",
+    },
+    {
+      name: "Figma & UI/UX",
+      key: "FIG",
+      mastery: "9/10",
+      desc: "Design systems, wireframes, and responsive component prototyping.",
+    },
+    {
+      name: "Project Management",
+      key: "PM",
+      mastery: "9/10",
+      desc: "Agile delivery, scoping technical requirements, and cross-functional leadership.",
+    },
+    {
+      name: "HTML5 / CSS3",
+      key: "HTML",
+      mastery: "9/10",
+      desc: "Semantic structural layouts with responsive styling and custom theming.",
+    },
+    {
+      name: "C# / .NET",
+      key: "C#",
+      mastery: "7/10",
+      desc: "Object-oriented system engineering and structured logic implementation.",
+    },
+    {
+      name: "SQL Databases",
+      key: "SQL",
+      mastery: "7/10",
+      desc: "Relational database schema modeling, queries, and inventory tracking.",
+    },
+    {
+      name: "Git & GitHub",
+      key: "GIT",
+      mastery: "9/10",
+      desc: "Version control workflows, commit pipelines, and team collaboration.",
+    },
   ];
 
   return (
-        <div className="relative min-h-screen bg-[#0B090E] text-[#E9D5FF] overflow-x-hidden">
-          {/* 1. Global Full-Screen Background Wave */}
-          <div className="fixed inset-0 pointer-events-none z-0">
-            <WaveBackground />
-          </div>
+    <div className="relative min-h-screen bg-[#0B090E] text-[#E9D5FF]">
+      {/* 1. Global Full-Screen Background Wave */}
+      <div className="fixed inset-0 pointer-events-none z-0">
+        <WaveBackground />
+      </div>
 
-          {/* 2. Navbar on top */}
-          <div className="relative z-20">
-            <Navbar />
-          </div>
+      {/* 2. Sticky Navbar */}
+      <div className="sticky top-0 z-40">
+        <Navbar onOpenContact={() => setIsContactOpen(true)} />
+      </div>
 
-          {/* 3. Main Content on top of background */}
-          <main className="relative z-10 px-4 py-8 md:px-12 md:py-16 font-sans">
-            <div className="max-w-6xl mx-auto space-y-8">
-
+      {/* 3. Main Content on top of background */}
+      <main className="relative z-10 px-4 py-8 md:px-12 md:py-16 font-sans">
+        <div className="max-w-6xl mx-auto space-y-8">
           {/* 1. HERO / LANDING SECTION */}
-          <header id="home" className="bg-[#15111E]/30 backdrop-blur-sm border border-purple-500/30 rounded-3xl p-6 md:p-10 scroll-mt-24 shadow-2xl">
+          <header
+            id="home"
+            className="bg-[#15111E]/30 backdrop-blur-sm border border-purple-500/30 rounded-3xl p-6 md:p-10 scroll-mt-24 shadow-2xl"
+          >
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
-              
               {/* Left Column: Full-Height Flex Container with Bottom-Locked Stats */}
               <div className="lg:col-span-7 flex flex-col justify-between py-1 space-y-6">
-                
                 {/* Top Details & Content */}
                 <div className="space-y-6">
-                  
                   {/* Availability Badge */}
                   <div>
                     <span className="inline-flex items-center gap-2 px-3 py-1 bg-purple-950/90 text-purple-300 text-xs font-semibold rounded-full border border-purple-800/80 shadow-sm">
@@ -145,7 +185,6 @@ export default function Home() {
               {/* Right Column: Interactive Side-Slide Avatar Card */}
               <div className="lg:col-span-5 flex items-center justify-center">
                 <div className="relative w-full max-w-sm bg-[#110D1A]/40 backdrop-blur-sm border-2 border-purple-500/40 p-4 shadow-2xl space-y-4">
-                  
                   {/* Outer Corner Frame Brackets */}
                   <span className="!m-0 absolute top-0 left-0 w-3.5 h-3.5 border-t-2 border-l-2 border-purple-400 pointer-events-none z-30" />
                   <span className="!m-0 absolute top-0 right-0 w-3.5 h-3.5 border-t-2 border-r-2 border-purple-400 pointer-events-none z-30" />
@@ -153,14 +192,14 @@ export default function Home() {
                   <span className="!m-0 absolute bottom-0 right-0 w-3.5 h-3.5 border-b-2 border-r-2 border-purple-400 pointer-events-none z-30" />
 
                   {/* Dual Image Slide Frame */}
-                  <div 
+                  <div
                     onClick={() => setIsDrawerOpen(!isDrawerOpen)}
                     className="relative aspect-[4/5] w-full bg-[#0B090E] border border-purple-900/60 overflow-hidden cursor-pointer group select-none"
                     title="Click to view side photo"
                   >
                     {/* Background Cyber Grid */}
                     <div className="absolute inset-0 opacity-20 bg-[linear-gradient(to_right,#a855f720_1px,transparent_1px),linear-gradient(to_bottom,#a855f720_1px,transparent_1px)] bg-[size:16px_16px] z-0" />
-                    
+
                     {/* Subtle Purple Vignette Overlay */}
                     <div className="absolute inset-0 bg-gradient-to-t from-[#110D1A] via-transparent to-transparent opacity-80 z-20 pointer-events-none" />
 
@@ -170,7 +209,7 @@ export default function Home() {
                     </div>
 
                     {/* Sliding Two-Panel Track */}
-                    <div 
+                    <div
                       className={`w-[200%] h-full flex transition-transform duration-500 ease-in-out ${
                         isDrawerOpen ? "-translate-x-1/2" : "translate-x-0"
                       }`}
@@ -191,9 +230,9 @@ export default function Home() {
                           alt="Michael April Secondary Profile"
                           className="w-full h-full object-cover object-center filter contrast-110 brightness-95"
                           onError={(e) => {
-                            e.currentTarget.style.display = 'none';
+                            e.currentTarget.style.display = "none";
                             if (e.currentTarget.nextSibling) {
-                              e.currentTarget.nextSibling.style.display = 'flex';
+                              e.currentTarget.nextSibling.style.display = "flex";
                             }
                           }}
                         />
@@ -235,7 +274,7 @@ export default function Home() {
                         className="flex items-center justify-center gap-1 py-1.5 bg-[#1A1424] hover:bg-purple-900/60 border border-purple-900/80 text-purple-200 hover:text-white transition text-center"
                       >
                         <svg className="w-3.5 h-3.5 text-purple-400" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                          <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
                         </svg>
                         <span>LinkedIn</span>
                       </a>
@@ -247,34 +286,34 @@ export default function Home() {
                         className="flex items-center justify-center gap-1 py-1.5 bg-[#1A1424] hover:bg-purple-900/60 border border-purple-900/80 text-purple-200 hover:text-white transition text-center"
                       >
                         <svg className="w-3.5 h-3.5 text-purple-400" fill="currentColor" viewBox="0 0 24 24">
-                          <path fillRule="evenodd" clipRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+                          <path
+                            fillRule="evenodd"
+                            clipRule="evenodd"
+                            d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+                          />
                         </svg>
                         <span>GitHub</span>
                       </a>
                     </div>
                   </div>
-
                 </div>
               </div>
-
             </div>
           </header>
 
-        {/* 2. BENTO ROW: TIMELINE & ACHIEVEMENTS */}
+          {/* 2. BENTO ROW: TIMELINE & ACHIEVEMENTS */}
           <div id="about" className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch scroll-mt-24">
-            
             {/* Left Column: Journey & Timeline */}
             <section className="bg-[#15111E]/70 backdrop-blur-md border border-purple-950/60 rounded-3xl p-6 flex flex-col justify-between space-y-4 shadow-xl">
               <div className="flex items-center justify-between pb-2 border-b border-purple-900/40">
                 <h2 className="text-xl font-bold text-white flex items-center gap-2">
-                   Journey &amp; Timeline
+                  Journey &amp; Timeline
                 </h2>
                 <span className="text-xs font-mono text-purple-400">Experience Log</span>
               </div>
 
               {/* Connected Timeline Nodes */}
               <div className="relative pl-6 space-y-6 before:absolute before:left-2 before:top-2 before:bottom-2 before:w-[2px] before:bg-gradient-to-b before:from-purple-500 before:via-purple-800 before:to-purple-950">
-                
                 {/* 1. Present */}
                 <div className="relative group">
                   <span className="absolute -left-[21px] top-1.5 w-2.5 h-2.5 rounded-full bg-purple-400 ring-4 ring-[#15111E] group-hover:scale-125 transition-transform" />
@@ -338,7 +377,6 @@ export default function Home() {
                     Deep dive into modern JavaScript, semantic HTML5/CSS3 layouts, and component-driven UI architecture.
                   </p>
                 </div>
-
               </div>
 
               {/* Bottom Footer Info */}
@@ -351,23 +389,22 @@ export default function Home() {
               </div>
             </section>
 
-            {/* Right Column: Scrollable Key Milestones & Verified Certs (Height-Matched) */}
-            <section className="bg-[#15111E] border border-purple-950/60 rounded-3xl p-6 flex flex-col justify-between space-y-4">
+            {/* Right Column: Scrollable Key Milestones & Verified Certs */}
+            <section className="bg-[#15111E]/70 backdrop-blur-md border border-purple-950/60 rounded-3xl p-6 flex flex-col justify-between space-y-4 shadow-xl">
               <div className="flex items-center justify-between pb-2 border-b border-purple-900/40">
                 <h2 className="text-xl font-bold text-white flex items-center gap-2">
-                 Certifications &amp; Milestones
+                  Certifications &amp; Milestones
                 </h2>
-                <a 
-                  href="#certifications" 
+                <a
+                  href="#certifications"
                   className="text-xs font-mono text-purple-400 hover:text-purple-300 transition-colors"
                 >
                   View All (20+) &rarr;
                 </a>
               </div>
 
-              {/* Scrollable List Box (Locked to 380px to perfectly match Left Column height) */}
+              {/* Scrollable List Box */}
               <div className="h-[380px] overflow-y-auto space-y-2.5 pr-2 scrollbar-thin scrollbar-thumb-purple-700 scrollbar-track-[#0B090E]">
-                
                 {/* 1. CPI OPEN Module 1 */}
                 <div className="p-3 bg-[#1C1628] rounded-xl border border-purple-900/40 hover:border-purple-600 transition flex items-center justify-between gap-2">
                   <div>
@@ -556,7 +593,6 @@ export default function Home() {
                   </div>
                   <span className="text-[10px] font-mono text-purple-400/80 shrink-0">Oct 2024</span>
                 </div>
-
               </div>
 
               {/* Bottom Footer Info */}
@@ -571,7 +607,7 @@ export default function Home() {
           <section id="skills" className="bg-[#15111E]/70 backdrop-blur-md border border-purple-950/60 rounded-3xl p-6 space-y-6 scroll-mt-24 shadow-xl">
             <div className="flex flex-col md:flex-row justify-between md:items-center gap-2">
               <div>
-                <h2 className="text-xl font-bold text-white"> Skills & Competencies</h2>
+                <h2 className="text-xl font-bold text-white"> Skills &amp; Competencies</h2>
                 <p className="text-xs text-purple-400">Select any tool to see my direct workflow and context.</p>
               </div>
               <div className="bg-[#1F1730] px-4 py-2 rounded-xl border border-purple-800 text-right">
@@ -580,7 +616,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="grid grid-cols-3 border border-purple-900/40 bg-purple-950/20 backdrop-blur-sm text-center divide-x divide-purple-900/40">
+            <div className="p-4 bg-[#0B090E]/60 rounded-2xl border border-purple-950 text-sm text-purple-200">
               {selectedSkill.desc}
             </div>
 
@@ -599,11 +635,11 @@ export default function Home() {
 
           {/* 4. FEATURED SYSTEMS & PROJECTS */}
           <section id="projects" className="space-y-4 scroll-mt-24">
-            <h2 className="text-2xl font-bold text-white"> Systems & Projects</h2>
+            <h2 className="text-2xl font-bold text-white"> Systems &amp; Projects</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="bg-[#15111E]/70 backdrop-blur-md border border-purple-950/60 rounded-3xl p-6 space-y-3 shadow-xl">
                 <span className="text-xs font-mono text-purple-400">Enterprise System</span>
-                <h3 className="text-xl font-bold text-white">Point of Sale (POS) & Monitoring System</h3>
+                <h3 className="text-xl font-bold text-white">Point of Sale (POS) &amp; Monitoring System</h3>
                 <p className="text-xs text-purple-300">
                   Served as Project Manager and UI/UX Designer. Structured the core user journeys, inventory pipelines, and end-to-end system release workflows.
                 </p>
@@ -614,8 +650,8 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="bg-[#15111E] border border-purple-950/60 rounded-3xl p-6 space-y-3">
-                <span className="text-xs font-mono text-purple-400">Research & Capstone</span>
+              <div className="bg-[#15111E]/70 backdrop-blur-md border border-purple-950/60 rounded-3xl p-6 space-y-3 shadow-xl">
+                <span className="text-xs font-mono text-purple-400">Research &amp; Capstone</span>
                 <h3 className="text-xl font-bold text-white">ECOWATCH Automated Waste Detection</h3>
                 <p className="text-xs text-purple-300">
                   Led team coordination, dataset gathering protocols, and system architecture for an automated computer vision waste classification system.
@@ -629,33 +665,83 @@ export default function Home() {
             </div>
           </section>
 
-
           {/* 5. VERIFIED CERTIFICATIONS & CREDENTIALS */}
           <Certifications />
 
           {/* 6. GITHUB ACTIVITY GRAPH */}
           <GithubGraph />
-
-          {/* 7. PUBLIC CONTACT FOOTER */}
-          <footer id="contact" className="bg-[#15111E]/70 backdrop-blur-md border border-purple-950/60 rounded-3xl p-8 text-center space-y-4 scroll-mt-24 shadow-xl">
-            <h2 className="text-2xl font-bold text-white">Let&apos;s Connect</h2>
-            <p className="text-sm text-purple-300 max-w-md mx-auto">
-              Available for Technical Project Management, Associate PM, and Front-End leadership roles.
-            </p>
-            <div className="flex justify-center gap-4 pt-2">
-              <a 
-                href="https://github.com/kashumadesu" 
-                target="_blank" 
-                rel="noreferrer" 
-                className="px-6 py-2 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-xl text-sm transition"
-              >
-                GitHub / kashumadesu
-              </a>
-            </div>
-          </footer>
-
         </div>
       </main>
+
+      {/* 4. Contact Pop-up Modal */}
+      {isContactOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-md animate-in fade-in duration-200">
+          <div className="relative w-full max-w-md bg-[#15111E]/95 border border-purple-500/50 rounded-3xl p-6 shadow-2xl space-y-5">
+            {/* Close Button */}
+            <button
+              onClick={() => setIsContactOpen(false)}
+              className="absolute top-4 right-4 text-purple-400 hover:text-white font-mono text-xs px-2 py-1 bg-[#0B090E] border border-purple-900/60 rounded-lg transition"
+              aria-label="Close Contact Modal"
+            >
+              ✕
+            </button>
+
+            {/* Modal Header */}
+            <div>
+              <h3 className="text-xl font-bold text-white">Let&apos;s Connect</h3>
+              <p className="text-xs font-mono text-purple-300 mt-1">
+                Reach out directly or check out my profiles.
+              </p>
+            </div>
+
+            {/* Links List */}
+            <div className="space-y-2.5 font-mono text-xs">
+              <a
+                href="mailto:michaelapril81416@gmail.com?subject=Inquiry%20via%20Portfolio"
+                className="flex items-center justify-between p-3 bg-[#1C1628] hover:bg-purple-900/50 border border-purple-900/60 hover:border-purple-400 text-purple-200 hover:text-white rounded-xl transition group"
+              >
+                <div className="flex items-center gap-2.5">
+                  <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
+                  <span className="font-semibold">Email</span>
+                </div>
+                <span className="text-purple-400 group-hover:text-purple-200">
+                  michaelapril81416@gmail.com &rarr;
+                </span>
+              </a>
+
+              <a
+                href="https://github.com/kashumadesu"
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center justify-between p-3 bg-[#1C1628] hover:bg-purple-900/50 border border-purple-900/60 hover:border-purple-400 text-purple-200 hover:text-white rounded-xl transition group"
+              >
+                <span className="font-semibold">GitHub</span>
+                <span className="text-purple-400 group-hover:text-purple-200">@kashumadesu &rarr;</span>
+              </a>
+
+              <a
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center justify-between p-3 bg-[#1C1628] hover:bg-purple-900/50 border border-purple-900/60 hover:border-purple-400 text-purple-200 hover:text-white rounded-xl transition group"
+              >
+                <span className="font-semibold">LinkedIn</span>
+                <span className="text-purple-400 group-hover:text-purple-200">Connect &rarr;</span>
+              </a>
+
+              <a
+                href="/resume.pdf"
+                download="Michael_Boquiron_CV.pdf"
+                className="flex items-center justify-between p-3 bg-purple-950/60 hover:bg-purple-900/70 border border-purple-700 hover:border-purple-400 text-purple-100 rounded-xl transition group"
+              >
+                <span className="font-semibold">Download Resume / CV</span>
+                <span className="text-purple-300 group-hover:text-white">PDF &darr;</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Floating Interactive Chat Assistant */}
       <ChatBot />
     </div>
