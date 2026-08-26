@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar";
 import GithubGraph from "../components/GithubGraph";
 import Certifications from "../components/Certifications";
 import ChatBot from "../components/ChatBot";
+import WaveBackground from "../components/WaveBackground";
 
 export default function Home() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -32,8 +33,11 @@ export default function Home() {
         <div className="max-w-6xl mx-auto space-y-8">
 
           {/* 1. HERO / LANDING SECTION */}
-          <header id="home" className="bg-[#15111E] border border-purple-950/60 rounded-3xl p-6 md:p-10 scroll-mt-24">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
+          <header id="home" className="relative overflow-hidden bg-[#15111E] border border-purple-950/60 rounded-3xl p-6 md:p-10 scroll-mt-24">
+            {/* Live Wave Canvas */}
+            <WaveBackground />
+
+            <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
               
               {/* Left Column: Full-Height Flex Container with Bottom-Locked Stats */}
               <div className="lg:col-span-7 flex flex-col justify-between py-1 space-y-6">
@@ -48,7 +52,7 @@ export default function Home() {
                       Open for PM &amp; IT Roles
                     </span>
                   </div>
-
+                  
                   {/* Name & Titles */}
                   <div className="space-y-3">
                     <p className="text-xs font-mono text-purple-400 font-bold uppercase tracking-widest">
