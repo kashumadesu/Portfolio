@@ -1,26 +1,29 @@
-import GitHubCalendar from 'react-github-calendar';
+import { useEffect, useState } from "react";
 
 export default function GithubGraph() {
-  // Exact high-contrast dark theme matching GitHub's wireframe style
-  const customTheme = {
-    dark: [
-      '#050308', // Hollow / Inactive day base
-      '#006d32', // Level 1 (dark green)
-      '#26a641', // Level 2 (medium vibrant green)
-      '#39d353', // Level 3 (bright green)
-      '#57f287', // Level 4 (neon bright green)
-    ],
-  };
+  const [svgContent, setSvgContent] = useState("");
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Fetch user contribution SVG directly
+    fetch("https://ghchart.rshah.org/39d353/kashumadesu")
+      .then((res) => res.text())
+      .then((data) => {
+        setSvgContent(data);
+        setLoading(false);
+      })
+      .catch(() => setLoading(false));
+  }, []);
 
   return (
-    <section className="bg-[#15111E] border border-purple-950/60 rounded-3xl p-6 md:p-8 space-y-4 scroll-mt-24">
+    <section id="github" className="bg-[#15111E] border border-purple-950/60 rounded-3xl p-6 md:p-8 space-y-4 scroll-mt-24">
       <div className="flex items-center justify-between pb-1">
         <h2 className="text-xl font-bold text-white flex items-center gap-2">
           <span>📊</span> GitHub Activity
         </h2>
-        <a 
-          href="https://github.com/kashumadesu" 
-          target="_blank" 
+        <a
+          href="https://github.com/kashumadesu"
+          target="_blank"
           rel="noreferrer"
           className="text-xs font-mono text-purple-400 hover:text-purple-300 transition-colors"
         >
@@ -28,17 +31,22 @@ export default function GithubGraph() {
         </a>
       </div>
 
-      {/* Wireframe Graph Container */}
-      <div className="p-5 bg-[#050308] border border-purple-900/40 rounded-2xl overflow-x-auto flex flex-col items-center justify-center custom-github-graph">
-        <GitHubCalendar
-          username="kashumadesu"
-          colorScheme="dark"
-          theme={customTheme}
-          blockSize={11}
-          blockMargin={3.5}
-          blockRadius={2}
-          fontSize={12}
-        />
+      {/* Wireframe Dark Graph Viewport */}
+      <div className="p-5 bg-[#050308] border border-purple-900/40 rounded-2xl overflow-x-auto flex flex-col items-center justify-center min-h-[170px] custom-github-wireframe">
+        {loading ? (
+          <div className="text-xs font-mono text-purple-400 animate-pulse">Loading activity graph...</div>
+        ) : svgContent ? (
+          <div 
+            className="w-full max-w-4xl flex justify-center"
+            dangerouslySetInnerHTML={{ __html: svgContent }} 
+          />
+        ) : (
+          <img
+            src="https://ghchart.rshah.org/39d353/kashumadesu"
+            alt="GitHub Contributions Chart"
+            className="w-full max-w-4xl"
+          />
+        )}
       </div>
     </section>
   );
