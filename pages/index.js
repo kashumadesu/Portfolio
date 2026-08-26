@@ -256,7 +256,7 @@ export default function Home() {
             <section className="bg-[#15111E] border border-purple-950/60 rounded-3xl p-6 flex flex-col justify-between space-y-4">
               <div className="flex items-center justify-between pb-2 border-b border-purple-900/40">
                 <h2 className="text-xl font-bold text-white flex items-center gap-2">
-                  <span>🚀</span> Journey &amp; Timeline
+                  Journey &amp; Timeline
                 </h2>
                 <span className="text-xs font-mono text-purple-400">Experience Log</span>
               </div>
@@ -340,11 +340,11 @@ export default function Home() {
               </div>
             </section>
 
-            {/* Right Column: Scrollable Key Milestones & Verified Certs */}
+{/* Right Column: Scrollable Key Milestones & Verified Certs */}
             <section className="bg-[#15111E] border border-purple-950/60 rounded-3xl p-6 space-y-4 flex flex-col">
               <div className="flex items-center justify-between pb-1 border-b border-purple-900/40">
                 <h2 className="text-xl font-bold text-white flex items-center gap-2">
-                  <span>🏆</span> Certifications &amp; Milestones
+                   Certifications &amp; Milestones
                 </h2>
                 <a 
                   href="#certifications" 
@@ -354,10 +354,10 @@ export default function Home() {
                 </a>
               </div>
 
-              {/* Scrollable Container with max height & custom scrollbar */}
+              {/* Scrollable Container (Chronological: Aug 2026 -> Mar 2026 -> Nov 2024) */}
               <div className="space-y-2.5 max-h-[280px] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-purple-700 scrollbar-track-[#0B090E]">
                 
-                {/* Oracle AI Agent Studio */}
+                {/* 1. Oracle AI Agent Studio (Aug 2026) */}
                 <div className="p-3 bg-[#1C1628] rounded-xl border border-purple-900/40 hover:border-purple-600 transition flex items-center justify-between gap-2">
                   <div>
                     <span className="text-[10px] font-mono text-purple-400 block">Oracle Certified</span>
@@ -366,7 +366,7 @@ export default function Home() {
                   <span className="text-[10px] font-mono text-purple-400/80 shrink-0">Aug 2026</span>
                 </div>
 
-                {/* Oracle Agentic AI */}
+                {/* 2. Oracle Agentic AI (Aug 2026) */}
                 <div className="p-3 bg-[#1C1628] rounded-xl border border-purple-900/40 hover:border-purple-600 transition flex items-center justify-between gap-2">
                   <div>
                     <span className="text-[10px] font-mono text-purple-400 block">Oracle Certified</span>
@@ -375,25 +375,7 @@ export default function Home() {
                   <span className="text-[10px] font-mono text-purple-400/80 shrink-0">Aug 2026</span>
                 </div>
 
-                {/* CodinGame Legend */}
-                <div className="p-3 bg-[#1C1628] rounded-xl border border-purple-900/40 hover:border-purple-600 transition flex items-center justify-between gap-2">
-                  <div>
-                    <span className="text-[10px] font-mono text-purple-400 block">CodinGame by CoderPad</span>
-                    <p className="font-semibold text-white text-xs">Algorithms Mastery (Legend Level)</p>
-                  </div>
-                  <span className="text-[10px] font-mono text-purple-400/80 shrink-0">Nov 2024</span>
-                </div>
-
-                {/* Competition Award */}
-                <div className="p-3 bg-[#1C1628] rounded-xl border border-purple-900/40 hover:border-purple-600 transition flex items-center justify-between gap-2">
-                  <div>
-                    <span className="text-[10px] font-mono text-purple-400 block">Academic Award • CIRCU5</span>
-                    <p className="font-semibold text-white text-xs">2nd Runner Up – CCS Week Booth Fair</p>
-                  </div>
-                  <span className="text-[10px] font-mono text-purple-400/80 shrink-0">Mar 2026</span>
-                </div>
-
-                {/* IBM SkillsBuild */}
+                {/* 3. IBM SkillsBuild (Aug 2026) */}
                 <div className="p-3 bg-[#1C1628] rounded-xl border border-purple-900/40 hover:border-purple-600 transition flex items-center justify-between gap-2">
                   <div>
                     <span className="text-[10px] font-mono text-purple-400 block">IBM SkillsBuild</span>
@@ -402,16 +384,7 @@ export default function Home() {
                   <span className="text-[10px] font-mono text-purple-400/80 shrink-0">Aug 2026</span>
                 </div>
 
-                {/* Cisco Academy */}
-                <div className="p-3 bg-[#1C1628] rounded-xl border border-purple-900/40 hover:border-purple-600 transition flex items-center justify-between gap-2">
-                  <div>
-                    <span className="text-[10px] font-mono text-purple-400 block">Cisco Networking Academy</span>
-                    <p className="font-semibold text-white text-xs">Network Defense &amp; Security Specialization</p>
-                  </div>
-                  <span className="text-[10px] font-mono text-purple-400/80 shrink-0">Mar 2026</span>
-                </div>
-
-                {/* freeCodeCamp Front-End */}
+                {/* 4. freeCodeCamp Front-End (Aug 2026) */}
                 <div className="p-3 bg-[#1C1628] rounded-xl border border-purple-900/40 hover:border-purple-600 transition flex items-center justify-between gap-2">
                   <div>
                     <span className="text-[10px] font-mono text-purple-400 block">freeCodeCamp (300h)</span>
@@ -419,8 +392,8 @@ export default function Home() {
                   </div>
                   <span className="text-[10px] font-mono text-purple-400/80 shrink-0">Aug 2026</span>
                 </div>
- 
-                {/* freeCodeCamp C# Microsoft */}
+
+                {/* 5. freeCodeCamp C# Microsoft (Aug 2026) */}
                 <div className="p-3 bg-[#1C1628] rounded-xl border border-purple-900/40 hover:border-purple-600 transition flex items-center justify-between gap-2">
                   <div>
                     <span className="text-[10px] font-mono text-purple-400 block">freeCodeCamp &amp; Microsoft</span>
@@ -429,15 +402,42 @@ export default function Home() {
                   <span className="text-[10px] font-mono text-purple-400/80 shrink-0">Aug 2026</span>
                 </div>
 
+                {/* 6. Cisco Academy (Mar 2026) */}
+                <div className="p-3 bg-[#1C1628] rounded-xl border border-purple-900/40 hover:border-purple-600 transition flex items-center justify-between gap-2">
+                  <div>
+                    <span className="text-[10px] font-mono text-purple-400 block">Cisco Networking Academy</span>
+                    <p className="font-semibold text-white text-xs">Network Defense &amp; Security Specialization</p>
+                  </div>
+                  <span className="text-[10px] font-mono text-purple-400/80 shrink-0">Mar 2026</span>
+                </div>
+
+                {/* 7. Competition Award (Mar 2026) */}
+                <div className="p-3 bg-[#1C1628] rounded-xl border border-purple-900/40 hover:border-purple-600 transition flex items-center justify-between gap-2">
+                  <div>
+                    <span className="text-[10px] font-mono text-purple-400 block">Academic Award • CIRCU5</span>
+                    <p className="font-semibold text-white text-xs">2nd Runner Up – CCS Week Booth Fair</p>
+                  </div>
+                  <span className="text-[10px] font-mono text-purple-400/80 shrink-0">Mar 2026</span>
+                </div>
+
+                {/* 8. CodinGame Legend (Nov 2024 - Placed Chronologically at Bottom) */}
+                <div className="p-3 bg-[#1C1628] rounded-xl border border-purple-900/40 hover:border-purple-600 transition flex items-center justify-between gap-2">
+                  <div>
+                    <span className="text-[10px] font-mono text-purple-400 block">CodinGame by CoderPad</span>
+                    <p className="font-semibold text-white text-xs">Algorithms Mastery (Legend Level)</p>
+                  </div>
+                  <span className="text-[10px] font-mono text-purple-400/80 shrink-0">Nov 2024</span>
+                </div>
+
               </div>
             </section>
-          </div>
+            </div>
 
           {/* 3. INTERACTIVE SKILLS MATRIX */}
           <section id="skills" className="bg-[#15111E] border border-purple-950/60 rounded-3xl p-6 space-y-6 scroll-mt-24">
             <div className="flex flex-col md:flex-row justify-between md:items-center gap-2">
               <div>
-                <h2 className="text-xl font-bold text-white">⚡ Skills & Competencies</h2>
+                <h2 className="text-xl font-bold text-white"> Skills & Competencies</h2>
                 <p className="text-xs text-purple-400">Select any tool to see my direct workflow and context.</p>
               </div>
               <div className="bg-[#1F1730] px-4 py-2 rounded-xl border border-purple-800 text-right">
@@ -465,7 +465,7 @@ export default function Home() {
 
           {/* 4. FEATURED SYSTEMS & PROJECTS */}
           <section id="projects" className="space-y-4 scroll-mt-24">
-            <h2 className="text-2xl font-bold text-white">🛠️ Systems & Projects</h2>
+            <h2 className="text-2xl font-bold text-white"> Systems & Projects</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="bg-[#15111E] border border-purple-950/60 rounded-3xl p-6 space-y-3">
                 <span className="text-xs font-mono text-purple-400">Enterprise System</span>
