@@ -646,6 +646,8 @@ export default function Home() {
 
         </div>
       </main>
+      {/* Floating Interactive Chat Assistant */}
+      <ChatBot />
     </>
   );
 }
