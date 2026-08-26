@@ -253,7 +253,7 @@ export default function Home() {
           {/* 2. BENTO ROW: TIMELINE & ACHIEVEMENTS */}
           <div id="about" className="grid grid-cols-1 md:grid-cols-2 gap-8 scroll-mt-24">
             <section className="bg-[#15111E] border border-purple-950/60 rounded-3xl p-6 space-y-4">
-              <h2 className="text-xl font-bold text-white flex items-center gap-2">📅 Journey & Timeline</h2>
+              <h2 className="text-xl font-bold text-white flex items-center gap-2"> Journey & Timeline</h2>
               <div className="border-l-2 border-purple-900/60 ml-3 space-y-6 pl-4 text-sm">
                 <div>
                   <p className="text-xs text-purple-400 font-mono">Present</p>
@@ -274,7 +274,7 @@ export default function Home() {
             </section>
 
             <section className="bg-[#15111E] border border-purple-950/60 rounded-3xl p-6 space-y-4">
-              <h2 className="text-xl font-bold text-white flex items-center gap-2">🏆 Certifications & Milestones</h2>
+              <h2 className="text-xl font-bold text-white flex items-center gap-2"> Certifications & Milestones</h2>
               <div className="space-y-3 text-sm">
                 <div className="p-3 bg-[#1C1628] rounded-xl border border-purple-900/40">
                   <span className="text-xs font-mono text-purple-400">Oracle Credential</span>
@@ -296,7 +296,7 @@ export default function Home() {
           <section id="skills" className="bg-[#15111E] border border-purple-950/60 rounded-3xl p-6 space-y-6 scroll-mt-24">
             <div className="flex flex-col md:flex-row justify-between md:items-center gap-2">
               <div>
-                <h2 className="text-xl font-bold text-white">⚡ Skills & Competencies</h2>
+                <h2 className="text-xl font-bold text-white"> Skills & Competencies</h2>
                 <p className="text-xs text-purple-400">Select any tool to see my direct workflow and context.</p>
               </div>
               <div className="bg-[#1F1730] px-4 py-2 rounded-xl border border-purple-800 text-right">
@@ -324,7 +324,7 @@ export default function Home() {
 
           {/* 4. FEATURED SYSTEMS & PROJECTS */}
           <section id="projects" className="space-y-4 scroll-mt-24">
-            <h2 className="text-2xl font-bold text-white">🛠 Systems & Projects</h2>
+            <h2 className="text-2xl font-bold text-white"> Systems & Projects</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="bg-[#15111E] border border-purple-950/60 rounded-3xl p-6 space-y-3">
                 <span className="text-xs font-mono text-purple-400">Enterprise System</span>
